@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="game-space">
+        <h1>Maze Game</h1>
+
+        <h2>Assist Harry in his quest to locate the elusive Snitch.You have a restricted number of steps. Harness the
+            power
+            of Potions to reinvigorate your journey, while dodging the perils of Poison to maintain your pace. Embrace
+            the
+            adventure and enjoy the chase!
+        </h2>
+
+        <div class="game-container easy"></div>
+        <div class="game-container normal"></div>
+        <div class="game-container hard"></div>
+        <div>
+            <p class="timer">Timer: 00:00</p>
+            <p class="steps">Number of steps left: 0</p>
+        </div>
+        <div>
+            <button type="button" id="try-again">Try again</button>
+        </div>
+
+        <div id="dropdownMenu">
+            <label for="difficulty">Difficulty:</label>
+
+            <select name="dropdownMenu" id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Hard</option>
+                <option value="random">Random Maze</option>
+            </select>
+        </div>
+
+        <div>
+            <button type="button" id="play">Let's Play</button>
+        </div>
+    </div>
+</body>
+
+</html>
