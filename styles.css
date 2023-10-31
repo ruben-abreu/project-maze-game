@@ -6,17 +6,45 @@ html {
 body {
   padding: 0;
   text-align: center;
-}
-
-.game-space {
   background-image: url(./images/Background\ Image.png);
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-repeat: no-repeat;
+  background-color: rgba(118, 140, 84, 0.8);
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 1.4em;
+}
+.game-space {
+  padding: 50px;
+}
+
+.game-containers {
+  display: none;
+}
+
+#intro-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+#maze-garden-img {
+  max-width: 50%;
+  max-height: 50%;
+  opacity: 0.95;
+  border-radius: 5%;
+}
+
+.btn.btn-info.dropdown-toggle {
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+}
+
+#play {
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
 }
