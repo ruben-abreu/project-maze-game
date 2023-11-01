@@ -1,63 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maze Game</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="game-space">
-        <h1>Maze Game</h1>
+      <h1>Maze Game</h1>
 
-        <h2>Assist Harry in his quest to locate the elusive Snitch.You have a restricted number of steps. Harness the
-            power
-            of Potions to reinvigorate your journey, while dodging the perils of Poison to maintain your pace. Embrace
-            the
-            adventure and enjoy the chase!
-        </h2>
-        <div id="intro-image">
-            <img id="maze-garden-img" src="./images/maze-garden.png" alt="maze-garden">
+      <h2>
+        Assist Harry in his quest to locate the elusive Snitch.You have a
+        restricted number of steps. Harness the power of Potions to reinvigorate
+        your journey, while dodging the perils of Poison to maintain your pace.
+        Embrace the adventure and enjoy the chase!
+      </h2>
+      <div id="intro-image">
+        <img
+          id="maze-garden-img"
+          src="./images/maze-garden.png"
+          alt="maze-garden"
+        />
+      </div>
+      <div id="game-area">
+        <div class="game-container easy"></div>
+        <div class="game-container normal"></div>
+        <div class="game-container hard"></div>
+        <div class="additional-content">
+          <div>
+            <p class="timer">Timer: 00:00</p>
+            <p class="steps">Number of steps left: 0</p>
+          </div>
+          <div>
+            <button type="button" id="try-again">Try again</button>
+          </div>
         </div>
-        <div id="game-area">
-            <div class="game-container easy"></div>
-            <div class="game-container normal"></div>
-            <div class="game-container hard"></div>
-            <div class="additional-content">
-                <div>
-                    <p class="timer">Timer: 00:00</p>
-                    <p class="steps">Number of steps left: 0</p>
-                </div>
-                <div>
-                    <button type="button" id="try-again">Try again</button>
-                </div>
-            </div>
-        </div>
+      </div>
 
+      <div id="dropdownMenu">
+        <label for="difficulty">Difficulty:</label>
 
-        <div id="dropdownMenu">
-            <label for="difficulty">Difficulty:</label>
-
-            <select class='btn btn-info dropdown-toggle' name="dropdownMenu" id="difficulty">
-                <option value="easy">Easy</option>
-                <option value="normal">Normal</option>
-                <option value="hard">Hard</option>
-                <option value="random">Random Maze</option>
-            </select>
-        </div>
-        <div>
-            <button type="button" id="play" class="btn btn-danger">
-                Let's Play
-            </button>
-        </div>
+        <select
+          class="btn btn-info dropdown-toggle"
+          name="dropdownMenu"
+          id="difficulty"
+        >
+          <option value="easy">Easy</option>
+          <option value="normal">Normal</option>
+          <option value="hard">Hard</option>
+          <option value="random">Random Maze</option>
+        </select>
+      </div>
+      <div>
+        <button type="button" id="play" class="btn btn-danger">
+          Let's Play
+        </button>
+      </div>
     </div>
 
     <script src="/js/script.js"></script>
     <script src="/js/maze.js"></script>
-</body>
-
+  </body>
 </html>

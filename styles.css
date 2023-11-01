@@ -20,21 +20,21 @@ h2 {
   padding: 50px;
 }
 
-#game-area {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+/* #game-area {
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+} */
+
 .game-container {
-  display: flex;
-  width: 600px;
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+  /* width: 600px;
   height: 500px;
   background-color: white;
   position: absolute;
-  bottom: 20px;
+  bottom: 20px; */
 }
 
 #intro-image {
@@ -71,4 +71,16 @@ h2 {
   width: 200px;
   height: 60px;
   font-size: 20px;
+}
+
+.wall {
+  background-color: black;
+  width: 30px;
+  height: 30px;
+}
+
+.path {
+  background-color: aquamarine;
+  width: 30px;
+  height: 30px;
 }
