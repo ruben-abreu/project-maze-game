@@ -1,4 +1,7 @@
 const mazeMap = document.getElementById('game-area');
+const easyGame = document.querySelector('.game-container.easy');
+const normalGame = document.querySelector('.game-container.normal');
+const hardGame = document.querySelector('.game-container.hard');
 
 const levels = [];
 
@@ -123,3 +126,15 @@ levels[2] = {
     y: 23,
   },
 };
+
+for (let r = 0; r < levels[0].tiles.length; r++) {
+  for (let c = 0; c < levels[0].tiles[r].length; c++) {
+    let tile = document.createElement('div');
+    if (levels[0].tiles[r][c] === 1) {
+      tile.classList.add('wall');
+    } else {
+      tile.classList.add('path');
+    }
+    mazeMap.appendChild(tile);
+  }
+}
