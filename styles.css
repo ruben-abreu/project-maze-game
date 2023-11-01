@@ -20,7 +20,7 @@ h2 {
   padding: 50px;
 }
 
-.game-area {
+#game-area {
   position: relative;
   display: flex;
   flex-direction: column;

@@ -1,4 +1,4 @@
-const mazeMap = document.getElementById('maze-map');
+const mazeMap = document.getElementById('game-area');
 
 const levels = [];
 
