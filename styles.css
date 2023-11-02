@@ -73,16 +73,16 @@ h2 {
   background-image: url(/images/grass.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
 }
 
 .path {
   background-image: url(/images/natural-stone-paviment.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
 }
 
 .maze-row {

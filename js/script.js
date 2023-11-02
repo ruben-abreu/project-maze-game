@@ -143,14 +143,14 @@ for (let i = 0; i < levels.length; i++) {
         tile.classList.add('start');
         let startImage = document.createElement('img');
         startImage.src = '/images/harry-potter.png';
-        startImage.width = '26';
+        startImage.width = '46';
         tile.appendChild(startImage);
       } else if (levels[i].tiles[r][c] === 3) {
         tile.classList.add('path');
         tile.classList.add('end');
         let endImage = document.createElement('img');
         endImage.src = '/images/golden-snitch.png';
-        endImage.width = '26';
+        endImage.width = '46';
         tile.appendChild(endImage);
       }
       if (i === 0) {
