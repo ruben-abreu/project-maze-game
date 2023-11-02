@@ -17,14 +17,14 @@ h1 {
   font-size: 3em;
   font-weight: 600;
   margin: 20px 0 50px 0;
-  text-shadow: #9e9a53 2px 3px;
+  text-shadow: #1e2316 4px 4px 4px;
 }
 
 h2 {
   font-size: 1.4em;
   color: white;
   line-height: 1.5em;
-  text-shadow: #9e9a53 1px 2px;
+  text-shadow: #1e2316 4px 4px 4px;
 }
 
 .game-space {
