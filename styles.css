@@ -37,17 +37,22 @@ h2 {
 
 #game-area {
   display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  margin: 30px auto;
+  justify-content: center;
 }
 
 .game-container {
-  display: grid;
-  grid-template-rows: (10);
-  grid-template-columns: (10);
-  grid-auto-columns: auto;
-  grid-auto-rows: auto;
-  margin: 0 auto;
+  margin: 0 20px;
+}
+
+.game-container.normal {
+  display: none;
+}
+
+.game-container.hard {
+  display: none;
 }
 
 .wall {
@@ -76,15 +81,20 @@ h2 {
   flex-direction: column;
   align-items: flex-start;
   align-items: center;
-  position: relative;
-  bottom: 250px;
-  left: 430px;
+  margin: 0 20px;
+}
+
+#dropdownMenu label {
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .btn.btn-info.dropdown-toggle {
   width: 200px;
   height: 60px;
   font-size: 20px;
+  margin: 20px 0 30px 0;
 }
 
 #play {
