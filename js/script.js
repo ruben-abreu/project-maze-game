@@ -1,3 +1,4 @@
+const gameIntroText = document.querySelector('.game-intro-text');
 const introImage = document.getElementById('intro-image');
 const mazeMap = document.getElementById('game-area');
 const easyGame = document.getElementById('easy-level');
@@ -191,6 +192,7 @@ select.addEventListener('change', function () {
 });
 
 playButton.addEventListener('click', function () {
+  gameIntroText.style.display = 'none';
   introImage.style.display = 'none';
   mazeMap.style.display = 'flex';
   timerArea.style.display = 'flex';
