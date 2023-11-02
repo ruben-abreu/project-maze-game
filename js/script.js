@@ -171,6 +171,7 @@ for (let i = 0; i < levels.length; i++) {
 
 playButton.addEventListener('click', function () {
   introImage.style.display = 'none';
+  mazeMap.style.display = 'flex';
   timerArea.style.display = 'flex';
   easyGame.style.display = 'block';
   normalGame.style.display = 'none';
