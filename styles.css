@@ -5,7 +5,7 @@ html {
 
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 10%;
   text-align: center;
   background-image: url(./images/Background\ Image.png);
   background-size: cover;
@@ -13,8 +13,19 @@ body {
   background-color: rgba(118, 140, 84, 0.8);
 }
 
+h1 {
+  color: white;
+  font-size: 3em;
+  font-weight: 600;
+  margin: 20px 0 50px 0;
+  text-shadow: grey 1px 2px;
+}
+
 h2 {
   font-size: 1.4em;
+  color: white;
+  line-height: 1.5em;
+  text-shadow: grey 1px 2px;
 }
 
 .game-space {
@@ -82,23 +93,30 @@ h2 {
   align-items: flex-start;
   align-items: center;
   margin: 0 20px;
+  color: white;
+  font-size: 1.2em;
+}
+
+.additional-content button {
+  font-size: 1em;
+  padding: 5px 20px;
 }
 
 #dropdownMenu label {
   color: white;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.5em;
 }
 
 .btn.btn-info.dropdown-toggle {
   width: 200px;
   height: 60px;
-  font-size: 20px;
+  font-size: 1.5em;
   margin: 20px 0 30px 0;
 }
 
 #play {
   width: 200px;
   height: 60px;
-  font-size: 20px;
+  font-size: 1.5em;
 }
