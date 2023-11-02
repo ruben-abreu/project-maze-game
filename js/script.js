@@ -127,23 +127,31 @@ levels[2] = {
   },
 };
 
-for (let r = 0; r < levels[0].tiles.length; r++) {
-  let row = document.createElement('div');
-  row.classList.add('maze-row');
-  for (let c = 0; c < levels[0].tiles[r].length; c++) {
-    let tile = document.createElement('div');
-    row.appendChild(tile);
-    if (levels[0].tiles[r][c] === 0) {
-      tile.classList.add('path');
-    } else if (levels[0].tiles[r][c] === 1) {
-      tile.classList.add('wall');
-    } else if (levels[0].tiles[r][c] === 2) {
-      tile.classList.add('path');
-      tile.classList.add('start');
-    } else if (levels[0].tiles[r][c] === 3) {
-      tile.classList.add('path');
-      tile.classList.add('end');
+for (let i = 0; i < levels.length; i++) {
+  for (let r = 0; r < levels[i].tiles.length; r++) {
+    let row = document.createElement('div');
+    row.classList.add('maze-row');
+    for (let c = 0; c < levels[i].tiles[r].length; c++) {
+      let tile = document.createElement('div');
+      row.appendChild(tile);
+      if (levels[i].tiles[r][c] === 0) {
+        tile.classList.add('path');
+      } else if (levels[i].tiles[r][c] === 1) {
+        tile.classList.add('wall');
+      } else if (levels[i].tiles[r][c] === 2) {
+        tile.classList.add('path');
+        tile.classList.add('start');
+      } else if (levels[i].tiles[r][c] === 3) {
+        tile.classList.add('path');
+        tile.classList.add('end');
+      }
+      if (i === 0) {
+        easyGame.appendChild(row);
+      } else if (i === 1) {
+        normalGame.appendChild(row);
+      } else if (i === 2) {
+        hardGame.appendChild(row);
+      }
     }
-    easyGame.appendChild(row);
   }
 }
