@@ -10,7 +10,6 @@ body {
   background-image: url(./images/maze-background-image.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgba(118, 140, 84, 0.8);
 }
 
 h1 {
@@ -18,14 +17,14 @@ h1 {
   font-size: 3em;
   font-weight: 600;
   margin: 20px 0 50px 0;
-  text-shadow: grey 1px 2px;
+  text-shadow: #9e9a53 2px 3px;
 }
 
 h2 {
   font-size: 1.4em;
   color: white;
   line-height: 1.5em;
-  text-shadow: grey 1px 2px;
+  text-shadow: #9e9a53 1px 2px;
 }
 
 .game-space {
