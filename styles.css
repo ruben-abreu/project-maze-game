@@ -7,7 +7,7 @@ body {
   padding: 0;
   margin: 0 10%;
   text-align: center;
-  background-image: url(./images/Background\ Image.png);
+  background-image: url(./images/maze-background-image.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(118, 140, 84, 0.8);
@@ -32,25 +32,25 @@ h2 {
   padding: 50px;
 }
 
-#intro-image {
+/* #intro-image {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 500px;
-}
+} */
 
-#maze-garden-img {
+/* #maze-garden-img {
   max-width: 50%;
   max-height: 50%;
   opacity: 0.95;
   border-radius: 5%;
-}
+} */
 
 #game-area {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 30px auto;
+  margin: 70px auto;
   justify-content: center;
 }
 
