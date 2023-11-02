@@ -1,7 +1,12 @@
+const introImage = document.getElementById('intro-image');
 const mazeMap = document.getElementById('game-area');
-const easyGame = document.querySelector('.game-container.easy');
-const normalGame = document.querySelector('.game-container.normal');
-const hardGame = document.querySelector('.game-container.hard');
+const easyGame = document.getElementById('easy-level');
+const normalGame = document.getElementById('normal-level');
+const hardGame = document.getElementById('hard-level');
+const select = document.getElementById('difficulty');
+const playButton = document.getElementById('play');
+const timerArea = document.querySelector('.additional-content');
+const tryAgainButton = document.getElementById('try-again');
 
 const levels = [];
 
@@ -163,3 +168,33 @@ for (let i = 0; i < levels.length; i++) {
     }
   }
 }
+
+playButton.addEventListener('click', function () {
+  introImage.style.display = 'none';
+  timerArea.style.display = 'flex';
+  easyGame.style.display = 'block';
+  normalGame.style.display = 'none';
+  hardGame.style.display = 'none';
+  select.addEventListener('change', function () {
+    console.log(select.value);
+    switch (select.value) {
+      case 'easy':
+        easyGame.style.display = 'block';
+        normalGame.style.display = 'none';
+        hardGame.style.display = 'none';
+        break;
+      case 'normal':
+        normalGame.style.display = 'block';
+        easyGame.style.display = 'none';
+        hardGame.style.display = 'none';
+        break;
+      case 'hard':
+        hardGame.style.display = 'block';
+        easyGame.style.display = 'none';
+        normalGame.style.display = 'none';
+        break;
+    }
+  });
+});
+
+tryAgainButton.addEventListener('click', () => location.reload());

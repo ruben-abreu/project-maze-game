@@ -31,19 +31,19 @@ h2 {
   padding: 50px;
 }
 
-/* #intro-image {
+#intro-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
-} */
+  margin-top: 70px;
+}
 
-/* #maze-garden-img {
+#maze-garden-img {
   max-width: 50%;
   max-height: 50%;
   opacity: 0.95;
   border-radius: 5%;
-} */
+}
 
 #game-area {
   display: flex;
@@ -58,7 +58,7 @@ h2 {
 }
 
 .game-container.easy {
-  display: block;
+  display: none;
 }
 
 .game-container.normal {
@@ -91,7 +91,7 @@ h2 {
 }
 
 .additional-content {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
   align-items: center;
