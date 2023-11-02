@@ -169,33 +169,48 @@ for (let i = 0; i < levels.length; i++) {
   }
 }
 
+select.addEventListener('change', function () {
+  console.log(select.value);
+  switch (select.value) {
+    case 'easy':
+      easyGame.style.display = 'block';
+      normalGame.style.display = 'none';
+      hardGame.style.display = 'none';
+      break;
+    case 'normal':
+      normalGame.style.display = 'block';
+      easyGame.style.display = 'none';
+      hardGame.style.display = 'none';
+      break;
+    case 'hard':
+      hardGame.style.display = 'block';
+      easyGame.style.display = 'none';
+      normalGame.style.display = 'none';
+      break;
+  }
+});
+
 playButton.addEventListener('click', function () {
   introImage.style.display = 'none';
   mazeMap.style.display = 'flex';
   timerArea.style.display = 'flex';
-  easyGame.style.display = 'block';
-  normalGame.style.display = 'none';
-  hardGame.style.display = 'none';
-  select.addEventListener('change', function () {
-    console.log(select.value);
-    switch (select.value) {
-      case 'easy':
-        easyGame.style.display = 'block';
-        normalGame.style.display = 'none';
-        hardGame.style.display = 'none';
-        break;
-      case 'normal':
-        normalGame.style.display = 'block';
-        easyGame.style.display = 'none';
-        hardGame.style.display = 'none';
-        break;
-      case 'hard':
-        hardGame.style.display = 'block';
-        easyGame.style.display = 'none';
-        normalGame.style.display = 'none';
-        break;
-    }
-  });
+  switch (select.value) {
+    case 'easy':
+      easyGame.style.display = 'block';
+      normalGame.style.display = 'none';
+      hardGame.style.display = 'none';
+      break;
+    case 'normal':
+      normalGame.style.display = 'block';
+      easyGame.style.display = 'none';
+      hardGame.style.display = 'none';
+      break;
+    case 'hard':
+      hardGame.style.display = 'block';
+      easyGame.style.display = 'none';
+      normalGame.style.display = 'none';
+      break;
+  }
 });
 
 tryAgainButton.addEventListener('click', () => location.reload());
