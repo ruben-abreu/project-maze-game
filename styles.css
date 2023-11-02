@@ -16,8 +16,23 @@ body {
 h2 {
   font-size: 1.4em;
 }
+
 .game-space {
   padding: 50px;
+}
+
+#intro-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+#maze-garden-img {
+  max-width: 50%;
+  max-height: 50%;
+  opacity: 0.95;
+  border-radius: 5%;
 }
 
 #game-area {
@@ -33,25 +48,27 @@ h2 {
   grid-auto-columns: auto;
   grid-auto-rows: auto;
   margin: 0 auto;
-  /* width: 600px;
-  height: 500px;
-  background-color: white;
-  position: absolute;
-  bottom: 20px; */
 }
 
-#intro-image {
+.wall {
+  background-image: url(/images/grass.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+.path {
+  background-image: url(/images/natural-stone-paviment.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+.maze-row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-}
-
-#maze-garden-img {
-  max-width: 50%;
-  max-height: 50%;
-  opacity: 0.95;
-  border-radius: 5%;
+  margin: 0 auto;
 }
 
 .additional-content {
@@ -74,20 +91,4 @@ h2 {
   width: 200px;
   height: 60px;
   font-size: 20px;
-}
-
-.wall {
-  background-color: black;
-  width: 30px;
-  height: 30px;
-}
-
-.path {
-  background-color: aquamarine;
-  width: 30px;
-  height: 30px;
-}
-
-.maze-row {
-  display: flex;
 }
