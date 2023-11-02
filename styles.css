@@ -20,16 +20,19 @@ h2 {
   padding: 50px;
 }
 
-/* #game-area {
-  display: grid;
-  grid-auto-columns: auto;
-  grid-auto-rows: auto;
-} */
+#game-area {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
 
 .game-container {
   display: grid;
+  grid-template-rows: (10);
+  grid-template-columns: (10);
   grid-auto-columns: auto;
   grid-auto-rows: auto;
+  margin: 0 auto;
   /* width: 600px;
   height: 500px;
   background-color: white;
@@ -83,4 +86,8 @@ h2 {
   background-color: aquamarine;
   width: 30px;
   height: 30px;
+}
+
+.maze-row {
+  display: flex;
 }
