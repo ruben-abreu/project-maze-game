@@ -71,7 +71,7 @@ h2 {
 }
 
 .wall {
-  background-image: url(/images/grass.jpg);
+  background-image: url(./images/grass.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 30px;
@@ -79,7 +79,7 @@ h2 {
 }
 
 .path {
-  background-image: url(/images/natural-stone-paviment.jpg);
+  background-image: url(./images/natural-stone-paviment.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 30px;
@@ -112,15 +112,19 @@ h2 {
   font-size: 1.5em;
 }
 
-.btn.btn-info.dropdown-toggle {
+.dropdown-toggle {
   width: 200px;
   height: 60px;
   font-size: 1.5em;
   margin: 5px 0 30px 0;
+  background-color: #11caf0;
+  text-align: center;
 }
 
 #play {
   width: 200px;
   height: 60px;
   font-size: 1.5em;
+  background-color: #ff0000;
+  color: white;
 }
