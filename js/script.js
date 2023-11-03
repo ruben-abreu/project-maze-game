@@ -147,10 +147,47 @@ for (let i = 0; i < levels.length; i++) {
       } else if (levels[i].tiles[r][c] === 2) {
         tile.classList.add('path');
         tile.classList.add('start');
+
         let startImage = document.createElement('img');
         startImage.src = './images/harry-potter.png';
         startImage.width = '26';
+        startImage.style.position = 'absolute';
+        tile.style.position = 'relative';
         tile.appendChild(startImage);
+
+        // Harry's initial position
+        let positionX = 0;
+        let positionY = 0;
+
+        function updatePosition() {
+          startImage.style.left = positionX + 'px';
+          startImage.style.top = positionY + 'px';
+        }
+
+        document.addEventListener('keydown', function (event) {
+          const step = 10; // Number of pixels to move
+
+          switch (event.key) {
+            case 'w':
+            case 'W':
+              positionY -= step;
+              break;
+            case 'S':
+            case 's':
+              positionY += step;
+              break;
+            case 'a':
+            case 'A':
+              positionX -= step;
+              break;
+            case 'd':
+            case 'D':
+              positionX += step;
+              break;
+          }
+          updatePosition();
+        });
+        updatePosition();
       } else if (levels[i].tiles[r][c] === 3) {
         tile.classList.add('path');
         tile.classList.add('end');
