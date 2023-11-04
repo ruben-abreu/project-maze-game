@@ -15,23 +15,6 @@ class Player {
           c = 1;
           switch (event.key) {
             case 'ArrowUp':
-              c += 1;
-              if (0 <= c <= 9) {
-                if (
-                  document
-                    .querySelector(`row-${r}-column${c}`)
-                    .className.includes('path')
-                ) {
-                  document
-                    .querySelector(`row-${r}-column${c}`)
-                    .appendChild(harry);
-                  document
-                    .querySelector(`row-${r}-column${c - 1}`)
-                    .removeChild(harry);
-                }
-              }
-              break;
-            case 'ArrowDown':
               c -= 1;
               if (0 <= c <= 9) {
                 if (
@@ -44,6 +27,23 @@ class Player {
                     .appendChild(harry);
                   document
                     .querySelector(`row-${r}-column${c + 1}`)
+                    .removeChild(harry);
+                }
+              }
+              break;
+            case 'ArrowDown':
+              c += 1;
+              if (0 <= c <= 9) {
+                if (
+                  document
+                    .querySelector(`row-${r}-column${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`row-${r}-column${c}`)
+                    .appendChild(harry);
+                  document
+                    .querySelector(`row-${r}-column${c - 1}`)
                     .removeChild(harry);
                 }
               }
@@ -89,23 +89,6 @@ class Player {
           c = 3;
           switch (event.key) {
             case 'ArrowUp':
-              c += 1;
-              if (0 <= c <= 14) {
-                if (
-                  document
-                    .querySelector(`row-${r}-column${c}`)
-                    .className.includes('path')
-                ) {
-                  document
-                    .querySelector(`row-${r}-column${c}`)
-                    .appendChild(harry);
-                  document
-                    .querySelector(`row-${r}-column${c - 1}`)
-                    .removeChild(harry);
-                }
-              }
-              break;
-            case 'ArrowDown':
               c -= 1;
               if (0 <= c <= 14) {
                 if (
@@ -118,6 +101,23 @@ class Player {
                     .appendChild(harry);
                   document
                     .querySelector(`row-${r}-column${c + 1}`)
+                    .removeChild(harry);
+                }
+              }
+              break;
+            case 'ArrowDown':
+              c += 1;
+              if (0 <= c <= 14) {
+                if (
+                  document
+                    .querySelector(`row-${r}-column${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`row-${r}-column${c}`)
+                    .appendChild(harry);
+                  document
+                    .querySelector(`row-${r}-column${c - 1}`)
                     .removeChild(harry);
                 }
               }
@@ -163,23 +163,6 @@ class Player {
           c = 16;
           switch (event.key) {
             case 'ArrowUp':
-              c += 1;
-              if (0 <= c <= 24) {
-                if (
-                  document
-                    .querySelector(`row-${r}-column${c}`)
-                    .className.includes('path')
-                ) {
-                  document
-                    .querySelector(`row-${r}-column${c}`)
-                    .appendChild(harry);
-                  document
-                    .querySelector(`row-${r}-column${c - 1}`)
-                    .removeChild(harry);
-                }
-              }
-              break;
-            case 'ArrowDown':
               c -= 1;
               if (0 <= c <= 24) {
                 if (
@@ -192,6 +175,23 @@ class Player {
                     .appendChild(harry);
                   document
                     .querySelector(`row-${r}-column${c + 1}`)
+                    .removeChild(harry);
+                }
+              }
+              break;
+            case 'ArrowDown':
+              c += 1;
+              if (0 <= c <= 24) {
+                if (
+                  document
+                    .querySelector(`row-${r}-column${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`row-${r}-column${c}`)
+                    .appendChild(harry);
+                  document
+                    .querySelector(`row-${r}-column${c - 1}`)
                     .removeChild(harry);
                 }
               }
