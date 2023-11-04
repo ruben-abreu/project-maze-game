@@ -1,73 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maze Game</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maze Game</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,100&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-
-<body>
-  <div class="game-space">
-    <h1>MAZE GAME</h1>
-    <div class="music">
-      <audio controls id="music">
-        <source src="Music/Harry Potter Main Theme.mp3" type="audio/mpeg">
-        <source src="Music/Hedwigs Theme.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-    <h2 class="game-intro-text">
-      Assist Harry in his quest to locate the elusive Snitch.You have a
-      restricted number of steps. Harness the power of Potions to reinvigorate
-      your journey, while dodging the perils of Poison to maintain your pace.
-      Embrace the adventure and enjoy the chase!
-    </h2>
-    <div id="intro-image">
-      <img id="maze-garden-img" src="./images/maze-game-garden.png" alt="maze-garden" />
-    </div>
-    <div id="game-area">
-      <div id="easy-level" class="game-container easy"></div>
-      <div id="normal-level" class="game-container normal"></div>
-      <div id="hard-level" class="game-container hard"></div>
-      <div class="additional-content">
-        <div>
-          <p id="timer">Timer: 00:00</p>
-          <p class="steps">Number of steps left: 0</p>
-        </div>
-        <div>
-          <button type="button" id="try-again-button">Try again</button>
+  <body>
+    <div class="game-space">
+      <h1>MAZE GAME</h1>
+      <div class="music">
+        <audio controls id="music">
+          <source src="Music/Harry Potter Main Theme.mp3" type="audio/mpeg" />
+          <source src="Music/Hedwigs Theme.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+      <h2 class="game-intro-text">
+        Assist Harry in his quest to locate the elusive Snitch.You have a
+        restricted number of steps. Harness the power of Potions to reinvigorate
+        your journey, while dodging the perils of Poison to maintain your pace.
+        Embrace the adventure and enjoy the chase!
+      </h2>
+      <div id="intro-image">
+        <img
+          id="maze-garden-img"
+          src="./images/maze-game-garden.png"
+          alt="maze-garden"
+        />
+      </div>
+      <div id="game-area">
+        <div id="easy-level" class="game-container easy"></div>
+        <div id="normal-level" class="game-container normal"></div>
+        <div id="hard-level" class="game-container hard"></div>
+        <div class="additional-content">
+          <div>
+            <p id="timer">Timer: 00:00</p>
+            <p class="steps">Number of steps left: 0</p>
+          </div>
+          <div>
+            <button type="button" id="try-again-button">Try again</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="dropdownMenu">
-      <label for="difficulty">LEVEL:</label><br />
+      <div id="dropdownMenu">
+        <label for="difficulty">LEVEL:</label><br />
 
-      <select name="dropdownMenu" id="difficulty-dropdown">
-        <option value="easy">Easy</option>
-        <option value="normal">Normal</option>
-        <option value="hard">Hard</option>
-        <!--           <option value="random">Random Maze</option> -->
-      </select>
+        <select name="dropdownMenu" id="difficulty-dropdown">
+          <option value="easy">Easy</option>
+          <option value="normal">Normal</option>
+          <option value="hard">Hard</option>
+          <!--           <option value="random">Random Maze</option> -->
+        </select>
+      </div>
+      <div>
+        <button type="button" id="play-button">Let's Play!</button>
+      </div>
+      <div class="game-over">
+        <img
+          id="game-over-image"
+          src="images/harry-potter-sad.jpg"
+          alt="Full Screen Image"
+        />
+      </div>
     </div>
-    <div>
-      <button type="button" id="play-button">Let's Play!</button>
-    </div>
-    <div class="game-over">
-      <img id="game-over-image" src="images/harry-potter-sad.jpg" alt="Full Screen Image">
-    </div>
-  </div>
-  <script src="js/levels.js"></script>
-  <script src="js/timer.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/game.js"></script>
-  <script src="js/script.js"></script>
-</body>
-
+    <script src="js/levels.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
