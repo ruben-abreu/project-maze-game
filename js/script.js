@@ -8,7 +8,7 @@ const select = document.getElementById('difficulty-dropdown');
 const playButton = document.getElementById('play-button');
 const timerArea = document.querySelector('.additional-content');
 const tryAgainButton = document.getElementById('try-again-button');
-const timer = document.getElementById('timer');
+const timerDisplay = document.getElementById('timer');
 
 const levels = [];
 
@@ -166,7 +166,7 @@ for (let i = 0; i < levels.length; i++) {
         }
 
         document.addEventListener('keydown', function (event) {
-          const step = 10; // Number of pixels to move
+          const step = 30; // Number of pixels to move
 
           switch (event.key) {
             case 'w':
@@ -175,6 +175,7 @@ for (let i = 0; i < levels.length; i++) {
               break;
             case 'S':
             case 's':
+            case 'ArrowDown':
               positionY += step;
               break;
             case 'a':
@@ -207,72 +208,21 @@ for (let i = 0; i < levels.length; i++) {
     }
   }
 }
-
-select.addEventListener('change', function () {
-  console.log(select.value);
-  switch (select.value) {
-    case 'easy':
-      easyGame.style.display = 'block';
-      normalGame.style.display = 'none';
-      hardGame.style.display = 'none';
-      break;
-    case 'normal':
-      normalGame.style.display = 'block';
-      easyGame.style.display = 'none';
-      hardGame.style.display = 'none';
-      break;
-    case 'hard':
-      hardGame.style.display = 'block';
-      easyGame.style.display = 'none';
-      normalGame.style.display = 'none';
-      break;
-  }
-});
-
-let timerInterval;
-
+let timer;
 playButton.addEventListener('click', function () {
   gameIntroText.style.display = 'none';
   introImage.style.display = 'none';
   mazeMap.style.display = 'flex';
   timerArea.style.display = 'flex';
 
-  // Timer
+  const selectValue = select.value;
 
-  let targetTime;
-  if (select.value === 'easy') {
-    targetTime = 5 * 60 * 1000; //minutes, seconds, milliseconds
-  } else if (select.value === 'normal') {
-    targetTime = 2 * 60 * 1000;
-  } else if (select.value === 'hard') {
-    targetTime = 1 * 60 * 1000;
-  }
-  let currentTime = targetTime;
-  function updateTimerDisplay() {
-    const minutes = Math.floor(currentTime / 60000);
-    const seconds = Math.floor((currentTime % 60000) / 1000);
-    const timerDisplay = `Timer: ${minutes}:${seconds
-      .toString()
-      .padStart(2, '0')}`;
-    timer.textContent = timerDisplay;
-
-    if (currentTime === 0) {
-      clearInterval(timerInterval);
-      alert('Time is up, you lost!');
-    }
-
-    currentTime -= 1000; // Decrement by 1 second
+  if (timer) {
+    timer.stopTimer();
   }
 
-  // Check if the timer is already running and clear it before starting a new one
-  if (timerInterval) {
-    clearInterval(timerInterval);
-  }
-  // Reset the timer to targetTime
-  currentTime = targetTime;
-
-  updateTimerDisplay();
-  timerInterval = setInterval(updateTimerDisplay, 1000);
+  timer = new Timer(selectValue, timerDisplay);
+  timer.startTimer();
 
   switch (select.value) {
     case 'easy':
