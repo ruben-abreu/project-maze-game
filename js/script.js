@@ -27,5 +27,6 @@ window.onload = function () {
       timer.stopTimer();
     }
     updateTimer();
+    game.gameplayLoop();
   });
 };

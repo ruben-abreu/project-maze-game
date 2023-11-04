@@ -59,7 +59,6 @@ class MazeGame {
         break;
     }
     this.map();
-    this.player.move();
   }
 
   map() {
@@ -112,5 +111,10 @@ class MazeGame {
 
   hidePlayButton() {
     this.playButton.style.display = 'none';
+  }
+
+  gameplayLoop() {
+    this.player.move();
+    window.requestAnimationFrame(() => this.gameplayLoop());
   }
 }
