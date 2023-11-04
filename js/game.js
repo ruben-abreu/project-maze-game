@@ -10,232 +10,54 @@ class MazeGame {
     this.playButton = document.getElementById('play-button');
     this.timerArea = document.querySelector('.additional-content');
     this.tryAgainButton = document.getElementById('try-again-button');
-    this.timer = document.getElementById('timer');
-    this.levels = [];
-    this.startImage = document.createElement('img');
+    this.levels = new Levels().levels;
   }
 
-  levels() {
-    levels[0] = {
-      columns: 10,
-      rows: 10,
-      tileSize: 30,
-      // 0 - path
-      // 1 - wall
-      // 2 - starting point
-      // 3 - end goal
-      tiles: [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 0, 2, 1, 0, 0, 0, 1, 1],
-        [1, 0, 1, 1, 0, 0, 1, 0, 0, 1],
-        [1, 0, 0, 0, 1, 0, 0, 1, 0, 1],
-        [1, 0, 1, 0, 1, 3, 1, 0, 0, 1],
-        [1, 1, 0, 0, 1, 1, 1, 0, 1, 1],
-        [1, 0, 0, 1, 0, 0, 0, 0, 1, 1],
-        [1, 0, 1, 0, 0, 1, 1, 0, 0, 1],
-        [1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      ],
-
-      getTile(col, row) {
-        return this.tiles[row * tiles.columns + col];
-      },
-
-      player: {
-        x: 3,
-        y: 1,
-      },
-
-      goal: {
-        x: 5,
-        y: 4,
-      },
-    };
-
-    levels[1] = {
-      columns: 15,
-      rows: 15,
-      tileSize: 30,
-
-      tiles: [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1],
-        [1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1],
-        [1, 0, 1, 2, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1],
-        [1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1],
-        [1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1],
-        [1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1],
-        [1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1],
-        [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1],
-        [1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1],
-        [1, 0, 0, 0, 1, 3, 0, 1, 0, 1, 0, 0, 1, 0, 1],
-        [1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-      ],
-
-      getTile(col, row) {
-        return this.tiles[row * tiles.columns + col];
-      },
-
-      player: {
-        x: 3,
-        y: 3,
-      },
-
-      goal: {
-        x: 5,
-        y: 11,
-      },
-    };
-
-    levels[2] = {
-      columns: 25,
-      rows: 25,
-      tileSize: 30,
-
-      tiles: [
-        [
-          1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-          1, 1,
-        ],
-        [
-          1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0,
-          0, 1,
-        ],
-        [
-          1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0,
-          0, 1,
-        ],
-        [
-          1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1,
-          0, 1,
-        ],
-        [
-          1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0,
-          1, 1,
-        ],
-        [
-          1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0,
-          0, 1,
-        ],
-        [
-          1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0,
-          1, 1,
-        ],
-        [
-          1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0,
-          0, 1,
-        ],
-        [
-          1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 2, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0,
-          0, 1,
-        ],
-        [
-          1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0,
-          1, 1,
-        ],
-        [
-          1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0,
-          0, 1,
-        ],
-        [
-          1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1,
-          0, 1,
-        ],
-        [
-          1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 3, 1, 0,
-          0, 1,
-        ],
-        [
-          1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-          1, 1,
-        ],
-      ],
-
-      getTile(col, row) {
-        return this.tiles[row * tiles.columns + col];
-      },
-
-      player: {
-        x: 12,
-        y: 16,
-      },
-
-      goal: {
-        x: 20,
-        y: 23,
-      },
-    };
-    return this.levels;
+  levelSelection() {
+    console.log(this.select.value);
+    switch (this.select.value) {
+      case 'easy':
+        this.easyGame.style.display = 'block';
+        this.normalGame.style.display = 'none';
+        this.hardGame.style.display = 'none';
+        break;
+      case 'normal':
+        this.normalGame.style.display = 'block';
+        this.easyGame.style.display = 'none';
+        this.hardGame.style.display = 'none';
+        break;
+      case 'hard':
+        this.hardGame.style.display = 'block';
+        this.easyGame.style.display = 'none';
+        this.normalGame.style.display = 'none';
+        break;
+    }
   }
 
-  selectLevel() {
-    this.select.addEventListener('change', function () {
-      console.log(this.select.value);
-      switch (this.select.value) {
-        case 'easy':
-          this.easyGame.style.display = 'block';
-          this.normalGame.style.display = 'none';
-          this.hardGame.style.display = 'none';
-          break;
-        case 'normal':
-          this.normalGame.style.display = 'block';
-          this.easyGame.style.display = 'none';
-          this.hardGame.style.display = 'none';
-          break;
-        case 'hard':
-          this.hardGame.style.display = 'block';
-          this.easyGame.style.display = 'none';
-          this.normalGame.style.display = 'none';
-          break;
-      }
-    });
+  play() {
+    this.gameIntroText.style.display = 'none';
+    this.introImage.style.display = 'none';
+    this.mazeMap.style.display = 'flex';
+    this.timerArea.style.display = 'flex';
+
+    switch (this.select.value) {
+      case 'easy':
+        this.easyGame.style.display = 'block';
+        this.normalGame.style.display = 'none';
+        this.hardGame.style.display = 'none';
+        break;
+      case 'normal':
+        this.normalGame.style.display = 'block';
+        this.easyGame.style.display = 'none';
+        this.hardGame.style.display = 'none';
+        break;
+      case 'hard':
+        this.hardGame.style.display = 'block';
+        this.easyGame.style.display = 'none';
+        this.normalGame.style.display = 'none';
+        break;
+    }
+    this.map();
   }
 
   map() {
@@ -253,11 +75,10 @@ class MazeGame {
           } else if (this.levels[i].tiles[r][c] === 2) {
             tile.classList.add('path');
             tile.classList.add('start');
-            this.startImage.src = './images/harry-potter.png';
-            this.startImage.width = '26';
-            this.startImage.style.position = 'absolute';
-            tile.style.position = 'relative';
-            tile.appendChild(this.startImage);
+            let startImage = document.createElement('img');
+            startImage.src = './images/harry-potter.png';
+            startImage.width = '26';
+            tile.appendChild(startImage);
           } else if (this.levels[i].tiles[r][c] === 3) {
             tile.classList.add('path');
             tile.classList.add('end');
@@ -278,35 +99,11 @@ class MazeGame {
     }
   }
 
-  play() {
-    this.playButton.addEventListener('click', function () {
-      this.gameIntroText.style.display = 'none';
-      this.introImage.style.display = 'none';
-      this.mazeMap.style.display = 'flex';
-      this.timerArea.style.display = 'flex';
-
-      switch (this.select.value) {
-        case 'easy':
-          this.easyGame.style.display = 'block';
-          this.normalGame.style.display = 'none';
-          this.hardGame.style.display = 'none';
-          break;
-        case 'normal':
-          this.normalGame.style.display = 'block';
-          this.easyGame.style.display = 'none';
-          this.hardGame.style.display = 'none';
-          break;
-        case 'hard':
-          this.hardGame.style.display = 'block';
-          this.easyGame.style.display = 'none';
-          this.normalGame.style.display = 'none';
-          break;
-      }
-    });
-    this.tryAgain();
-  }
-
   tryAgain() {
     this.tryAgainButton.addEventListener('click', () => location.reload());
+  }
+
+  hidePlayButton() {
+    this.playButton.style.display = 'none';
   }
 }

@@ -1,8 +1,9 @@
 class Timer {
   constructor(selectValue, timerDisplayElement) {
+    this.selectValue = selectValue;
+    this.timerDisplayElement = timerDisplayElement;
     this.targetTime = this.calculateTargetTime(selectValue);
     this.currentTime = this.targetTime;
-    this.timerDisplayElement = timerDisplayElement;
     this.timerInterval = null;
   }
 
