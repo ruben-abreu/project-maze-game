@@ -134,10 +134,12 @@ h2 {
   color: white;
 }
 
-#try-again {
+#try-again-button {
   width: 200px;
   height: 60px;
   font-size: 1.2em;
   background-color: #3d8f1d;
+  border: #3d8f1d solid 1px;
+  border-radius: 5px;
   color: white;
 }

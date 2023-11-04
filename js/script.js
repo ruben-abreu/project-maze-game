@@ -4,10 +4,10 @@ const mazeMap = document.getElementById('game-area');
 const easyGame = document.getElementById('easy-level');
 const normalGame = document.getElementById('normal-level');
 const hardGame = document.getElementById('hard-level');
-const select = document.getElementById('difficulty');
-const playButton = document.getElementById('play');
+const select = document.getElementById('difficulty-dropdown');
+const playButton = document.getElementById('play-button');
 const timerArea = document.querySelector('.additional-content');
-const tryAgainButton = document.getElementById('try-again');
+const tryAgainButton = document.getElementById('try-again-button');
 const timer = document.getElementById('timer');
 
 const levels = [];
