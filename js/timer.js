@@ -1,5 +1,6 @@
 class Timer {
   constructor(selectValue, timerDisplayElement) {
+    this.fullscreenImage = document.getElementById('game-over-image');
     this.selectValue = selectValue;
     this.timerDisplayElement = timerDisplayElement;
     this.targetTime = this.calculateTargetTime(selectValue);
@@ -14,7 +15,7 @@ class Timer {
       case 'normal':
         return 2 * 60 * 1000; // 2 minutes
       case 'hard':
-        return 1 * 60 * 1000; // 1 minute
+        return 0 * 60 * 1000; // 1 minute
       default:
         return 0;
     }
@@ -30,12 +31,11 @@ class Timer {
 
     if (this.currentTime === 0) {
       this.stopTimer();
-      alert('Time is up, you lost!');
+      this.fullscreenImage.style.display = 'block';
     }
 
     this.currentTime -= 1000; // Decrement by 1 second
   }
-
   startTimer() {
     this.stopTimer(); // Clear any existing timer
     this.currentTime = this.targetTime;

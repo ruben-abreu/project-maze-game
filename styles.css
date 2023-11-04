@@ -134,6 +134,16 @@ h2 {
   color: white;
 }
 
+#game-over-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+}
+
 #try-again-button {
   width: 200px;
   height: 60px;
