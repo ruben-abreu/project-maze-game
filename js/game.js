@@ -11,7 +11,6 @@ class MazeGame {
     this.timerArea = document.querySelector('.additional-content');
     this.tryAgainButton = document.getElementById('try-again-button');
     this.levels = new Levels().levels;
-    this.player = new Player();
   }
 
   levelSelection() {
@@ -105,6 +104,239 @@ class MazeGame {
     }
   }
 
+  move() {
+    window.addEventListener('keydown', function (event) {
+      event.preventDefault();
+      console.log(event.key);
+      let r;
+      let c;
+      switch (document.getElementById('difficulty-dropdown').value) {
+        case 'easy':
+          r = 3;
+          c = 1;
+          switch (event.key) {
+            case 'ArrowUp':
+              r -= 1;
+              if (r >= 0 && r <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r + 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowDown':
+              r += 1;
+              if (r >= 0 && r <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r - 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowRight':
+              c += 1;
+              if (c >= 0 && c <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c - 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowLeft':
+              c -= 1;
+              if (c >= 0 && c <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c + 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+          }
+          break;
+        case 'normal':
+          r = 3;
+          c = 3;
+          switch (event.key) {
+            case 'ArrowUp':
+              r -= 1;
+              if (r >= 0 && r <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r + 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowDown':
+              r += 1;
+              if (r >= 0 && r <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r - 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowRight':
+              c += 1;
+              if (c >= 0 && c <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c - 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowLeft':
+              c -= 1;
+              if (c >= 0 && c <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c + 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+          }
+          break;
+        case 'hard':
+          r = 12;
+          c = 16;
+          switch (event.key) {
+            case 'ArrowUp':
+              r -= 1;
+              if (r >= 0 && r <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r + 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowDown':
+              r += 1;
+              if (r >= 0 && r <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r - 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowRight':
+              c += 1;
+              if (c >= 0 && c <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c - 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowLeft':
+              c -= 1;
+              if (c >= 0 && c <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c + 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+          }
+          break;
+      }
+    });
+  }
+
   tryAgain() {
     this.tryAgainButton.addEventListener('click', () => location.reload());
   }
@@ -114,7 +346,7 @@ class MazeGame {
   }
 
   gameplayLoop() {
-    this.player.move();
+    this.move();
     window.requestAnimationFrame(() => this.gameplayLoop());
   }
 }
