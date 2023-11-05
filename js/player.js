@@ -2,15 +2,15 @@ class Player {
   constructor() {
     this.select = document.getElementById('difficulty-dropdown');
     this.harry = document.getElementById('harry');
-    this.gameStart = document.getElementById('game-area');
+    this.gameSpace = document.querySelector('.game-space');
   }
 
   move() {
-    this.gameStart.addEventListener('keydown', function (event) {
+    this.gameSpace.addEventListener('keydown', function (event) {
       event.preventDefault();
       let r;
       let c;
-      switch (this.select.value) {
+      switch (document.getElementById('difficulty-dropdown').value) {
         case 'easy':
           r = 3;
           c = 1;
