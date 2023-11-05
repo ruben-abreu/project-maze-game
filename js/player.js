@@ -1,6 +1,5 @@
 class Player {
   constructor() {
-    this.select = document.getElementById('difficulty-dropdown');
     this.harry = document.getElementById('harry');
   }
 
