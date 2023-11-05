@@ -7,6 +7,7 @@ class Player {
 
   move() {
     this.gameStart.addEventListener('keydown', function (event) {
+      event.preventDefault();
       let r;
       let c;
       switch (this.select.value) {

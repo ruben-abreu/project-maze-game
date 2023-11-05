@@ -15,7 +15,7 @@ class Timer {
       case 'normal':
         return 2 * 60 * 1000; // 2 minutes
       case 'hard':
-        return 0 * 60 * 1000; // 1 minute
+        return 1 * 60 * 1000; // 1 minute
       default:
         return 0;
     }
