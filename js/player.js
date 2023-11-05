@@ -16,7 +16,7 @@ class Player {
           switch (event.key) {
             case 'ArrowUp':
               c -= 1;
-              if (0 <= c <= 9) {
+              if (c >= 0 && c <= 9) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -33,7 +33,7 @@ class Player {
               break;
             case 'ArrowDown':
               c += 1;
-              if (0 <= c <= 9) {
+              if (c >= 0 && c <= 9) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -50,7 +50,7 @@ class Player {
               break;
             case 'ArrowRight':
               r += 1;
-              if (0 <= r <= 9) {
+              if (r >= 0 && r <= 9) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -67,7 +67,7 @@ class Player {
               break;
             case 'ArrowLeft':
               r -= 1;
-              if (0 <= r <= 9) {
+              if (r >= 0 && r <= 9) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -90,7 +90,7 @@ class Player {
           switch (event.key) {
             case 'ArrowUp':
               c -= 1;
-              if (0 <= c <= 14) {
+              if (c >= 0 && c <= 14) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -107,7 +107,7 @@ class Player {
               break;
             case 'ArrowDown':
               c += 1;
-              if (0 <= c <= 14) {
+              if (c >= 0 && c <= 14) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -124,7 +124,7 @@ class Player {
               break;
             case 'ArrowRight':
               r += 1;
-              if (0 <= r <= 14) {
+              if (r >= 0 && r <= 14) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -141,7 +141,7 @@ class Player {
               break;
             case 'ArrowLeft':
               r -= 1;
-              if (0 <= r <= 14) {
+              if (r >= 0 && r <= 14) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -164,7 +164,7 @@ class Player {
           switch (event.key) {
             case 'ArrowUp':
               c -= 1;
-              if (0 <= c <= 24) {
+              if (c >= 0 && c <= 24) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -181,7 +181,7 @@ class Player {
               break;
             case 'ArrowDown':
               c += 1;
-              if (0 <= c <= 24) {
+              if (c >= 0 && c <= 24) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -198,7 +198,7 @@ class Player {
               break;
             case 'ArrowRight':
               r += 1;
-              if (0 <= r <= 24) {
+              if (r >= 0 && r <= 24) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
@@ -215,7 +215,7 @@ class Player {
               break;
             case 'ArrowLeft':
               r -= 1;
-              if (0 <= r <= 24) {
+              if (r >= 0 && r <= 24) {
                 if (
                   document
                     .querySelector(`row-${r}-column${c}`)
