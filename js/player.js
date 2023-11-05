@@ -19,14 +19,14 @@ class Player {
               if (r >= 0 && r <= 9) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r + 1}-column${c}`)
+                    .querySelector(`row-${r + 1}-column-${c}`)
                     .removeChild(harry);
                 }
               }
@@ -36,14 +36,14 @@ class Player {
               if (r >= 0 && r <= 9) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r - 1}-column${c}`)
+                    .querySelector(`row-${r - 1}-column-${c}`)
                     .removeChild(harry);
                 }
               }
@@ -53,14 +53,14 @@ class Player {
               if (c >= 0 && c <= 9) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r}-column${c - 1}`)
+                    .querySelector(`row-${r}-column-${c - 1}`)
                     .removeChild(harry);
                 }
               }
@@ -70,14 +70,14 @@ class Player {
               if (c >= 0 && c <= 9) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r}-column${c + 1}`)
+                    .querySelector(`row-${r}-column-${c + 1}`)
                     .removeChild(harry);
                 }
               }
@@ -93,14 +93,14 @@ class Player {
               if (r >= 0 && r <= 14) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r + 1}-column${c}`)
+                    .querySelector(`row-${r + 1}-column-${c}`)
                     .removeChild(harry);
                 }
               }
@@ -110,14 +110,14 @@ class Player {
               if (r >= 0 && r <= 14) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r - 1}-column${c}`)
+                    .querySelector(`row-${r - 1}-column-${c}`)
                     .removeChild(harry);
                 }
               }
@@ -127,14 +127,14 @@ class Player {
               if (c >= 0 && c <= 14) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r}-column${c - 1}`)
+                    .querySelector(`row-${r}-column-${c - 1}`)
                     .removeChild(harry);
                 }
               }
@@ -144,14 +144,14 @@ class Player {
               if (c >= 0 && c <= 14) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r}-column${c + 1}`)
+                    .querySelector(`row-${r}-column-${c + 1}`)
                     .removeChild(harry);
                 }
               }
@@ -167,14 +167,14 @@ class Player {
               if (r >= 0 && r <= 24) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r + 1}-column${c}`)
+                    .querySelector(`row-${r + 1}-column-${c}`)
                     .removeChild(harry);
                 }
               }
@@ -184,14 +184,14 @@ class Player {
               if (r >= 0 && r <= 24) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r - 1}-column${c}`)
+                    .querySelector(`row-${r - 1}-column-${c}`)
                     .removeChild(harry);
                 }
               }
@@ -201,14 +201,14 @@ class Player {
               if (c >= 0 && c <= 24) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r}-column${c - 1}`)
+                    .querySelector(`row-${r}-column-${c - 1}`)
                     .removeChild(harry);
                 }
               }
@@ -218,14 +218,14 @@ class Player {
               if (c >= 0 && c <= 24) {
                 if (
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .className.includes('path')
                 ) {
                   document
-                    .querySelector(`row-${r}-column${c}`)
+                    .querySelector(`row-${r}-column-${c}`)
                     .appendChild(harry);
                   document
-                    .querySelector(`row-${r}-column${c + 1}`)
+                    .querySelector(`row-${r}-column-${c + 1}`)
                     .removeChild(harry);
                 }
               }

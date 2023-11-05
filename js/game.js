@@ -71,14 +71,14 @@ class MazeGame {
           row.appendChild(tile);
           if (this.levels[i].tiles[r][c] === 0) {
             tile.classList.add(`path`);
-            tile.classList.add(`row-${r}-column${c}`);
+            tile.classList.add(`row-${r}-column-${c}`);
           } else if (this.levels[i].tiles[r][c] === 1) {
             tile.classList.add(`wall`);
-            tile.classList.add(`row-${r}-column${c}`);
+            tile.classList.add(`row-${r}-column-${c}`);
           } else if (this.levels[i].tiles[r][c] === 2) {
             tile.classList.add(`path`);
             tile.classList.add(`start`);
-            tile.classList.add(`row-${r}-column${c}`);
+            tile.classList.add(`row-${r}-column-${c}`);
             let startImage = document.createElement('img');
             startImage.src = './images/harry-potter.png';
             startImage.width = '26';
@@ -87,7 +87,7 @@ class MazeGame {
           } else if (this.levels[i].tiles[r][c] === 3) {
             tile.classList.add(`path`);
             tile.classList.add(`end`);
-            tile.classList.add(`row-${r}-column${c}`);
+            tile.classList.add(`row-${r}-column-${c}`);
             let endImage = document.createElement('img');
             endImage.src = './images/golden-snitch.png';
             endImage.width = '26';
