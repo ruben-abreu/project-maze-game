@@ -107,61 +107,241 @@ class MazeGame {
   }
 
   move() {
-    let r, c;
-
-    window.addEventListener('keydown', event => {
+    window.addEventListener('keydown', function (event) {
       event.preventDefault();
-
-      const difficulty = this.select.value;
-      let maxR;
-      let maxC;
-
-      switch (difficulty) {
+      console.log(event.key);
+      let r;
+      let c;
+      switch (document.getElementById('difficulty-dropdown').value) {
         case 'easy':
           r = 3;
           c = 1;
-          maxR = 9;
-          maxC = 9;
+          switch (event.key) {
+            case 'ArrowUp':
+              r -= 1;
+              if (r >= 0 && r <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r + 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowDown':
+              r += 1;
+              if (r >= 0 && r <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r - 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowRight':
+              c += 1;
+              if (c >= 0 && c <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c - 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowLeft':
+              c -= 1;
+              if (c >= 0 && c <= 9) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c + 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+          }
           break;
         case 'normal':
           r = 3;
           c = 3;
-          maxR = 14;
-          maxC = 14;
+          switch (event.key) {
+            case 'ArrowUp':
+              r -= 1;
+              if (r >= 0 && r <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r + 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowDown':
+              r += 1;
+              if (r >= 0 && r <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r - 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowRight':
+              c += 1;
+              if (c >= 0 && c <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c - 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowLeft':
+              c -= 1;
+              if (c >= 0 && c <= 14) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c + 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+          }
           break;
         case 'hard':
           r = 12;
           c = 16;
-          maxR = 24;
-          maxC = 24;
+          switch (event.key) {
+            case 'ArrowUp':
+              r -= 1;
+              if (r >= 0 && r <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r + 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowDown':
+              r += 1;
+              if (r >= 0 && r <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r - 1}-column-${c}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowRight':
+              c += 1;
+              if (c >= 0 && c <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c - 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+            case 'ArrowLeft':
+              c -= 1;
+              if (c >= 0 && c <= 24) {
+                if (
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .className.includes('path')
+                ) {
+                  document
+                    .querySelector(`.row-${r}-column-${c}`)
+                    .appendChild(document.getElementById('harry'));
+                  document
+                    .querySelector(`.row-${r}-column-${c + 1}`)
+                    .removeChild(document.getElementById('harry'));
+                }
+              }
+              break;
+          }
           break;
-        default:
-          return;
-      }
-
-      switch (event.key) {
-        case 'ArrowUp':
-          r -= 1;
-          break;
-        case 'ArrowDown':
-          r += 1;
-          break;
-        case 'ArrowRight':
-          c += 1;
-          break;
-        case 'ArrowLeft':
-          c -= 1;
-          break;
-      }
-
-      if (r >= 0 && r <= maxR && c >= 0 && c <= maxC) {
-        const currentTile = document.querySelector(`.row-${r}-column-${c}`);
-        if (currentTile && currentTile.classList.contains('path')) {
-          const harry = document.getElementById('harry');
-          currentTile.appendChild(harry);
-        }
       }
     });
+  }
+
+  gameplayLoop() {
+    this.move();
+    window.requestAnimationFrame(() => this.gameplayLoop());
   }
 
   tryAgain() {
