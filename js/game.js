@@ -9,7 +9,7 @@ class MazeGame {
     this.select = document.getElementById('difficulty-dropdown');
     this.playButton = document.getElementById('play-button');
     this.timerArea = document.querySelector('.additional-content');
-    this.tryAgainButton = document.getElementById('try-again-button');
+    this.resetButton = document.getElementById('reset-button');
     this.levels = new Levels().levels;
     this.isMoving = false;
   }
@@ -165,10 +165,9 @@ class MazeGame {
     });
   }
 
-  tryAgain() {
-    this.tryAgainButton.addEventListener('click', () => location.reload());
+  reset() {
+    this.resetButton.addEventListener('click', () => location.reload());
   }
-
   hidePlayButton() {
     this.playButton.style.display = 'none';
   }

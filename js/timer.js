@@ -6,6 +6,8 @@ class Timer {
     this.targetTime = this.calculateTargetTime(selectValue);
     this.currentTime = this.targetTime;
     this.timerInterval = null;
+    this.gameOverContainer = document.querySelector('.game-over-container');
+    this.tryAgainButton = document.getElementById('try-again-button');
   }
 
   calculateTargetTime(selectValue) {
@@ -32,7 +34,7 @@ class Timer {
 
     if (this.currentTime === 0) {
       this.stopTimer();
-      this.fullscreenImage.style.display = 'block';
+      this.showGameOver();
     }
 
     this.currentTime -= 1000; // Decrement by 1 second
@@ -50,5 +52,11 @@ class Timer {
       clearInterval(this.timerInterval);
       this.timerInterval = null;
     }
+  }
+
+  showGameOver() {
+    this.fullscreenImage.style.display = 'block';
+    this.gameOverContainer.style.display = 'block';
+    this.tryAgainButton.addEventListener('click', () => location.reload());
   }
 }

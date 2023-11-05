@@ -22,7 +22,7 @@ window.onload = function () {
   playButton.addEventListener('click', function () {
     game.play();
     game.hidePlayButton();
-    game.tryAgain();
+    game.reset();
     if (timer) {
       timer.stopTimer();
     }
