@@ -109,35 +109,25 @@ class MazeGame {
   move() {
     let r;
     let c;
-    let maxR;
-    let maxC;
     const difficulty = this.select.value;
+    let isMoving = false;
+
+    const tileWidth = 30; // Adjust this value based on your tile size
+    const moveSpeed = 5; // Adjust the speed as needed
 
     window.addEventListener('keydown', event => {
       event.preventDefault();
-      console.log(event.key);
 
-      switch (difficulty) {
-        case 'easy':
-          r = 3;
-          c = 1;
-          maxR = 9;
-          maxC = 9;
-          break;
-        case 'normal':
-          r = 3;
-          c = 3;
-          maxR = 14;
-          maxC = 14;
-          break;
-        case 'hard':
-          r = 12;
-          c = 16;
-          maxR = 24;
-          maxC = 24;
-          break;
-        default:
-          return;
+      if (isMoving) {
+        return;
+      }
+
+      isMoving = true;
+
+      switch (
+        difficulty
+        // Set up the maxR, maxC, and initial r, c values as before
+      ) {
       }
 
       switch (event.key) {
@@ -159,7 +149,31 @@ class MazeGame {
         const currentTile = document.querySelector(`.row-${r}-column-${c}`);
         if (currentTile && currentTile.classList.contains('path')) {
           const harry = document.getElementById('harry');
-          currentTile.appendChild(harry);
+
+          const currentTop = harry.offsetTop;
+          const currentLeft = harry.offsetLeft;
+          const targetTop = r * tileWidth;
+          const targetLeft = c * tileWidth;
+
+          const animate = () => {
+            const dTop = (targetTop - currentTop) / moveSpeed;
+            const dLeft = (targetLeft - currentLeft) / moveSpeed;
+
+            if (
+              Math.abs(currentTop - targetTop) > 1 ||
+              Math.abs(currentLeft - targetLeft) > 1
+            ) {
+              currentTop += dTop;
+              currentLeft += dLeft;
+              harry.style.top = currentTop + 'px';
+              harry.style.left = currentLeft + 'px';
+              requestAnimationFrame(animate);
+            } else {
+              isMoving = false;
+            }
+          };
+
+          animate();
         }
       }
     });

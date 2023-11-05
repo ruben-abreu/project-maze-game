@@ -34,7 +34,7 @@
     </div>
     <img id="game-over-image" src="images/harry-potter-sad.jpg" alt="Full Screen Image" />
     <div class="game-over-container">
-      <p class="game-over-text">Oh no, the <span>Snitch</span> got away.</p>
+      <p class="game-over-text">Oh no, the <span class="gold">Snitch</span> got away.</p>
       <button type="button" id="try-again-button">Try Again</button>
     </div>
     <div id="game-area">
@@ -42,6 +42,22 @@
       <div id="normal-level" class="game-container normal"></div>
       <div id="hard-level" class="game-container hard"></div>
       <div class="additional-content">
+
+        <div class="directional-buttons">
+          <button class="direction-button up">
+            <span class="visually-hidden">up</span>
+          </button>
+          <button class="direction-button left">
+            <span class="visually-hidden">left</span>
+          </button>
+          <button class="direction-button right">
+            <span class="visually-hidden">right</span>
+          </button>
+          <button class="direction-button down">
+            <span class="visually-hidden">down</span>
+          </button>
+        </div>
+
         <div>
           <p id="timer">Timer: 00:00</p>
           <p class="steps">Number of steps left: 0</p>
