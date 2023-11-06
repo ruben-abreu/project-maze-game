@@ -261,6 +261,14 @@ h2 {
     height: 16px;
   }
 
+  #harry {
+    width: 14px;
+  }
+
+  #snitch {
+    width: 14px;
+  }
+
   .dpad {
     display: flex;
     flex-direction: column;
