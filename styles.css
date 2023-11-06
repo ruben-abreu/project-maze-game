@@ -219,8 +219,10 @@ h2 {
     margin: 0;
     box-sizing: border-box;
     text-align: center;
-    background-color: #908a3e;
-    background-image: none;
+    background-image: url(./images/maze-background-image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   #difficulty-dropdown {
     width: 100px;
