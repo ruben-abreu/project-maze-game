@@ -135,31 +135,39 @@ class MazeGame {
         return;
     }
 
+    const currentTile = document.querySelector(`.row-${r}-column-${c}`);
+    if (currentTile && currentTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      currentTile.appendChild(harry);
+    }
+
     window.addEventListener('keydown', event => {
       event.preventDefault();
-      console.log(event.key);
-
+      let newRow = r;
+      let newColumn = c;
       switch (event.key) {
         case 'ArrowUp':
-          r -= 1;
+          newRow = r - 1;
           break;
         case 'ArrowDown':
-          r += 1;
+          newRow = r + 1;
           break;
         case 'ArrowRight':
-          c += 1;
+          newColumn = c + 1;
           break;
         case 'ArrowLeft':
-          c -= 1;
+          newColumn = c - 1;
           break;
       }
 
-      if (r >= 0 && r <= maxR && c >= 0 && c <= maxC) {
-        const currentTile = document.querySelector(`.row-${r}-column-${c}`);
-        if (currentTile && currentTile.classList.contains('path')) {
-          const harry = document.getElementById('harry');
-          currentTile.appendChild(harry);
-        }
+      const newTile = document.querySelector(
+        `.row-${newRow}-column-${newColumn}`
+      );
+      if (newTile && newTile.classList.contains('path')) {
+        const harry = document.getElementById('harry');
+        newTile.appendChild(harry);
+        r = newRow;
+        c = newColumn;
       }
     });
   }
