@@ -6,12 +6,14 @@ class MazeGame {
     this.easyGame = document.getElementById('easy-level');
     this.normalGame = document.getElementById('normal-level');
     this.hardGame = document.getElementById('hard-level');
+    this.dropdownMenuLevels = document.getElementById('dropdownMenu');
     this.select = document.getElementById('difficulty-dropdown');
     this.playButton = document.getElementById('play-button');
     this.timerArea = document.querySelector('.additional-content');
     this.resetButton = document.getElementById('reset-button');
     this.levels = new Levels().levels;
     this.isMoving = false;
+    this.mazeRow = document.querySelectorAll('.maze-row');
   }
 
   levelSelection() {
@@ -38,6 +40,7 @@ class MazeGame {
   play() {
     this.gameIntroText.style.display = 'none';
     this.introImage.style.display = 'none';
+    this.dropdownMenuLevels.style.display = 'none';
     this.mazeMap.style.display = 'flex';
     this.timerArea.style.display = 'flex';
 
@@ -93,11 +96,11 @@ class MazeGame {
             tile.appendChild(endImage);
             endImage.setAttribute('id', 'snitch');
           }
-          if (i === 0) {
+          if (i === 0 && this.select.value === 'easy') {
             this.easyGame.appendChild(row);
-          } else if (i === 1) {
+          } else if (i === 1 && this.select.value === 'normal') {
             this.normalGame.appendChild(row);
-          } else if (i === 2) {
+          } else if (i === 2 && this.select.value === 'hard') {
             this.hardGame.appendChild(row);
           }
         }
@@ -114,8 +117,8 @@ class MazeGame {
 
     switch (difficulty) {
       case 'easy':
-        r = 3;
-        c = 1;
+        r = 1;
+        c = 3;
         maxR = 9;
         maxC = 9;
         break;
@@ -126,8 +129,8 @@ class MazeGame {
         maxC = 14;
         break;
       case 'hard':
-        r = 12;
-        c = 16;
+        r = 16;
+        c = 12;
         maxR = 24;
         maxC = 24;
         break;

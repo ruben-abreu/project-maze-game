@@ -13,7 +13,7 @@ class Timer {
   calculateTargetTime(selectValue) {
     switch (selectValue) {
       case 'easy':
-        return 5 * 60 * 1000; // 5 minutes
+        return 3 * 60 * 1000; // 3 minutes
       case 'normal':
         return 2 * 60 * 1000; // 2 minutes
       case 'hard':

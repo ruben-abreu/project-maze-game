@@ -56,6 +56,14 @@ h2 {
   justify-content: center;
 }
 
+#timer {
+  font-size: 1.6em;
+}
+
+.steps {
+  display: none;
+}
+
 .game-container {
   margin-right: 20px;
 }
