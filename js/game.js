@@ -82,7 +82,6 @@ class MazeGame {
             tile.classList.add(`row-${r}-column-${c}`);
             let startImage = document.createElement('img');
             startImage.src = './images/harry-potter.png';
-            startImage.width = '26';
             tile.appendChild(startImage);
             startImage.setAttribute('id', 'harry');
           } else if (this.levels[i].tiles[r][c] === 3) {
@@ -91,8 +90,8 @@ class MazeGame {
             tile.classList.add(`row-${r}-column-${c}`);
             let endImage = document.createElement('img');
             endImage.src = './images/golden-snitch.png';
-            endImage.width = '26';
             tile.appendChild(endImage);
+            endImage.setAttribute('id', 'snitch');
           }
           if (i === 0) {
             this.easyGame.appendChild(row);
@@ -113,32 +112,32 @@ class MazeGame {
     let maxC;
     const difficulty = this.select.value;
 
+    switch (difficulty) {
+      case 'easy':
+        r = 3;
+        c = 1;
+        maxR = 9;
+        maxC = 9;
+        break;
+      case 'normal':
+        r = 3;
+        c = 3;
+        maxR = 14;
+        maxC = 14;
+        break;
+      case 'hard':
+        r = 12;
+        c = 16;
+        maxR = 24;
+        maxC = 24;
+        break;
+      default:
+        return;
+    }
+
     window.addEventListener('keydown', event => {
       event.preventDefault();
       console.log(event.key);
-
-      switch (difficulty) {
-        case 'easy':
-          r = 3;
-          c = 1;
-          maxR = 9;
-          maxC = 9;
-          break;
-        case 'normal':
-          r = 3;
-          c = 3;
-          maxR = 14;
-          maxC = 14;
-          break;
-        case 'hard':
-          r = 12;
-          c = 16;
-          maxR = 24;
-          maxC = 24;
-          break;
-        default:
-          return;
-      }
 
       switch (event.key) {
         case 'ArrowUp':

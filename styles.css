@@ -74,6 +74,14 @@ h2 {
   display: none;
 }
 
+#harry {
+  width: 26px;
+}
+
+#snitch {
+  width: 26px;
+}
+
 .wall {
   background-image: url(./images/grass.jpg);
   background-size: cover;
