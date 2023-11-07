@@ -130,4 +130,9 @@ window.onload = function () {
       console.log(`You reached the end in ${elapsedTime}`);
     }
   });
+
+  window.addEventListener('timerResumed', function () {
+    timer.resumeTimer();
+    console.log(`Resuming time`);
+  });
 };

@@ -9,6 +9,7 @@ class Timer {
     this.gameOverContainer = document.querySelector('.game-over-container');
     this.tryAgainButton = document.getElementById('try-again-button');
     this.startTime = 0;
+    this.remainingTime = this.targetTime;
   }
 
   getElapsedTimeInMinutesAndSeconds() {
@@ -62,6 +63,7 @@ class Timer {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
       this.timerInterval = null;
+      this.remainingTime = this.currentTime;
     }
   }
 
@@ -69,5 +71,12 @@ class Timer {
     this.fullscreenImage.style.display = 'block';
     this.gameOverContainer.style.display = 'block';
     this.tryAgainButton.addEventListener('click', () => location.reload());
+  }
+
+  resumeTimer() {
+    if (!this.timerInterval) {
+      this.startTime = Date.now();
+      this.timerInterval = setInterval(() => this.updateTimerDisplay(), 1000);
+    }
   }
 }
