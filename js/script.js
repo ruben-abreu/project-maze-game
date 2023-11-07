@@ -45,13 +45,10 @@ window.onload = function () {
 
   playButton.addEventListener('click', function () {
     game.play();
-    game.map();
     game.move();
+    game.map();
     game.hidePlayButton();
     game.reset();
-    if (timer) {
-      timer.stopTimer();
-    }
     updateTimer();
   });
 

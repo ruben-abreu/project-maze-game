@@ -13,34 +13,24 @@ class MazeGame {
     this.resetButton = document.getElementById('reset-button');
     this.levels = new Levels().levels;
     this.isMoving = false;
-    this.mazeRow = document.querySelectorAll('.maze-row');
   }
 
   levelSelection() {
     console.log(this.select.value);
-    switch (this.select.value) {
-      case 'easy':
-        this.easyGame.style.display = 'block';
-        this.normalGame.style.display = 'none';
-        this.hardGame.style.display = 'none';
-        break;
-      case 'normal':
-        this.normalGame.style.display = 'block';
-        this.easyGame.style.display = 'none';
-        this.hardGame.style.display = 'none';
-        break;
-      case 'hard':
-        this.hardGame.style.display = 'block';
-        this.easyGame.style.display = 'none';
-        this.normalGame.style.display = 'none';
-        break;
+
+    if (this.playButton.style.display == 'none') {
+      this.clearMap();
+      this.play();
+      this.move();
+      this.map();
+      this.reset();
     }
   }
 
   play() {
     this.gameIntroText.style.display = 'none';
     this.introImage.style.display = 'none';
-    this.dropdownMenuLevels.style.display = 'none';
+    // this.dropdownMenuLevels.style.display = 'none';
     this.gameArea.style.display = 'flex';
     this.timerArea.style.display = 'flex';
 
@@ -106,6 +96,14 @@ class MazeGame {
     }
   }
 
+  clearMap() {
+    const mazeRow = document.getElementsByClassName('maze-row');
+    while (mazeRow.length > 0) {
+      mazeRow[0].remove();
+    }
+    console.log('Maze rows deleted');
+  }
+
   move() {
     let r;
     let c;
@@ -135,6 +133,7 @@ class MazeGame {
     }
 
     window.addEventListener('keydown', event => {
+      console.log(event.key);
       event.preventDefault();
       let newRow = r;
       let newColumn = c;
@@ -156,8 +155,10 @@ class MazeGame {
       const newTile = document.querySelector(
         `.row-${newRow}-column-${newColumn}`
       );
+
       if (newTile && newTile.classList.contains('end')) {
         console.log(`You won!`);
+        this.nextLevel();
       }
 
       if (newTile && newTile.classList.contains('path')) {
@@ -168,6 +169,8 @@ class MazeGame {
       }
     });
   }
+
+  nextLevel() {}
 
   reset() {
     this.resetButton.addEventListener('click', () => location.reload());
