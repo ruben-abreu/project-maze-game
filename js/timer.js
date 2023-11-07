@@ -8,6 +8,18 @@ class Timer {
     this.timerInterval = null;
     this.gameOverContainer = document.querySelector('.game-over-container');
     this.tryAgainButton = document.getElementById('try-again-button');
+    this.startTime = 0;
+    this.remainingTime = this.targetTime;
+  }
+
+  getElapsedTimeInMinutesAndSeconds() {
+    const currentTime = Date.now();
+    const elapsedMilliseconds = currentTime - this.startTime;
+    const elapsedMinutes = Math.floor(elapsedMilliseconds / 60000);
+    const elapsedSeconds = Math.floor((elapsedMilliseconds % 60000) / 1000);
+    const formattedMinutes = String(elapsedMinutes).padStart(2, '0');
+    const formattedSeconds = String(elapsedSeconds).padStart(2, '0');
+    return `${formattedMinutes}:${formattedSeconds}`;
   }
 
   calculateTargetTime(selectValue) {
@@ -42,7 +54,7 @@ class Timer {
 
   startTimer() {
     this.stopTimer(); // Clear any existing timer
-    this.currentTime = this.targetTime;
+    this.startTime = Date.now(); // Set the starting time
     this.updateTimerDisplay();
     this.timerInterval = setInterval(() => this.updateTimerDisplay(), 1000);
   }
@@ -51,6 +63,7 @@ class Timer {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
       this.timerInterval = null;
+      this.remainingTime = this.currentTime;
     }
   }
 
@@ -58,5 +71,12 @@ class Timer {
     this.fullscreenImage.style.display = 'block';
     this.gameOverContainer.style.display = 'block';
     this.tryAgainButton.addEventListener('click', () => location.reload());
+  }
+
+  resumeTimer() {
+    if (!this.timerInterval) {
+      this.startTime = Date.now();
+      this.timerInterval = setInterval(() => this.updateTimerDisplay(), 1000);
+    }
   }
 }

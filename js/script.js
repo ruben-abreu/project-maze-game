@@ -119,4 +119,17 @@ window.onload = function () {
       c = newColumn;
     }
   });
+
+  window.addEventListener('reachedEnd', function () {
+    if (timer) {
+      timer.stopTimer();
+      const elapsedTime = timer.getElapsedTimeInMinutesAndSeconds();
+      console.log(`You reached the end in ${elapsedTime}`);
+    }
+  });
+
+  window.addEventListener('timerResumed', function () {
+    timer.resumeTimer();
+    console.log(`Resuming time`);
+  });
 };
