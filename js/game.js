@@ -158,6 +158,8 @@ class MazeGame {
       );
       if (newTile && newTile.classList.contains('end')) {
         console.log(`You won!`);
+        const reachedEndEvent = new Event('reachedEnd');
+        window.dispatchEvent(reachedEndEvent);
       }
 
       if (newTile && newTile.classList.contains('path')) {
