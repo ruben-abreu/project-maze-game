@@ -18,7 +18,7 @@
     <div class="game-space">
       <h1>MAZE GAME</h1>
       <div class="music">
-        <audio controls id="music">
+        <audio controls autoplay id="music">
           <source src="Music/Harry Potter Main Theme.mp3" type="audio/mpeg" />
           <source src="Music/Hedwigs Theme.mp3" type="audio/mpeg" />
         </audio>
@@ -90,8 +90,9 @@
     </div>
     <div id="winner-screen">
       <p>
-        With a flick of your virtual wand, you've conquered the maze. Bravo!
+        With a flick of your virtual wand, you've conquered the maze.<br />Bravo!
       </p>
+      <button type="button" id="play-again-button">Play Again!</button>
     </div>
     <script src="js/levels.js"></script>
     <script src="js/timer.js"></script>
