@@ -2,55 +2,46 @@ class MazeGame {
   constructor() {
     this.gameIntroText = document.querySelector('.game-intro-text');
     this.introImage = document.getElementById('intro-image');
+    this.gameSpace = document.querySelector('.game-space');
     this.gameArea = document.getElementById('game-area');
     this.easyGame = document.getElementById('easy-level');
     this.normalGame = document.getElementById('normal-level');
     this.hardGame = document.getElementById('hard-level');
-    this.dropdownMenuLevels = document.getElementById('dropdownMenu');
-    this.select = document.getElementById('difficulty-dropdown');
     this.playButton = document.getElementById('play-button');
     this.timerArea = document.querySelector('.additional-content');
     this.resetButton = document.getElementById('reset-button');
     this.levels = new Levels().levels;
     this.isMoving = false;
+    this.easyLevelStart = false;
+    this.normalLevelStart = false;
+    this.hardLevelStart = false;
+    this.middleScreen = document.getElementById('middle-screen');
+    this.firstLevelCompleted = document.getElementById('first-level-completed');
+    this.secondLevelCompleted = document.getElementById(
+      'second-level-completed'
+    );
+    this.winnerScreen = document.getElementById('winner-screen');
   }
 
-  levelSelection() {
-    console.log(this.select.value);
-
-    if (this.playButton.style.display == 'none') {
-      this.clearMap();
-      this.play();
-      this.move();
-      this.map();
-      this.reset();
-    }
+  levelReset() {
+    this.easyLevelStart = false;
+    this.normalLevelStart = false;
+    this.hardLevelStart = false;
   }
 
   play() {
+    this.easyLevelStart = true;
     this.gameIntroText.style.display = 'none';
     this.introImage.style.display = 'none';
-    // this.dropdownMenuLevels.style.display = 'none';
     this.gameArea.style.display = 'flex';
     this.timerArea.style.display = 'flex';
 
-    switch (this.select.value) {
-      case 'easy':
-        this.easyGame.style.display = 'block';
-        this.normalGame.style.display = 'none';
-        this.hardGame.style.display = 'none';
-        break;
-      case 'normal':
-        this.normalGame.style.display = 'block';
-        this.easyGame.style.display = 'none';
-        this.hardGame.style.display = 'none';
-        break;
-      case 'hard':
-        this.hardGame.style.display = 'block';
-        this.easyGame.style.display = 'none';
-        this.normalGame.style.display = 'none';
-        break;
-    }
+    this.easyGame.style.display = 'block';
+    this.normalGame.style.display = 'none';
+    this.hardGame.style.display = 'none';
+    console.log(
+      `Game started, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
+    );
   }
 
   map() {
@@ -84,11 +75,11 @@ class MazeGame {
             tile.appendChild(endImage);
             endImage.setAttribute('id', 'snitch');
           }
-          if (i === 0 && this.select.value === 'easy') {
+          if (i === 0 && this.easyLevelStart === true) {
             this.easyGame.appendChild(row);
-          } else if (i === 1 && this.select.value === 'normal') {
+          } else if (i === 1 && this.normalLevelStart === true) {
             this.normalGame.appendChild(row);
-          } else if (i === 2 && this.select.value === 'hard') {
+          } else if (i === 2 && this.hardLevelStart === true) {
             this.hardGame.appendChild(row);
           }
         }
@@ -107,23 +98,16 @@ class MazeGame {
   move() {
     let r;
     let c;
-    const difficulty = this.select.value;
 
-    switch (difficulty) {
-      case 'easy':
-        r = 1;
-        c = 3;
-        break;
-      case 'normal':
-        r = 3;
-        c = 3;
-        break;
-      case 'hard':
-        r = 16;
-        c = 12;
-        break;
-      default:
-        return;
+    if (this.easyLevelStart === true) {
+      r = 1;
+      c = 3;
+    } else if (this.normalGame === true) {
+      r = 3;
+      c = 3;
+    } else if (this.hardLevelStart === true) {
+      r = 16;
+      c = 12;
     }
 
     const currentTile = document.querySelector(`.row-${r}-column-${c}`);
@@ -158,7 +142,7 @@ class MazeGame {
 
       if (newTile && newTile.classList.contains('end')) {
         console.log(`You won!`);
-        this.nextLevel();
+        this.nextLevelScreen();
         // Pausing Timer
         const reachedEndEvent = new Event('reachedEnd');
         window.dispatchEvent(reachedEndEvent);
@@ -182,7 +166,55 @@ class MazeGame {
     window.addEventListener('keydown', handleKeyDown);
   }
 
-  nextLevel() {}
+  nextLevelScreen() {
+    console.log('Here from middle screen');
+    if (this.easyLevelStart === true) {
+      this.levelReset();
+      this.clearMap();
+      this.gameArea.style.display = 'none';
+      this.timerArea.style.display = 'none';
+      this.middleScreen.style.display = 'block';
+      this.firstLevelCompleted.style.display = 'block';
+      this.normalLevelStart = true;
+    } else if (this.normalLevelStart === true) {
+      this.levelReset();
+      this.clearMap();
+      this.gameArea.style.display = 'none';
+      this.timerArea.style.display = 'none';
+      this.middleScreen.style.display = 'block';
+      this.secondLevelCompleted.style.display = 'block';
+      this.hardLevelStart = true;
+    } else if (this.hardLevelStart === true) {
+      this.levelReset();
+      this.clearMap();
+      this.gameSpace.style.display = 'none';
+      this.winnerScreen.style.display = 'block';
+    }
+    console.log(
+      `Middle screen, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
+    );
+  }
+
+  nextLevelStart() {
+    console.log(
+      `Next level, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
+    );
+    this.gameArea.style.display = 'flex';
+    this.timerArea.style.display = 'flex';
+    this.easyGame.style.display = 'none';
+
+    if (this.normalLevelStart === true) {
+      this.middleScreen.style.display = 'none';
+      this.firstLevelCompleted.style.display = 'none';
+      this.normalGame.style.display = 'block';
+      this.hardGame.style.display = 'none';
+    } else if (this.hardLevelStart === true) {
+      this.middleScreen.style.display = 'none';
+      this.secondLevelCompleted.style.display = 'none';
+      this.hardGame.style.display = 'block';
+      this.normalGame.style.display = 'none';
+    }
+  }
 
   reset() {
     this.resetButton.addEventListener('click', () => location.reload());

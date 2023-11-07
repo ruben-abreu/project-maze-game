@@ -1,5 +1,4 @@
 window.onload = function () {
-  const select = document.getElementById('difficulty-dropdown');
   const playButton = document.getElementById('play-button');
   const game = new MazeGame();
   const timerDisplay = document.getElementById('timer');
@@ -10,27 +9,31 @@ window.onload = function () {
   const mobileLeftButton = document.getElementById('left');
   let r;
   let c;
-  const difficulty = select.value;
+  /*   const difficulty = select.value; */
+  const continueButton = document.getElementById('continue-button');
 
-  switch (difficulty) {
-    case 'easy':
-      r = 1;
-      c = 3;
-      break;
-    case 'normal':
-      r = 3;
-      c = 3;
-      break;
-    case 'hard':
-      r = 16;
-      c = 12;
-      break;
-    default:
-      return;
+  if (game.easyLevelStart === true) {
+    r = 1;
+    c = 3;
+  } else if (game.normalLevelStart === true) {
+    r = 3;
+    c = 3;
+  } else if (game.hardLevelStart === true) {
+    r = 16;
+    c = 12;
   }
 
   function updateTimer() {
-    const selectValue = select.value;
+    let selectValue;
+
+    if (game.easyLevelStart === true) {
+      selectValue = 'easy';
+    } else if (game.normalLevelStart === true) {
+      selectValue = 'normal';
+    } else if (game.hardLevelStart === true) {
+      selectValue = 'hard';
+    }
+
     if (timer) {
       timer.stopTimer();
     }
@@ -38,16 +41,19 @@ window.onload = function () {
     timer.startTimer();
   }
 
-  select.addEventListener('change', function () {
-    game.levelSelection();
+  playButton.addEventListener('click', function () {
+    game.play();
+    game.map();
+    game.move();
+    game.hidePlayButton();
+    game.reset();
     updateTimer();
   });
 
-  playButton.addEventListener('click', function () {
-    game.play();
-    game.move();
+  continueButton.addEventListener('click', function () {
+    game.nextLevelStart();
     game.map();
-    game.hidePlayButton();
+    game.move();
     game.reset();
     updateTimer();
   });

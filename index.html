@@ -71,19 +71,27 @@
         </div>
       </div>
 
-      <div id="dropdownMenu">
-        <label for="difficulty">LEVEL:</label><br />
-
-        <select name="dropdownMenu" id="difficulty-dropdown">
-          <option value="easy">Easy</option>
-          <option value="normal">Normal</option>
-          <option value="hard">Hard</option>
-          <!--           <option value="random">Random Maze</option> -->
-        </select>
-      </div>
       <div>
         <button type="button" id="play-button">Let's Play!</button>
       </div>
+      <div id="middle-screen">
+        <div>
+          <p id="first-level-completed">
+            Through every twist and turn, your magical journey continues. Stay
+            determined!
+          </p>
+          <p id="second-level-completed">
+            In the world of wizards, every maze is a chance to learn and grow.
+            Keep going!
+          </p>
+        </div>
+        <button type="button" id="continue-button">Next Level!</button>
+      </div>
+    </div>
+    <div id="winner-screen">
+      <p>
+        With a flick of your virtual wand, you've conquered the maze. Bravo!
+      </p>
     </div>
     <script src="js/levels.js"></script>
     <script src="js/timer.js"></script>
