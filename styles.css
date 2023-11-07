@@ -226,6 +226,10 @@ h2 {
     font-size: 1em;
   }
 
+  .music {
+    display: none;
+  }
+
   body {
     padding: 0;
     margin: 0;
@@ -278,9 +282,7 @@ h2 {
   .game-container {
     margin: 10px;
   }
-  .music {
-    display: none;
-  }
+
   .path,
   .wall {
     width: 16px;
