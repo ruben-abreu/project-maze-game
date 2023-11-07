@@ -132,7 +132,7 @@ class MazeGame {
       currentTile.appendChild(harry);
     }
 
-    window.addEventListener('keydown', event => {
+    const handleKeyDown = event => {
       console.log(event.key);
       event.preventDefault();
       let newRow = r;
@@ -173,7 +173,13 @@ class MazeGame {
         r = newRow;
         c = newColumn;
       }
-    });
+    };
+
+    // Remove the existing event listener first (if any)
+    window.removeEventListener('keydown', handleKeyDown);
+
+    // Add the new event listener
+    window.addEventListener('keydown', handleKeyDown);
   }
 
   nextLevel() {}
