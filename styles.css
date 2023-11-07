@@ -11,7 +11,6 @@ body {
   background-image: url(./images/maze-background-image.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
 }
 
 h1 {
@@ -247,10 +246,6 @@ h2 {
 
 #winner-screen {
   display: none;
-  background-image: url(/images/winner-image.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #winner-screen p {

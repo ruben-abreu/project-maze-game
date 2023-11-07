@@ -21,6 +21,7 @@ class MazeGame {
       'second-level-completed'
     );
     this.winnerScreen = document.getElementById('winner-screen');
+    this.body = document.querySelector('body');
   }
 
   levelReset() {
@@ -188,6 +189,7 @@ class MazeGame {
       this.levelReset();
       this.clearMap();
       this.gameSpace.style.display = 'none';
+      this.body.style.backgroundImage = 'url(/images/winner-image.png)';
       this.winnerScreen.style.display = 'block';
     }
     console.log(
