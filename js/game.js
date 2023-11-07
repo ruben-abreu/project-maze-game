@@ -156,6 +156,9 @@ class MazeGame {
       const newTile = document.querySelector(
         `.row-${newRow}-column-${newColumn}`
       );
+      if (newTile && newTile.classList.contains('end')) {
+        console.log(`You won!`);
+      }
 
       if (newTile && newTile.classList.contains('path')) {
         const harry = document.getElementById('harry');
