@@ -2,7 +2,7 @@ class MazeGame {
   constructor() {
     this.gameIntroText = document.querySelector('.game-intro-text');
     this.introImage = document.getElementById('intro-image');
-    this.mazeMap = document.getElementById('game-area');
+    this.gameArea = document.getElementById('game-area');
     this.easyGame = document.getElementById('easy-level');
     this.normalGame = document.getElementById('normal-level');
     this.hardGame = document.getElementById('hard-level');
@@ -40,8 +40,8 @@ class MazeGame {
   play() {
     this.gameIntroText.style.display = 'none';
     this.introImage.style.display = 'none';
-    // this.dropdownMenuLevels.style.display = 'none';
-    this.mazeMap.style.display = 'flex';
+    this.dropdownMenuLevels.style.display = 'none';
+    this.gameArea.style.display = 'flex';
     this.timerArea.style.display = 'flex';
 
     switch (this.select.value) {
