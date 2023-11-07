@@ -24,20 +24,10 @@ window.onload = function () {
   }
 
   function updateTimer() {
-    let selectValue;
-
-    if (game.easyLevelStart === true) {
-      selectValue = 'easy';
-    } else if (game.normalLevelStart === true) {
-      selectValue = 'normal';
-    } else if (game.hardLevelStart === true) {
-      selectValue = 'hard';
-    }
-
     if (timer) {
       timer.stopTimer();
     }
-    timer = new Timer(selectValue, timerDisplay);
+    timer = new Timer(timerDisplay);
     timer.startTimer();
   }
 
