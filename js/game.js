@@ -40,7 +40,7 @@ class MazeGame {
   play() {
     this.gameIntroText.style.display = 'none';
     this.introImage.style.display = 'none';
-    this.dropdownMenuLevels.style.display = 'none';
+    // this.dropdownMenuLevels.style.display = 'none';
     this.mazeMap.style.display = 'flex';
     this.timerArea.style.display = 'flex';
 
@@ -61,8 +61,6 @@ class MazeGame {
         this.normalGame.style.display = 'none';
         break;
     }
-    this.map();
-    this.move();
   }
 
   map() {
@@ -111,28 +109,20 @@ class MazeGame {
   move() {
     let r;
     let c;
-    let maxR;
-    let maxC;
     const difficulty = this.select.value;
 
     switch (difficulty) {
       case 'easy':
         r = 1;
         c = 3;
-        maxR = 9;
-        maxC = 9;
         break;
       case 'normal':
         r = 3;
         c = 3;
-        maxR = 14;
-        maxC = 14;
         break;
       case 'hard':
         r = 16;
         c = 12;
-        maxR = 24;
-        maxC = 24;
         break;
       default:
         return;
@@ -166,6 +156,7 @@ class MazeGame {
       const newTile = document.querySelector(
         `.row-${newRow}-column-${newColumn}`
       );
+
       if (newTile && newTile.classList.contains('path')) {
         const harry = document.getElementById('harry');
         newTile.appendChild(harry);
