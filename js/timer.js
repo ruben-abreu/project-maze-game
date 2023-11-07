@@ -1,9 +1,7 @@
 class Timer {
-  constructor(selectValue, timerDisplayElement) {
-    this.fullscreenImage = document.getElementById('game-over-image');
-    this.selectValue = selectValue;
+  constructor(timerDisplayElement) {
     this.timerDisplayElement = timerDisplayElement;
-    this.targetTime = this.calculateTargetTime(selectValue);
+    this.targetTime = 3 * 60 * 1000; // 3 minutes
     this.currentTime = this.targetTime;
     this.timerInterval = null;
     this.gameOverContainer = document.querySelector('.game-over-container');
@@ -20,19 +18,6 @@ class Timer {
     const formattedMinutes = String(elapsedMinutes).padStart(2, '0');
     const formattedSeconds = String(elapsedSeconds).padStart(2, '0');
     return `${formattedMinutes}:${formattedSeconds}`;
-  }
-
-  calculateTargetTime(selectValue) {
-    switch (selectValue) {
-      case 'easy':
-        return 3 * 60 * 1000; // 3 minutes
-      case 'normal':
-        return 2 * 60 * 1000; // 2 minutes
-      case 'hard':
-        return 1 * 60 * 1000; // 1 minute
-      default:
-        return 0;
-    }
   }
 
   updateTimerDisplay() {
