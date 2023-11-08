@@ -124,6 +124,8 @@ class MazeGame {
 
     window.addEventListener('keydown', event => {
       console.log(event.key);
+      console.log(`After click - r: ${r}, c: ${c}`);
+
       event.preventDefault();
       let newRow = r;
       let newColumn = c;
@@ -141,8 +143,6 @@ class MazeGame {
           newColumn = c - 1;
           break;
       }
-
-      console.log(`After click - r: ${r}, c: ${c}`);
 
       const newTile = document.querySelector(
         `.row-${newRow}-column-${newColumn}`
