@@ -120,7 +120,9 @@ class MazeGame {
       currentTile.appendChild(harry);
     }
 
-    const handleKeyDown = event => {
+    console.log(`Before click - r: ${r}, c: ${c}`);
+
+    window.addEventListener('keydown', event => {
       console.log(event.key);
       event.preventDefault();
       let newRow = r;
@@ -139,6 +141,8 @@ class MazeGame {
           newColumn = c - 1;
           break;
       }
+
+      console.log(`After click - r: ${r}, c: ${c}`);
 
       const newTile = document.querySelector(
         `.row-${newRow}-column-${newColumn}`
@@ -161,13 +165,7 @@ class MazeGame {
         r = newRow;
         c = newColumn;
       }
-    };
-
-    // Remove the existing event listener first (if any)
-    window.removeEventListener('keydown', handleKeyDown);
-
-    // Add the new event listener
-    window.addEventListener('keydown', handleKeyDown);
+    });
   }
 
   nextLevelScreen() {

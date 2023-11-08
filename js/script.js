@@ -32,16 +32,16 @@ window.onload = function () {
   playAgainButton.addEventListener('click', () => location.reload());
 
   if (game.easyLevelStart === true) {
-      r = 1;
-      c = 3;
-    } else if (game.normalLevelStart === true) {
-      r = 3;
-      c = 3;
-    } else if (game.hardLevelStart === true) {
-      r = 16;
-      c = 12;
-    }
-  
+    r = 1;
+    c = 3;
+  } else if (game.normalLevelStart === true) {
+    r = 3;
+    c = 3;
+  } else if (game.hardLevelStart === true) {
+    r = 16;
+    c = 12;
+  }
+
   mobileUpButton.addEventListener('click', function () {
     console.log('Mobile up');
     let newRow = r;
