@@ -48,6 +48,8 @@ window.onload = function () {
     let newColumn = c;
     newRow = r - 1;
 
+    console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
+
     const newTile = document.querySelector(
       `.row-${newRow}-column-${newColumn}`
     );
@@ -74,6 +76,8 @@ window.onload = function () {
     let newRow = r;
     let newColumn = c;
     newRow = r + 1;
+
+    console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
 
     const newTile = document.querySelector(
       `.row-${newRow}-column-${newColumn}`
@@ -102,6 +106,8 @@ window.onload = function () {
     let newColumn = c;
     newColumn = c + 1;
 
+    console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
+
     const newTile = document.querySelector(
       `.row-${newRow}-column-${newColumn}`
     );
@@ -128,6 +134,8 @@ window.onload = function () {
     let newRow = r;
     let newColumn = c;
     newColumn = c - 1;
+
+    console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
 
     const newTile = document.querySelector(
       `.row-${newRow}-column-${newColumn}`
