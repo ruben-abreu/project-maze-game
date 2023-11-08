@@ -24,7 +24,6 @@ window.onload = function () {
   continueButton.addEventListener('click', function () {
     game.nextLevelStart();
     game.map();
-    game.move();
     game.reset();
     timer.resumeTimer();
   });
