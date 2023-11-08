@@ -89,6 +89,7 @@ class MazeGame {
         }
       }
     }
+    window.removeEventListener('keydown', event);
   }
 
   clearMap() {
