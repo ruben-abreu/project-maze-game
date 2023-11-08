@@ -15,6 +15,7 @@ window.onload = function () {
   playButton.addEventListener('click', function () {
     game.play();
     game.map();
+
     game.move();
     game.hidePlayButton();
     game.reset();
@@ -23,6 +24,7 @@ window.onload = function () {
 
   continueButton.addEventListener('click', function () {
     game.nextLevelStart();
+
     game.map();
     game.move();
     game.reset();
