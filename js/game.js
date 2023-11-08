@@ -179,16 +179,16 @@ class MazeGame {
       let newRow = r;
       let newColumn = c;
       switch (name) {
-        case 'up':
+        case this.mobileButtons.up:
           newRow = r - 1;
           break;
-        case 'down':
+        case this.mobileButtons.down:
           newRow = r + 1;
           break;
-        case 'right':
+        case this.mobileButtons.right:
           newColumn = c + 1;
           break;
-        case 'left':
+        case this.mobileButtons.left:
           newColumn = c - 1;
           break;
       }
