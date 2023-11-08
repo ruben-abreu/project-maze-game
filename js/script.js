@@ -31,8 +31,7 @@ window.onload = function () {
 
   playAgainButton.addEventListener('click', () => location.reload());
 
-  mobileUpButton.addEventListener('click', function () {
-    if (game.easyLevelStart === true) {
+  if (game.easyLevelStart === true) {
       r = 1;
       c = 3;
     } else if (game.normalLevelStart === true) {
@@ -42,7 +41,8 @@ window.onload = function () {
       r = 16;
       c = 12;
     }
-
+  
+  mobileUpButton.addEventListener('click', function () {
     console.log('Mobile up');
     let newRow = r;
     let newColumn = c;
@@ -61,17 +61,6 @@ window.onload = function () {
   });
 
   mobileDownButton.addEventListener('click', function () {
-    if (game.easyLevelStart === true) {
-      r = 1;
-      c = 3;
-    } else if (game.normalLevelStart === true) {
-      r = 3;
-      c = 3;
-    } else if (game.hardLevelStart === true) {
-      r = 16;
-      c = 12;
-    }
-
     console.log('Mobile down');
     let newRow = r;
     let newColumn = c;
@@ -90,17 +79,6 @@ window.onload = function () {
   });
 
   mobileRightButton.addEventListener('click', function () {
-    if (game.easyLevelStart === true) {
-      r = 1;
-      c = 3;
-    } else if (game.normalLevelStart === true) {
-      r = 3;
-      c = 3;
-    } else if (game.hardLevelStart === true) {
-      r = 16;
-      c = 12;
-    }
-
     console.log('Mobile right');
     let newRow = r;
     let newColumn = c;
@@ -119,17 +97,6 @@ window.onload = function () {
   });
 
   mobileLeftButton.addEventListener('click', function () {
-    if (game.easyLevelStart === true) {
-      r = 1;
-      c = 3;
-    } else if (game.normalLevelStart === true) {
-      r = 3;
-      c = 3;
-    } else if (game.hardLevelStart === true) {
-      r = 16;
-      c = 12;
-    }
-
     console.log('Mobile left');
     let newRow = r;
     let newColumn = c;
