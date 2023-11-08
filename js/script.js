@@ -43,9 +43,9 @@ window.onload = function () {
   }
 
   mobileUpButton.addEventListener('click', function () {
-    console.log('Mobile up');
     let newRow = r;
     let newColumn = c;
+    console.log('Mobile up');
     newRow = r - 1;
 
     console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
