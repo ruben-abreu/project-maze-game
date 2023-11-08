@@ -67,7 +67,7 @@ class MazeGame {
             tile.classList.add(`start`);
             tile.classList.add(`row-${r}-column-${c}`);
             let startImage = document.createElement('img');
-            startImage.src = './images/harry-potter.png';
+            startImage.src = 'images/harry-potter.png';
             tile.appendChild(startImage);
             startImage.setAttribute('id', 'harry');
           } else if (this.levels[i].tiles[r][c] === 3) {
@@ -75,7 +75,7 @@ class MazeGame {
             tile.classList.add(`end`);
             tile.classList.add(`row-${r}-column-${c}`);
             let endImage = document.createElement('img');
-            endImage.src = './images/golden-snitch.png';
+            endImage.src = 'images/golden-snitch.png';
             tile.appendChild(endImage);
             endImage.setAttribute('id', 'snitch');
           }
@@ -192,7 +192,7 @@ class MazeGame {
       this.levelReset();
       this.clearMap();
       this.gameSpace.style.display = 'none';
-      this.body.style.backgroundImage = 'url(/images/winner-image.png)';
+      this.body.style.backgroundImage = 'url(images/winner-image.png)';
       this.winnerScreen.style.display = 'block';
     }
     console.log(
