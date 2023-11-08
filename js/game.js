@@ -25,15 +25,19 @@ class MazeGame {
     this.remainingTime = 3 * 60 * 1000;
     const timerDisplay = document.getElementById('timer');
     this.timer = new Timer(timerDisplay);
+    this.mobileButtons = document.getElementsByClassName('dpad-button');
+    this.gameHasStarted = false;
   }
 
   levelReset() {
+    this.gameHasStarted = false;
     this.easyLevelStart = false;
     this.normalLevelStart = false;
     this.hardLevelStart = false;
   }
 
   play() {
+    this.gameHasStarted = true;
     this.easyLevelStart = true;
     this.gameIntroText.style.display = 'none';
     this.introImage.style.display = 'none';
@@ -169,6 +173,45 @@ class MazeGame {
         c = newColumn;
       }
     });
+
+    this.mobileButtons.addEventListener('click', function () {
+      let newRow = r;
+      let newColumn = c;
+      switch (name) {
+        case 'up':
+          newRow = r - 1;
+          break;
+        case 'down':
+          newRow = r + 1;
+          break;
+        case 'right':
+          newColumn = c + 1;
+          break;
+        case 'left':
+          newColumn = c - 1;
+          break;
+      }
+
+      console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
+
+      const newTile = document.querySelector(
+        `.row-${newRow}-column-${newColumn}`
+      );
+
+      if (newTile && newTile.classList.contains('end')) {
+        console.log(`You won!`);
+        this.nextLevelScreen();
+
+        // Pausing Timer
+        const reachedEndEvent = new Event('reachedEnd');
+        window.dispatchEvent(reachedEndEvent);
+      } else if (newTile && newTile.classList.contains('path')) {
+        const harry = document.getElementById('harry');
+        newTile.appendChild(harry);
+        r = newRow;
+        c = newColumn;
+      }
+    });
   }
 
   nextLevelScreen() {
@@ -205,6 +248,7 @@ class MazeGame {
     console.log(
       `Next level, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
     );
+    this.gameHasStarted = true;
     this.gameArea.style.display = 'flex';
     this.timerArea.style.display = 'flex';
     this.easyGame.style.display = 'none';
