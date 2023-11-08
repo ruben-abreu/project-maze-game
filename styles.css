@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin: 0 10%;
   text-align: center;
-  background-image: url(./images/maze-background-image.png);
+  background-image: url(images/maze-background-image.png);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -92,7 +92,7 @@ h2 {
 }
 
 .wall {
-  background-image: url(./images/grass.jpg);
+  background-image: url(images/grass.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 30px;
@@ -100,7 +100,7 @@ h2 {
 }
 
 .path {
-  background-image: url(./images/natural-stone-paviment.jpg);
+  background-image: url(images/natural-stone-paviment.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   width: 30px;
@@ -289,7 +289,7 @@ h2 {
     margin: 0;
     box-sizing: border-box;
     text-align: center;
-    background-image: url(./images/maze-background-image.png);
+    background-image: url(images/maze-background-image.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
