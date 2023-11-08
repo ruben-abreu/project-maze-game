@@ -1,6 +1,7 @@
 class Timer {
   constructor(timerDisplayElement) {
     this.timerDisplayElement = timerDisplayElement;
+    this.fullscreenImage = document.getElementById('game-over-image');
     this.targetTime = 3 * 60 * 1000; // 3 minutes
     this.currentTime = this.targetTime;
     this.timerInterval = null;
