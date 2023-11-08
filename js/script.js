@@ -52,7 +52,16 @@ window.onload = function () {
       `.row-${newRow}-column-${newColumn}`
     );
 
-    if (newTile && newTile.classList.contains('path')) {
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
+      this.nextLevelScreen();
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+      // Resuming Timer
+      /*  const timerResumed = new Event('timerResumed');
+      window.dispatchEvent(timerResumed); */
+    } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       newTile.appendChild(harry);
       r = newRow;
@@ -70,7 +79,16 @@ window.onload = function () {
       `.row-${newRow}-column-${newColumn}`
     );
 
-    if (newTile && newTile.classList.contains('path')) {
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
+      this.nextLevelScreen();
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+      // Resuming Timer
+      /*  const timerResumed = new Event('timerResumed');
+      window.dispatchEvent(timerResumed); */
+    } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       newTile.appendChild(harry);
       r = newRow;
@@ -88,7 +106,16 @@ window.onload = function () {
       `.row-${newRow}-column-${newColumn}`
     );
 
-    if (newTile && newTile.classList.contains('path')) {
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
+      this.nextLevelScreen();
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+      // Resuming Timer
+      /*  const timerResumed = new Event('timerResumed');
+      window.dispatchEvent(timerResumed); */
+    } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       newTile.appendChild(harry);
       r = newRow;
@@ -106,7 +133,16 @@ window.onload = function () {
       `.row-${newRow}-column-${newColumn}`
     );
 
-    if (newTile && newTile.classList.contains('path')) {
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
+      this.nextLevelScreen();
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+      // Resuming Timer
+      /*  const timerResumed = new Event('timerResumed');
+      window.dispatchEvent(timerResumed); */
+    } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       newTile.appendChild(harry);
       r = newRow;
