@@ -34,7 +34,7 @@ window.onload = function () {
     game.map();
     game.move();
     game.reset();
-    updateTimer();
+    timer.resumeTimer();
   });
 
   playAgainButton.addEventListener('click', () => location.reload());
@@ -157,14 +157,9 @@ window.onload = function () {
 
   window.addEventListener('reachedEnd', function () {
     if (timer) {
-      timer.stopTimer();
+      timer.pauseTimer();
       const elapsedTime = timer.getElapsedTimeInMinutesAndSeconds();
       console.log(`You reached the end in ${elapsedTime}`);
     }
-  });
-
-  window.addEventListener('timerResumed', function () {
-    timer.resumeTimer();
-    console.log(`Resuming time`);
   });
 };

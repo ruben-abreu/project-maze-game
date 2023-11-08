@@ -22,6 +22,9 @@ class MazeGame {
     );
     this.winnerScreen = document.getElementById('winner-screen');
     this.body = document.querySelector('body');
+    this.remainingTime = 3 * 60 * 1000;
+    const timerDisplay = document.getElementById('timer');
+    this.timer = new Timer(timerDisplay);
   }
 
   levelReset() {
@@ -148,8 +151,8 @@ class MazeGame {
         const reachedEndEvent = new Event('reachedEnd');
         window.dispatchEvent(reachedEndEvent);
         // Resuming Timer
-        const timerResumed = new Event('timerResumed');
-        window.dispatchEvent(timerResumed);
+        /*  const timerResumed = new Event('timerResumed');
+        window.dispatchEvent(timerResumed); */
       }
 
       if (newTile && newTile.classList.contains('path')) {

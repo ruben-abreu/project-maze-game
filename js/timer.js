@@ -8,6 +8,7 @@ class Timer {
     this.tryAgainButton = document.getElementById('try-again-button');
     this.startTime = 0;
     this.remainingTime = this.targetTime;
+    this.isPaused = false;
   }
 
   getElapsedTimeInMinutesAndSeconds() {
@@ -38,15 +39,17 @@ class Timer {
   }
 
   startTimer() {
-    this.stopTimer(); // Clear any existing timer
-    this.startTime = Date.now(); // Set the starting time
+    if (this.timerInterval) {
+      return;
+    }
+    this.startTime = Date.now() - (this.targetTime - this.remainingTime);
     this.updateTimerDisplay();
     this.timerInterval = setInterval(() => this.updateTimerDisplay(), 1000);
   }
 
   stopTimer() {
     if (this.timerInterval) {
-      clearInterval(this.timerInterval);
+      /*     clearInterval(this.timerInterval); */
       this.timerInterval = null;
       this.remainingTime = this.currentTime;
     }
@@ -59,9 +62,14 @@ class Timer {
   }
 
   resumeTimer() {
-    if (!this.timerInterval) {
-      this.startTime = Date.now();
+    if (this.isPaused) {
+      this.isPaused = false;
+      this.startTime = Date.now() - (this.targetTime - this.remainingTime);
       this.timerInterval = setInterval(() => this.updateTimerDisplay(), 1000);
     }
+  }
+  pauseTimer() {
+    this.isPaused = true;
+    clearInterval(this.timerInterval);
   }
 }
