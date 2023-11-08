@@ -26,7 +26,6 @@ window.onload = function () {
     game.nextLevelStart();
 
     game.map();
-    game.move();
     game.reset();
     timer.resumeTimer();
   });

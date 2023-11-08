@@ -104,22 +104,16 @@ class MazeGame {
     let r;
     let c;
 
-    console.log(
-      `Inside move, Levels - Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
-    );
-
     if (this.easyLevelStart === true) {
       r = 1;
       c = 3;
-    } else if (this.normalLevelStart === true) {
+    } else if (this.normalGame === true) {
       r = 3;
       c = 5;
     } else if (this.hardLevelStart === true) {
       r = 11;
       c = 6;
     }
-
-    console.log(`Before click - r: ${r}, c: ${c}`);
 
     const currentTile = document.querySelector(`.row-${r}-column-${c}`);
     if (currentTile && currentTile.classList.contains('path')) {
@@ -163,15 +157,13 @@ class MazeGame {
           // Resuming Timer
           /*  const timerResumed = new Event('timerResumed');
         window.dispatchEvent(timerResumed); */
-        } else if (newTile && newTile.classList.contains('path')) {
-          const harry = document.getElementById('harry');
-          newTile.appendChild(harry);
-          r = newRow;
-          c = newColumn;
-        }
-      });
-      this.gameHasStarted = true;
-    }
+      } else if (newTile && newTile.classList.contains('path')) {
+        const harry = document.getElementById('harry');
+        newTile.appendChild(harry);
+        r = newRow;
+        c = newColumn;
+      }
+    });
   }
   nextLevelScreen() {
     console.log('Here from middle screen');
