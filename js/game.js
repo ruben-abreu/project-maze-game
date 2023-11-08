@@ -103,6 +103,10 @@ class MazeGame {
     let r;
     let c;
 
+    console.log(
+      `Inside move, Levels - Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
+    );
+
     if (this.easyLevelStart === true) {
       r = 1;
       c = 3;
@@ -114,17 +118,16 @@ class MazeGame {
       c = 12;
     }
 
+    console.log(`Before click - r: ${r}, c: ${c}`);
+
     const currentTile = document.querySelector(`.row-${r}-column-${c}`);
     if (currentTile && currentTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       currentTile.appendChild(harry);
     }
 
-    console.log(`Before click - r: ${r}, c: ${c}`);
-
     window.addEventListener('keydown', event => {
       console.log(event.key);
-      console.log(`After click - r: ${r}, c: ${c}`);
 
       event.preventDefault();
       let newRow = r;
@@ -143,6 +146,8 @@ class MazeGame {
           newColumn = c - 1;
           break;
       }
+
+      console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
 
       const newTile = document.querySelector(
         `.row-${newRow}-column-${newColumn}`
