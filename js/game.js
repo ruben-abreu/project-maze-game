@@ -110,7 +110,7 @@ class MazeGame {
     if (this.easyLevelStart === true) {
       r = 1;
       c = 3;
-    } else if (this.normalGame === true) {
+    } else if (this.normalLevelStart === true) {
       r = 3;
       c = 3;
     } else if (this.hardLevelStart === true) {
