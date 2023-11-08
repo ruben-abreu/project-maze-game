@@ -162,9 +162,7 @@ class MazeGame {
         // Resuming Timer
         /*  const timerResumed = new Event('timerResumed');
         window.dispatchEvent(timerResumed); */
-      }
-
-      if (newTile && newTile.classList.contains('path')) {
+      } else if (newTile && newTile.classList.contains('path')) {
         const harry = document.getElementById('harry');
         newTile.appendChild(harry);
         r = newRow;
