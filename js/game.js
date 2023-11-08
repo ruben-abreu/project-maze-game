@@ -30,14 +30,12 @@ class MazeGame {
   }
 
   levelReset() {
-    this.gameHasStarted = false;
     this.easyLevelStart = false;
     this.normalLevelStart = false;
     this.hardLevelStart = false;
   }
 
   play() {
-    this.gameHasStarted = true;
     this.easyLevelStart = true;
     this.gameIntroText.style.display = 'none';
     this.introImage.style.display = 'none';
@@ -130,49 +128,52 @@ class MazeGame {
       currentTile.appendChild(harry);
     }
 
-    window.addEventListener('keydown', event => {
-      console.log(event.key);
+    if (!this.gameHasStarted) {
+      window.addEventListener('keydown', event => {
+        console.log(event.key);
 
-      event.preventDefault();
-      let newRow = r;
-      let newColumn = c;
-      switch (event.key) {
-        case 'ArrowUp':
-          newRow = r - 1;
-          break;
-        case 'ArrowDown':
-          newRow = r + 1;
-          break;
-        case 'ArrowRight':
-          newColumn = c + 1;
-          break;
-        case 'ArrowLeft':
-          newColumn = c - 1;
-          break;
-      }
+        event.preventDefault();
+        let newRow = r;
+        let newColumn = c;
+        switch (event.key) {
+          case 'ArrowUp':
+            newRow = r - 1;
+            break;
+          case 'ArrowDown':
+            newRow = r + 1;
+            break;
+          case 'ArrowRight':
+            newColumn = c + 1;
+            break;
+          case 'ArrowLeft':
+            newColumn = c - 1;
+            break;
+        }
 
-      console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
+        console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
 
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
+        const newTile = document.querySelector(
+          `.row-${newRow}-column-${newColumn}`
+        );
 
-      if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-        this.nextLevelScreen();
-        // Pausing Timer
-        const reachedEndEvent = new Event('reachedEnd');
-        window.dispatchEvent(reachedEndEvent);
-        // Resuming Timer
-        /*  const timerResumed = new Event('timerResumed');
-        window.dispatchEvent(timerResumed); */
-      } else if (newTile && newTile.classList.contains('path')) {
-        const harry = document.getElementById('harry');
-        newTile.appendChild(harry);
-        r = newRow;
-        c = newColumn;
-      }
-    });
+        if (newTile && newTile.classList.contains('end')) {
+          console.log(`You won!`);
+          this.nextLevelScreen();
+          // Pausing Timer
+          const reachedEndEvent = new Event('reachedEnd');
+          window.dispatchEvent(reachedEndEvent);
+          // Resuming Timer
+          /*  const timerResumed = new Event('timerResumed');
+          window.dispatchEvent(timerResumed); */
+        } else if (newTile && newTile.classList.contains('path')) {
+          const harry = document.getElementById('harry');
+          newTile.appendChild(harry);
+          r = newRow;
+          c = newColumn;
+        }
+        this.gameHasStarted = true;
+      });
+    }
 
     this.mobileButtons.addEventListener('click', function () {
       let newRow = r;
@@ -248,7 +249,6 @@ class MazeGame {
     console.log(
       `Next level, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
     );
-    this.gameHasStarted = true;
     this.gameArea.style.display = 'flex';
     this.timerArea.style.display = 'flex';
     this.easyGame.style.display = 'none';
