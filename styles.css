@@ -399,6 +399,16 @@ h2 {
     background-color: #2980b9;
   }
 
+  #middle-screen p {
+    font-size: 1.5em;
+  }
+
+  #continue-button {
+    width: 120px;
+    height: 30px;
+    font-size: 1em;
+  }
+
   .game-over-container {
     margin-top: 0;
     margin-right: 5%;
