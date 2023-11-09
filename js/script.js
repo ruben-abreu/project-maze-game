@@ -23,6 +23,9 @@ window.onload = function () {
   const elapsedTimeNormalSecondsElement = document.getElementById(
     'elapsed-seconds-normal-value'
   );
+  const logRecordButton = document.getElementById('log-my-record');
+  let totalTimeSum;
+  const leaderboard = new Leaderboard();
 
   playButton.addEventListener('click', function () {
     game.play();
@@ -42,6 +45,24 @@ window.onload = function () {
   });
 
   playAgainButton.addEventListener('click', () => location.reload());
+
+  function formatElapsedTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes} minute(s) and ${remainingSeconds} seconds`;
+  }
+
+  logRecordButton.addEventListener('click', function () {
+    totalTimeSum = totalElapsedTime;
+    const totalTimes = JSON.parse(localStorage.getItem('totalTimes')) || [];
+    totalTimes.push(totalTimeSum);
+    totalTimes.sort((a, b) => a - b);
+    const top10Times = totalTimes.slice(0, 10);
+    localStorage.setItem('totalTimes', JSON.stringify(top10Times));
+    leaderboard.updateLeaderboard();
+    logRecordButton.Clicked = true;
+    logRecordButton.disabled = true;
+  });
 
   window.addEventListener('reachedEnd', function () {
     if (timer) {
@@ -75,6 +96,7 @@ window.onload = function () {
           totalElapsedTime
         )}`
       );
+      leaderboard.updateLeaderboard();
     }
   });
 };

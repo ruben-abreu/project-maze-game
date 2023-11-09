@@ -29,7 +29,6 @@ class MazeGame {
     this.mobileDownButton = document.getElementById('down');
     this.mobileRightButton = document.getElementById('right');
     this.mobileLeftButton = document.getElementById('left');
-    this.gameHasStarted = false;
   }
 
   levelReset() {
@@ -109,14 +108,14 @@ class MazeGame {
     let c;
 
     if (this.easyLevelStart === true) {
-      r = 1;
-      c = 3;
+      r = this.levels[0].player.y;
+      c = this.levels[0].player.x;
     } else if (this.normalLevelStart === true) {
-      r = 3;
-      c = 3;
+      r = this.levels[1].player.y;
+      c = this.levels[1].player.x;
     } else if (this.hardLevelStart === true) {
-      r = 16;
-      c = 12;
+      r = this.levels[2].player.y;
+      c = this.levels[2].player.x;
     }
 
     const currentTile = document.querySelector(`.row-${r}-column-${c}`);
@@ -176,14 +175,14 @@ class MazeGame {
     let c;
 
     if (this.easyLevelStart === true) {
-      r = 1;
-      c = 3;
+      r = this.levels[0].player.y;
+      c = this.levels[0].player.x;
     } else if (this.normalLevelStart === true) {
-      r = 3;
-      c = 3;
+      r = this.levels[1].player.y;
+      c = this.levels[1].player.x;
     } else if (this.hardLevelStart === true) {
-      r = 16;
-      c = 12;
+      r = this.levels[2].player.y;
+      c = this.levels[2].player.x;
     }
 
     const currentTile = document.querySelector(`.row-${r}-column-${c}`);
@@ -192,108 +191,61 @@ class MazeGame {
       currentTile.appendChild(harry);
     }
 
-    if (this.gameHasStarted === false) {
-      this.mobileUpButton.addEventListener('click', () => {
-        let newRow = r;
-        let newColumn = c;
+    const handleUp = () => {
+      console.log('Up Button');
+      let newRow = r - 1;
+      movePlayer(newRow, c);
+    };
 
-        newRow = r - 1;
+    const handleDown = () => {
+      console.log('Down Button');
+      let newRow = r + 1;
+      movePlayer(newRow, c);
+    };
 
-        const newTile = document.querySelector(
-          `.row-${newRow}-column-${newColumn}`
-        );
+    const handleRight = () => {
+      console.log('Right Button');
+      let newColumn = c + 1;
+      movePlayer(r, newColumn);
+    };
 
-        if (newTile && newTile.classList.contains('end')) {
-          console.log(`You won!`);
-          this.nextLevelScreen();
+    const handleLeft = () => {
+      console.log('Left Button');
+      let newColumn = c - 1;
+      movePlayer(r, newColumn);
+    };
 
-          // Pausing Timer
-          const reachedEndEvent = new Event('reachedEnd');
-          window.dispatchEvent(reachedEndEvent);
-        } else if (newTile && newTile.classList.contains('path')) {
-          const harry = document.getElementById('harry');
-          newTile.appendChild(harry);
-          r = newRow;
-          c = newColumn;
-        }
-      });
+    const movePlayer = (newRow, newColumn) => {
+      const newTile = document.querySelector(
+        `.row-${newRow}-column-${newColumn}`
+      );
 
-      this.mobileDownButton.addEventListener('click', () => {
-        let newRow = r;
-        let newColumn = c;
+      if (newTile && newTile.classList.contains('end')) {
+        console.log(`You won!`);
+        this.nextLevelScreen();
 
-        newRow = r + 1;
+        // Pausing Timer
+        const reachedEndEvent = new Event('reachedEnd');
+        window.dispatchEvent(reachedEndEvent);
+      } else if (newTile && newTile.classList.contains('path')) {
+        const harry = document.getElementById('harry');
+        newTile.appendChild(harry);
+        r = newRow;
+        c = newColumn;
+      }
+    };
 
-        const newTile = document.querySelector(
-          `.row-${newRow}-column-${newColumn}`
-        );
+    // Remove existing event listeners first (if any)
+    this.mobileUpButton.removeEventListener('click', handleUp);
+    this.mobileDownButton.removeEventListener('click', handleDown);
+    this.mobileRightButton.removeEventListener('click', handleRight);
+    this.mobileLeftButton.removeEventListener('click', handleLeft);
 
-        if (newTile && newTile.classList.contains('end')) {
-          console.log(`You won!`);
-          this.nextLevelScreen();
-
-          // Pausing Timer
-          const reachedEndEvent = new Event('reachedEnd');
-          window.dispatchEvent(reachedEndEvent);
-        } else if (newTile && newTile.classList.contains('path')) {
-          const harry = document.getElementById('harry');
-          newTile.appendChild(harry);
-          r = newRow;
-          c = newColumn;
-        }
-      });
-
-      this.mobileRightButton.addEventListener('click', () => {
-        let newRow = r;
-        let newColumn = c;
-
-        newColumn = c + 1;
-
-        const newTile = document.querySelector(
-          `.row-${newRow}-column-${newColumn}`
-        );
-
-        if (newTile && newTile.classList.contains('end')) {
-          console.log(`You won!`);
-          this.nextLevelScreen();
-
-          // Pausing Timer
-          const reachedEndEvent = new Event('reachedEnd');
-          window.dispatchEvent(reachedEndEvent);
-        } else if (newTile && newTile.classList.contains('path')) {
-          const harry = document.getElementById('harry');
-          newTile.appendChild(harry);
-          r = newRow;
-          c = newColumn;
-        }
-      });
-
-      this.mobileLeftButton.addEventListener('click', () => {
-        let newRow = r;
-        let newColumn = c;
-
-        newColumn = c - 1;
-
-        const newTile = document.querySelector(
-          `.row-${newRow}-column-${newColumn}`
-        );
-
-        if (newTile && newTile.classList.contains('end')) {
-          console.log(`You won!`);
-          this.nextLevelScreen();
-
-          // Pausing Timer
-          const reachedEndEvent = new Event('reachedEnd');
-          window.dispatchEvent(reachedEndEvent);
-        } else if (newTile && newTile.classList.contains('path')) {
-          const harry = document.getElementById('harry');
-          newTile.appendChild(harry);
-          r = newRow;
-          c = newColumn;
-        }
-      });
-      this.gameHasStarted = true;
-    }
+    // Add new event listeners
+    this.mobileUpButton.addEventListener('click', handleUp);
+    this.mobileDownButton.addEventListener('click', handleDown);
+    this.mobileRightButton.addEventListener('click', handleRight);
+    this.mobileLeftButton.addEventListener('click', handleLeft);
   }
 
   nextLevelScreen() {

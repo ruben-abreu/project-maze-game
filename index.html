@@ -52,7 +52,6 @@
 
           <div>
             <p id="timer">Timer: 00:00</p>
-            <p class="steps">Number of steps left: 0</p>
           </div>
           <div>
             <button type="button" id="reset-button">Reset</button>
@@ -94,12 +93,14 @@
       <p>
         With a flick of your virtual wand, you've conquered the maze. Bravo!
       </p>
-      <div id="total-elapsed-time">You reached the end in: <span id="total-elapsed-minutes-value">0</span> minutes <span
-          id="total-elapsed-seconds-value">00</span> seconds</div>
+      <div id="total-elapsed-time">You reached the end in: <span id="total-elapsed-minutes-value">0</span> minutes <span id="total-elapsed-seconds-value">00</span> seconds</div>
+      <ul id="leaderboard"></ul>
+      <button type="button" id="log-my-record">Log my Record</button>
       <button type="button" id="play-again-button">Play Again!</button>
     </div>
     <script src="js/levels.js"></script>
     <script src="js/timer.js"></script>
+    <script src="js/leaderboard.js"></script>
     <script src="js/game.js"></script>
     <script src="js/script.js"></script>
   </body>
