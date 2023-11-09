@@ -193,7 +193,7 @@ class MazeGame {
     }
 
     if (this.gameHasStarted === false) {
-      this.mobileUpButton.addEventListener('click', function () {
+      this.mobileUpButton.addEventListener('click', () => {
         let newRow = r;
         let newColumn = c;
 
@@ -218,7 +218,7 @@ class MazeGame {
         }
       });
 
-      this.mobileDownButton.addEventListener('click', function () {
+      this.mobileDownButton.addEventListener('click', () => {
         let newRow = r;
         let newColumn = c;
 
@@ -243,7 +243,7 @@ class MazeGame {
         }
       });
 
-      this.mobileRightButton.addEventListener('click', function () {
+      this.mobileRightButton.addEventListener('click', () => {
         let newRow = r;
         let newColumn = c;
 
@@ -268,7 +268,7 @@ class MazeGame {
         }
       });
 
-      this.mobileLeftButton.addEventListener('click', function () {
+      this.mobileLeftButton.addEventListener('click', () => {
         let newRow = r;
         let newColumn = c;
 
