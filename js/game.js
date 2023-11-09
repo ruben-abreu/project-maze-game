@@ -20,6 +20,8 @@ class MazeGame {
     this.secondLevelCompleted = document.getElementById(
       'second-level-completed'
     );
+    this.elapsedTimeEasy = document.getElementById('elapsed-time');
+    this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
     this.winnerScreen = document.getElementById('winner-screen');
     this.body = document.querySelector('body');
     this.remainingTime = 3 * 60 * 1000;
@@ -183,6 +185,7 @@ class MazeGame {
       this.middleScreen.style.display = 'block';
       this.firstLevelCompleted.style.display = 'block';
       this.normalLevelStart = true;
+      this.elapsedTimeNormal.style.display = 'none';
     } else if (this.normalLevelStart === true) {
       this.levelReset();
       this.clearMap();
@@ -191,12 +194,16 @@ class MazeGame {
       this.middleScreen.style.display = 'block';
       this.secondLevelCompleted.style.display = 'block';
       this.hardLevelStart = true;
+      this.elapsedTimeEasy.style.display = 'none';
+      this.elapsedTimeNormal.style.display = 'block';
     } else if (this.hardLevelStart === true) {
       this.levelReset();
       this.clearMap();
       this.gameSpace.style.display = 'none';
       this.body.style.backgroundImage = 'url(images/winner-image.png)';
       this.winnerScreen.style.display = 'block';
+      this.elapsedTimeEasy.style.display = 'none';
+      this.elapsedTimeNormal.style.display = 'none';
     }
     console.log(
       `Middle screen, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`

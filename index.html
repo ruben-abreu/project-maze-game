@@ -1,102 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maze Game</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,100&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <div class="game-space">
-      <h1>MAZE GAME</h1>
-      <div class="music">
-        <audio controls autoplay id="music">
-          <source src="music/Harry Potter Main Theme.mp3" type="audio/mpeg" />
-          <source src="music/Hedwigs Theme.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-      <h2 class="game-intro-text">
-        Assist Harry in his quest to locate the elusive Snitch.You have a
-        restricted number of steps. Harness the power of Potions to reinvigorate
-        your journey, while dodging the perils of Poison to maintain your pace.
-        Embrace the adventure and enjoy the chase!
-      </h2>
-      <div id="intro-image">
-        <img
-          id="maze-garden-img"
-          src="images/maze-game-garden.png"
-          alt="maze-garden"
-        />
-      </div>
-      <img
-        id="game-over-image"
-        src="images/harry-potter-sad.jpg"
-        alt="Full Screen Image"
-      />
-      <div class="game-over-container">
-        <p class="game-over-text">
-          Oh no, the <span class="gold">Snitch</span> got away.
-        </p>
-        <button type="button" id="try-again-button">Try Again</button>
-      </div>
-      <div id="game-area">
-        <div id="easy-level" class="game-container easy"></div>
-        <div id="normal-level" class="game-container normal"></div>
-        <div id="hard-level" class="game-container hard"></div>
-        <div class="additional-content">
-          <div class="dpad">
-            <button class="dpad-button" id="up">Up</button>
-            <div class="horizontal-buttons">
-              <button class="dpad-button" id="left">Left</button>
-              <button class="dpad-button" id="right">Right</button>
-            </div>
-            <button class="dpad-button" id="down">Down</button>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maze Game</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,100&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-          <div>
-            <p id="timer">Timer: 00:00</p>
-            <p class="steps">Number of steps left: 0</p>
-          </div>
-          <div>
-            <button type="button" id="reset-button">Reset</button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <button type="button" id="play-button">Let's Play!</button>
-      </div>
-      <div id="middle-screen">
-        <div>
-          <p id="first-level-completed">
-            Through every twist and turn, your magical journey continues. Stay
-            determined!
-          </p>
-          <p id="second-level-completed">
-            In the world of wizards, every maze is a chance to learn and grow.
-            Keep going!
-          </p>
-        </div>
-        <button type="button" id="continue-button">Next Level!</button>
-      </div>
+<body>
+  <div class="game-space">
+    <h1>MAZE GAME</h1>
+    <div class="music">
+      <audio controls id="music">
+        <source src="music/Harry Potter Main Theme.mp3" type="audio/mpeg" />
+        <source src="music/Hedwigs Theme.mp3" type="audio/mpeg" />
+      </audio>
     </div>
-    <div id="winner-screen">
-      <p>
-        With a flick of your virtual wand, you've conquered the maze.<br />Bravo!
+    <h2 class="game-intro-text">
+      Assist Harry in his quest to locate the elusive Snitch.You have a
+      restricted number of steps. Harness the power of Potions to reinvigorate
+      your journey, while dodging the perils of Poison to maintain your pace.
+      Embrace the adventure and enjoy the chase!
+    </h2>
+    <div id="intro-image">
+      <img id="maze-garden-img" src="images/maze-game-garden.png" alt="maze-garden" />
+    </div>
+    <img id="game-over-image" src="images/harry-potter-sad.jpg" alt="Full Screen Image" />
+    <div class="game-over-container">
+      <p class="game-over-text">
+        Oh no, the <span class="gold">Snitch</span> got away.
       </p>
-      <button type="button" id="play-again-button">Play Again!</button>
+      <button type="button" id="try-again-button">Try Again</button>
     </div>
-    <script src="js/levels.js"></script>
-    <script src="js/timer.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+    <div id="game-area">
+      <div id="easy-level" class="game-container easy"></div>
+      <div id="normal-level" class="game-container normal"></div>
+      <div id="hard-level" class="game-container hard"></div>
+      <div class="additional-content">
+        <div class="dpad">
+          <button class="dpad-button" id="up">Up</button>
+          <div class="horizontal-buttons">
+            <button class="dpad-button" id="left">Left</button>
+            <button class="dpad-button" id="right">Right</button>
+          </div>
+          <button class="dpad-button" id="down">Down</button>
+        </div>
+
+        <div>
+          <p id="timer">Timer: 00:00</p>
+          <p class="steps">Number of steps left: 0</p>
+        </div>
+        <div>
+          <button type="button" id="reset-button">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <button type="button" id="play-button">Let's Play!</button>
+    </div>
+    <div id="middle-screen">
+      <div>
+        <p id="first-level-completed">
+          Through every twist and turn, your magical journey continues. Stay
+          determined!
+        </p>
+        <div id="elapsed-time">You conquered this level in: <span id="elapsed-time-value">0</span> minutes and <span
+            id="elapsed-seconds-value">00</span> seconds</div>
+
+        <p id="second-level-completed">
+          In the world of wizards, every maze is a chance to learn and grow.
+          Keep going!
+        <div id="elapsed-time-normal">You conquered this level in: <span id="elapsed-time-normal-value">0</span> minutes
+          and
+          <span id="elapsed-seconds-normal-value">00</span> seconds
+        </div>
+        </p>
+      </div>
+      <button type="button" id="continue-button">Next Level!</button>
+    </div>
+  </div>
+  <div id="winner-screen">
+    <p>
+      With a flick of your virtual wand, you've conquered the maze.<br />Bravo!
+    </p>
+    <div id="total-elapsed-time">You reached the end in: <span id="total-elapsed-minutes-value">0</span> minutes <span
+        id="total-elapsed-seconds-value">00</span> seconds</div>
+    <button type="button" id="play-again-button">Play Again!</button>
+  </div>
+  <script src="js/levels.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
 </html>

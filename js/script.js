@@ -12,6 +12,23 @@ window.onload = function () {
   const playAgainButton = document.getElementById('play-again-button');
   const timer = new Timer(timerDisplay);
   let totalElapsedTime = 0;
+  const elapsedTimeMinutesElement =
+    document.getElementById('elapsed-time-value');
+  const elapsedTimeSecondsElement = document.getElementById(
+    'elapsed-seconds-value'
+  );
+  const totalElapsedMinutesElement = document.getElementById(
+    'total-elapsed-minutes-value'
+  );
+  const totalElapsedSecondsElement = document.getElementById(
+    'total-elapsed-seconds-value'
+  );
+  const elapsedTimeNormalMinutesElement = document.getElementById(
+    'elapsed-time-normal-value'
+  );
+  const elapsedTimeNormalSecondsElement = document.getElementById(
+    'elapsed-seconds-normal-value'
+  );
 
   playButton.addEventListener('click', function () {
     game.play();
@@ -158,6 +175,11 @@ window.onload = function () {
       const elapsedTime = timer.getElapsedTimeInMinutesAndSeconds();
       console.log(`You reached the end in ${elapsedTime}`);
       const [minutes, seconds] = elapsedTime.split(':').map(Number);
+
+      // Update the elapsed time on the DOM
+      elapsedTimeMinutesElement.textContent = minutes;
+      elapsedTimeSecondsElement.textContent = seconds;
+
       totalElapsedTime += minutes * 60 + seconds;
 
       function formatElapsedTime(seconds) {
@@ -165,6 +187,15 @@ window.onload = function () {
         const remainingSeconds = seconds % 60;
         return `${minutes} minutes and ${remainingSeconds} seconds`;
       }
+
+      // Update the total elapsed time on the DOM
+      totalElapsedMinutesElement.textContent = Math.floor(
+        totalElapsedTime / 60
+      );
+      totalElapsedSecondsElement.textContent = totalElapsedTime % 60;
+
+      elapsedTimeNormalMinutesElement.textContent = minutes;
+      elapsedTimeNormalSecondsElement.textContent = seconds;
       console.log(
         `Total time to complete all levels: ${formatElapsedTime(
           totalElapsedTime
