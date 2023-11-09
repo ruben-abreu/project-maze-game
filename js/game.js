@@ -20,12 +20,12 @@ class MazeGame {
     this.secondLevelCompleted = document.getElementById(
       'second-level-completed'
     );
-    this.elapsedTimeEasy = document.getElementById('elapsed-time');
-    this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
     this.winnerScreen = document.getElementById('winner-screen');
     this.body = document.querySelector('body');
     this.remainingTime = 3 * 60 * 1000;
     this.mobileButtons = document.getElementsByClassName('dpad-button');
+    this.elapsedTimeEasy = document.getElementById('elapsed-time');
+    this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
   }
 
   levelReset() {
@@ -104,55 +104,46 @@ class MazeGame {
     let r;
     let c;
 
-    console.log(
-      `Inside move, Levels - Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
-    );
-
     if (this.easyLevelStart === true) {
       r = 1;
       c = 3;
     } else if (this.normalLevelStart === true) {
       r = 3;
-      c = 4;
+      c = 3;
     } else if (this.hardLevelStart === true) {
-      r = 11;
-      c = 6;
+      r = 16;
+      c = 12;
     }
-
-    console.log(`Before click - r: ${r}, c: ${c}`);
 
     const currentTile = document.querySelector(`.row-${r}-column-${c}`);
     if (currentTile && currentTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       currentTile.appendChild(harry);
     }
-    if (!this.gameHasStarted) {
-      window.addEventListener('keydown', event => {
-        console.log(event.key);
 
-        event.preventDefault();
-        let newRow = r;
-        let newColumn = c;
-        switch (event.key) {
-          case 'ArrowUp':
-            newRow = r - 1;
-            break;
-          case 'ArrowDown':
-            newRow = r + 1;
-            break;
-          case 'ArrowRight':
-            newColumn = c + 1;
-            break;
-          case 'ArrowLeft':
-            newColumn = c - 1;
-            break;
-        }
+    const handleKeyDown = event => {
+      console.log(event.key);
+      event.preventDefault();
+      let newRow = r;
+      let newColumn = c;
+      switch (event.key) {
+        case 'ArrowUp':
+          newRow = r - 1;
+          break;
+        case 'ArrowDown':
+          newRow = r + 1;
+          break;
+        case 'ArrowRight':
+          newColumn = c + 1;
+          break;
+        case 'ArrowLeft':
+          newColumn = c - 1;
+          break;
+      }
 
-        console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
-
-        const newTile = document.querySelector(
-          `.row-${newRow}-column-${newColumn}`
-        );
+      const newTile = document.querySelector(
+        `.row-${newRow}-column-${newColumn}`
+      );
 
       if (newTile && newTile.classList.contains('end')) {
         console.log(`You won!`);

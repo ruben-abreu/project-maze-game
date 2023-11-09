@@ -4,13 +4,13 @@ class Timer {
     this.targetTime = 2 * 60 * 1000; // 3 minutes
     this.currentTime = this.targetTime;
     this.timerInterval = null;
-    this.gameSpace = document.querySelector('.game-space');
-    this.body = document.querySelector('body');
     this.gameOverContainer = document.querySelector('.game-over-container');
     this.tryAgainButton = document.getElementById('try-again-button');
     this.startTime = 0;
     this.remainingTime = this.targetTime;
     this.isPaused = false;
+    this.gameSpace = document.querySelector('.game-space');
+    this.body = document.querySelector('body');
   }
 
   getElapsedTimeInMinutesAndSeconds() {
@@ -58,6 +58,8 @@ class Timer {
   }
 
   showGameOver() {
+    this.fullscreenImage.style.display = 'block';
+    this.gameOverContainer.style.display = 'block';
     this.gameSpace.style.display = 'none';
     this.body.style.backgroundImage = 'url(images/harry-potter-sad.jpg)';
     this.gameOverContainer.style.display = 'flex';
