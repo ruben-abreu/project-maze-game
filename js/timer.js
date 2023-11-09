@@ -58,12 +58,12 @@ class Timer {
   }
 
   showGameOver() {
-    this.fullscreenImage.style.display = 'block';
     this.gameOverContainer.style.display = 'block';
     this.gameSpace.style.display = 'none';
     this.body.style.backgroundImage = 'url(images/harry-potter-sad.jpg)';
     this.gameOverContainer.style.display = 'flex';
     this.tryAgainButton.addEventListener('click', () => location.reload());
+    this.backgroundImage.style.display = 'block';
   }
 
   resumeTimer() {

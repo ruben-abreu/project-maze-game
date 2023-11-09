@@ -70,25 +70,15 @@ window.onload = function () {
       const elapsedTime = timer.getElapsedTimeInMinutesAndSeconds();
       console.log(`You reached the end in ${elapsedTime}`);
       const [minutes, seconds] = elapsedTime.split(':').map(Number);
-
       // Update the elapsed time on the DOM
       elapsedTimeMinutesElement.textContent = minutes;
       elapsedTimeSecondsElement.textContent = seconds;
-
       totalElapsedTime += minutes * 60 + seconds;
-
-      function formatElapsedTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${minutes} minutes and ${remainingSeconds} seconds`;
-      }
-
       // Update the total elapsed time on the DOM
       totalElapsedMinutesElement.textContent = Math.floor(
         totalElapsedTime / 60
       );
       totalElapsedSecondsElement.textContent = totalElapsedTime % 60;
-
       elapsedTimeNormalMinutesElement.textContent = minutes;
       elapsedTimeNormalSecondsElement.textContent = seconds;
       console.log(
