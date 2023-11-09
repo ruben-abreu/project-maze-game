@@ -348,12 +348,13 @@ window.onload = function () {
   }
 
   logRecordButton.addEventListener('click', function () {
+    const playerName = prompt('Enter your name:'); // Prompt user for their name
     totalTimeSum = totalElapsedTime;
-    const totalTimes = JSON.parse(localStorage.getItem('totalTimes')) || [];
-    totalTimes.push(totalTimeSum);
-    totalTimes.sort((a, b) => a - b);
-    const top10Times = totalTimes.slice(0, 10);
-    localStorage.setItem('totalTimes', JSON.stringify(top10Times));
+    const totalRecords = JSON.parse(localStorage.getItem('totalRecords')) || [];
+    totalRecords.push({ name: playerName, time: totalTimeSum });
+    totalRecords.sort((a, b) => a.time - b.time);
+    const top10Records = totalRecords.slice(0, 10);
+    localStorage.setItem('totalRecords', JSON.stringify(top10Records));
     leaderboard.updateLeaderboard();
     logRecordButton.Clicked = true;
     logRecordButton.disabled = true;

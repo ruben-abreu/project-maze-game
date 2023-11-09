@@ -6,21 +6,27 @@ class Leaderboard {
   formatElapsedTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    return `${minutes} minute(s) and ${remainingSeconds} seconds`;
+    if (minutes === 0) {
+      return `${remainingSeconds} seconds`;
+    } else {
+      return `${minutes} minute(s) and ${remainingSeconds} seconds`;
+    }
   }
 
   updateLeaderboard() {
-    const totalTimes = JSON.parse(localStorage.getItem('totalTimes')) || [];
-    totalTimes.sort((a, b) => a - b);
     const leaderboardElement = document.getElementById('leaderboard');
-    if (leaderboardElement) {
-      leaderboardElement.innerHTML = '<h2>Leaderboard</h2>';
-      const top10Times = totalTimes.slice(0, 10);
-      top10Times.forEach((time, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `#${index + 1}: ${this.formatElapsedTime(time)}`;
-        leaderboardElement.appendChild(listItem);
-      });
-    }
+
+    leaderboardElement.innerHTML = '';
+
+    const topRecords = JSON.parse(localStorage.getItem('totalRecords')) || [];
+    const top10Records = topRecords.slice(0, 10);
+
+    top10Records.forEach((record, index) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `#${index + 1}: ${
+        record.name
+      } - ${this.formatElapsedTime(record.time)}`;
+      leaderboardElement.appendChild(listItem);
+    });
   }
 }
