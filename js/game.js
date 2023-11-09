@@ -23,8 +23,7 @@ class MazeGame {
     this.winnerScreen = document.getElementById('winner-screen');
     this.body = document.querySelector('body');
     this.remainingTime = 3 * 60 * 1000;
-    const timerDisplay = document.getElementById('timer');
-    this.timer = new Timer(timerDisplay);
+    this.mobileButtons = document.getElementsByClassName('dpad-button');
   }
 
   levelReset() {
@@ -106,7 +105,7 @@ class MazeGame {
     if (this.easyLevelStart === true) {
       r = 1;
       c = 3;
-    } else if (this.normalGame === true) {
+    } else if (this.normalLevelStart === true) {
       r = 3;
       c = 3;
     } else if (this.hardLevelStart === true) {
@@ -147,12 +146,10 @@ class MazeGame {
       if (newTile && newTile.classList.contains('end')) {
         console.log(`You won!`);
         this.nextLevelScreen();
+
         // Pausing Timer
         const reachedEndEvent = new Event('reachedEnd');
         window.dispatchEvent(reachedEndEvent);
-        // Resuming Timer
-        /*  const timerResumed = new Event('timerResumed');
-        window.dispatchEvent(timerResumed); */
       } else if (newTile && newTile.classList.contains('path')) {
         const harry = document.getElementById('harry');
         newTile.appendChild(harry);
@@ -166,6 +163,76 @@ class MazeGame {
 
     // Add the new event listener
     window.addEventListener('keydown', handleKeyDown);
+  }
+
+  mobileMove() {
+    let r;
+    let c;
+
+    if (this.easyLevelStart === true) {
+      r = 1;
+      c = 3;
+    } else if (this.normalLevelStart === true) {
+      r = 3;
+      c = 3;
+    } else if (this.hardLevelStart === true) {
+      r = 16;
+      c = 12;
+    }
+
+    const currentTile = document.querySelector(`.row-${r}-column-${c}`);
+    if (currentTile && currentTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      currentTile.appendChild(harry);
+    }
+
+    function handleKeyDown() {
+      let newRow = r;
+      let newColumn = c;
+
+      for (let i = 0; i < 4; i++) {
+        switch (this.mobileButtons[i].id) {
+          case 'up':
+            newRow = r - 1;
+            break;
+          case 'down':
+            newRow = r + 1;
+            break;
+          case 'right':
+            newColumn = c + 1;
+            break;
+          case 'left':
+            newColumn = c - 1;
+            break;
+        }
+      }
+
+      const newTile = document.querySelector(
+        `.row-${newRow}-column-${newColumn}`
+      );
+
+      if (newTile && newTile.classList.contains('end')) {
+        console.log(`You won!`);
+        this.nextLevelScreen();
+
+        // Pausing Timer
+        const reachedEndEvent = new Event('reachedEnd');
+        window.dispatchEvent(reachedEndEvent);
+      } else if (newTile && newTile.classList.contains('path')) {
+        const harry = document.getElementById('harry');
+        newTile.appendChild(harry);
+        r = newRow;
+        c = newColumn;
+      }
+    }
+
+    for (let i = 0; i < this.mobileButtons.length; i++) {
+      // Remove the existing event listener first (if any)
+      this.mobileButtons[i].removeEventListener('click', handleKeyDown);
+
+      // Add the new event listener
+      this.mobileButtons[i].addEventListener('click', handleKeyDown);
+    }
   }
 
   nextLevelScreen() {

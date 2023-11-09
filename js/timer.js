@@ -1,10 +1,11 @@
 class Timer {
   constructor(timerDisplayElement) {
     this.timerDisplayElement = timerDisplayElement;
-    this.fullscreenImage = document.getElementById('game-over-image');
-    this.targetTime = 3 * 60 * 1000; // 3 minutes
+    this.targetTime = 2 * 60 * 1000; // 3 minutes
     this.currentTime = this.targetTime;
     this.timerInterval = null;
+    this.gameSpace = document.querySelector('.game-space');
+    this.body = document.querySelector('body');
     this.gameOverContainer = document.querySelector('.game-over-container');
     this.tryAgainButton = document.getElementById('try-again-button');
     this.startTime = 0;
@@ -57,8 +58,9 @@ class Timer {
   }
 
   showGameOver() {
-    this.fullscreenImage.style.display = 'block';
-    this.gameOverContainer.style.display = 'block';
+    this.gameSpace.style.display = 'none';
+    this.body.style.backgroundImage = 'url(images/harry-potter-sad.jpg)';
+    this.gameOverContainer.style.display = 'flex';
     this.tryAgainButton.addEventListener('click', () => location.reload());
   }
 
