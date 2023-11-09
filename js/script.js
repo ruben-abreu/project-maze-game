@@ -11,6 +11,7 @@ window.onload = function () {
   const continueButton = document.getElementById('continue-button');
   const playAgainButton = document.getElementById('play-again-button');
   const timer = new Timer(timerDisplay);
+  let totalElapsedTime = 0;
 
   playButton.addEventListener('click', function () {
     game.play();
@@ -156,6 +157,19 @@ window.onload = function () {
       timer.pauseTimer();
       const elapsedTime = timer.getElapsedTimeInMinutesAndSeconds();
       console.log(`You reached the end in ${elapsedTime}`);
+      const [minutes, seconds] = elapsedTime.split(':').map(Number);
+      totalElapsedTime += minutes * 60 + seconds;
+
+      function formatElapsedTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes} minutes and ${remainingSeconds} seconds`;
+      }
+      console.log(
+        `Total time to complete all levels: ${formatElapsedTime(
+          totalElapsedTime
+        )}`
+      );
     }
   });
 };
