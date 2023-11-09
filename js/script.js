@@ -25,6 +25,7 @@ window.onload = function () {
   );
   const logRecordButton = document.getElementById('log-my-record');
   let totalTimeSum;
+  const leaderboard = new Leaderboard();
 
   playButton.addEventListener('click', function () {
     game.play();
@@ -58,7 +59,7 @@ window.onload = function () {
     totalTimes.sort((a, b) => a - b);
     const top10Times = totalTimes.slice(0, 10);
     localStorage.setItem('totalTimes', JSON.stringify(top10Times));
-    updateLeaderboard();
+    leaderboard.updateLeaderboard();
     logRecordButton.Clicked = true;
     logRecordButton.disabled = true;
   });
@@ -85,21 +86,7 @@ window.onload = function () {
           totalElapsedTime
         )}`
       );
-      updateLeaderboard();
+      leaderboard.updateLeaderboard();
     }
   });
-  function updateLeaderboard() {
-    const totalTimes = JSON.parse(localStorage.getItem('totalTimes')) || [];
-    totalTimes.sort((a, b) => a - b);
-    const leaderboardElement = document.getElementById('leaderboard');
-    if (leaderboardElement) {
-      leaderboardElement.innerHTML = '<h2>Leaderboard</h2>';
-      const top10Times = totalTimes.slice(0, 10);
-      top10Times.forEach((time, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `#${index + 1}: ${formatElapsedTime(time)}`;
-        leaderboardElement.appendChild(listItem);
-      });
-    }
-  }
 };
