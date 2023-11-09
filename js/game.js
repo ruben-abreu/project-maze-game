@@ -20,6 +20,8 @@ class MazeGame {
     this.secondLevelCompleted = document.getElementById(
       'second-level-completed'
     );
+    this.elapsedTimeEasy = document.getElementById('elapsed-time');
+    this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
     this.winnerScreen = document.getElementById('winner-screen');
     this.body = document.querySelector('body');
     this.remainingTime = 3 * 60 * 1000;
@@ -102,46 +104,55 @@ class MazeGame {
     let r;
     let c;
 
+    console.log(
+      `Inside move, Levels - Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
+    );
+
     if (this.easyLevelStart === true) {
       r = 1;
       c = 3;
     } else if (this.normalLevelStart === true) {
       r = 3;
-      c = 3;
+      c = 4;
     } else if (this.hardLevelStart === true) {
-      r = 16;
-      c = 12;
+      r = 11;
+      c = 6;
     }
+
+    console.log(`Before click - r: ${r}, c: ${c}`);
 
     const currentTile = document.querySelector(`.row-${r}-column-${c}`);
     if (currentTile && currentTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       currentTile.appendChild(harry);
     }
+    if (!this.gameHasStarted) {
+      window.addEventListener('keydown', event => {
+        console.log(event.key);
 
-    const handleKeyDown = event => {
-      console.log(event.key);
-      event.preventDefault();
-      let newRow = r;
-      let newColumn = c;
-      switch (event.key) {
-        case 'ArrowUp':
-          newRow = r - 1;
-          break;
-        case 'ArrowDown':
-          newRow = r + 1;
-          break;
-        case 'ArrowRight':
-          newColumn = c + 1;
-          break;
-        case 'ArrowLeft':
-          newColumn = c - 1;
-          break;
-      }
+        event.preventDefault();
+        let newRow = r;
+        let newColumn = c;
+        switch (event.key) {
+          case 'ArrowUp':
+            newRow = r - 1;
+            break;
+          case 'ArrowDown':
+            newRow = r + 1;
+            break;
+          case 'ArrowRight':
+            newColumn = c + 1;
+            break;
+          case 'ArrowLeft':
+            newColumn = c - 1;
+            break;
+        }
 
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
+        console.log(`After click - newRow: ${newRow}, newColumn ${newColumn}`);
+
+        const newTile = document.querySelector(
+          `.row-${newRow}-column-${newColumn}`
+        );
 
       if (newTile && newTile.classList.contains('end')) {
         console.log(`You won!`);
@@ -245,6 +256,7 @@ class MazeGame {
       this.middleScreen.style.display = 'block';
       this.firstLevelCompleted.style.display = 'block';
       this.normalLevelStart = true;
+      this.elapsedTimeNormal.style.display = 'none';
     } else if (this.normalLevelStart === true) {
       this.levelReset();
       this.clearMap();
@@ -253,12 +265,16 @@ class MazeGame {
       this.middleScreen.style.display = 'block';
       this.secondLevelCompleted.style.display = 'block';
       this.hardLevelStart = true;
+      this.elapsedTimeEasy.style.display = 'none';
+      this.elapsedTimeNormal.style.display = 'block';
     } else if (this.hardLevelStart === true) {
       this.levelReset();
       this.clearMap();
       this.gameSpace.style.display = 'none';
       this.body.style.backgroundImage = 'url(images/winner-image.png)';
       this.winnerScreen.style.display = 'block';
+      this.elapsedTimeEasy.style.display = 'none';
+      this.elapsedTimeNormal.style.display = 'none';
     }
     console.log(
       `Middle screen, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`

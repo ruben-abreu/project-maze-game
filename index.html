@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maze Game</title>
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,100&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maze Game</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,100&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
   <body>
     <div class="game-space">
@@ -50,29 +50,34 @@
             <button class="dpad-button" id="down">Down</button>
           </div>
 
-          <div>
-            <p id="timer">Timer: 00:00</p>
-            <p class="steps">Number of steps left: 0</p>
-          </div>
-          <div>
-            <button type="button" id="reset-button">Reset</button>
-          </div>
+        <div>
+          <p id="timer">Timer: 00:00</p>
+          <p class="steps">Number of steps left: 0</p>
+        </div>
+        <div>
+          <button type="button" id="reset-button">Reset</button>
         </div>
       </div>
+    </div>
 
+    <div>
+      <button type="button" id="play-button">Let's Play!</button>
+    </div>
+    <div id="middle-screen">
       <div>
-        <button type="button" id="play-button">Let's Play!</button>
-      </div>
-      <div id="middle-screen">
-        <div>
-          <p id="first-level-completed">
-            Through every twist and turn, your magical journey continues. Stay
-            determined!
-          </p>
-          <p id="second-level-completed">
-            In the world of wizards, every maze is a chance to learn and grow.
-            Keep going!
-          </p>
+        <p id="first-level-completed">
+          Through every twist and turn, your magical journey continues. Stay
+          determined!
+        </p>
+        <div id="elapsed-time">You conquered this level in: <span id="elapsed-time-value">0</span> minutes and <span
+            id="elapsed-seconds-value">00</span> seconds</div>
+
+        <p id="second-level-completed">
+          In the world of wizards, every maze is a chance to learn and grow.
+          Keep going!
+        <div id="elapsed-time-normal">You conquered this level in: <span id="elapsed-time-normal-value">0</span> minutes
+          and
+          <span id="elapsed-seconds-normal-value">00</span> seconds
         </div>
         <button type="button" id="continue-button">Next Level!</button>
       </div>
