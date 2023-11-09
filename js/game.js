@@ -11,7 +11,6 @@ class MazeGame {
     this.timerArea = document.querySelector('.additional-content');
     this.resetButton = document.getElementById('reset-button');
     this.levels = new Levels().levels;
-    this.isMoving = false;
     this.easyLevelStart = false;
     this.normalLevelStart = false;
     this.hardLevelStart = false;
@@ -25,11 +24,6 @@ class MazeGame {
     this.remainingTime = 3 * 60 * 1000;
     this.elapsedTimeEasy = document.getElementById('elapsed-time');
     this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
-    this.mobileUpButton = document.getElementById('up');
-    this.mobileDownButton = document.getElementById('down');
-    this.mobileRightButton = document.getElementById('right');
-    this.mobileLeftButton = document.getElementById('left');
-    this.gameHasStarted = false;
   }
 
   levelReset() {
@@ -107,177 +101,6 @@ class MazeGame {
     console.log('Maze rows deleted');
   }
 
-  move() {
-    let r;
-    let c;
-
-    if (this.easyLevelStart === true) {
-      r = this.levels[0].player.y;
-      c = this.levels[0].player.x;
-    } else if (this.normalLevelStart === true) {
-      r = this.levels[1].player.y;
-      c = this.levels[1].player.x;
-    } else if (this.hardLevelStart === true) {
-      r = this.levels[2].player.y;
-      c = this.levels[2].player.x;
-    }
-
-    const currentTile = document.querySelector(`.row-${r}-column-${c}`);
-    if (currentTile && currentTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      currentTile.appendChild(harry);
-    }
-
-    console.log(`r: ${r}, c: ${c}`);
-
-    const handleKeyDown = event => {
-      console.log(event.key);
-      event.preventDefault();
-      let newRow = r;
-      let newColumn = c;
-      console.log(`Before click: newRow: ${newRow} newColumn: ${newColumn}`);
-      switch (event.key) {
-        case 'ArrowUp':
-          newRow = r - 1;
-          break;
-        case 'ArrowDown':
-          newRow = r + 1;
-          break;
-        case 'ArrowRight':
-          newColumn = c + 1;
-          break;
-        case 'ArrowLeft':
-          newColumn = c - 1;
-          break;
-      }
-
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
-
-      if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-        if (this.easyLevelStart === true) {
-          newRow = this.levels[1].player.y;
-          newColumn = this.levels[1].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        } else if (this.normalLevelStart === true) {
-          newRow = this.levels[2].player.y;
-          newColumn = this.levels[2].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        }
-        this.nextLevelScreen();
-
-        // Pausing Timer
-        const reachedEndEvent = new Event('reachedEnd');
-        window.dispatchEvent(reachedEndEvent);
-      } else if (newTile && newTile.classList.contains('path')) {
-        const harry = document.getElementById('harry');
-        newTile.appendChild(harry);
-        r = newRow;
-        c = newColumn;
-      }
-      this.gameHasStarted = true;
-      console.log(`After click: newRow: ${newRow} newColumn: ${newColumn}`);
-    };
-
-    // Remove the existing event listener first (if any)
-    window.removeEventListener('keydown', handleKeyDown);
-
-    // Add the new event listener
-    if (this.gameHasStarted === false) {
-      window.addEventListener('keydown', handleKeyDown);
-    }
-  }
-
-  mobileMove() {
-    let r;
-    let c;
-
-    if (this.easyLevelStart === true) {
-      r = this.levels[0].player.y;
-      c = this.levels[0].player.x;
-    } else if (this.normalLevelStart === true) {
-      r = this.levels[1].player.y;
-      c = this.levels[1].player.x;
-    } else if (this.hardLevelStart === true) {
-      r = this.levels[2].player.y;
-      c = this.levels[2].player.x;
-    }
-
-    const currentTile = document.querySelector(`.row-${r}-column-${c}`);
-    if (currentTile && currentTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      currentTile.appendChild(harry);
-    }
-
-    const handleUp = () => {
-      console.log('Up Button');
-      let newRow = r - 1;
-      movePlayer(newRow, c);
-      this.gameHasStarted = true;
-    };
-
-    const handleDown = () => {
-      console.log('Down Button');
-      let newRow = r + 1;
-      movePlayer(newRow, c);
-      this.gameHasStarted = true;
-    };
-
-    const handleRight = () => {
-      console.log('Right Button');
-      let newColumn = c + 1;
-      movePlayer(r, newColumn);
-      this.gameHasStarted = true;
-    };
-
-    const handleLeft = () => {
-      console.log('Left Button');
-      let newColumn = c - 1;
-      movePlayer(r, newColumn);
-      this.gameHasStarted = true;
-    };
-
-    const movePlayer = (newRow, newColumn) => {
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
-
-      if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-        this.nextLevelScreen();
-
-        // Pausing Timer
-        const reachedEndEvent = new Event('reachedEnd');
-        window.dispatchEvent(reachedEndEvent);
-      } else if (newTile && newTile.classList.contains('path')) {
-        const harry = document.getElementById('harry');
-        newTile.appendChild(harry);
-        r = newRow;
-        c = newColumn;
-      }
-    };
-
-    // Remove existing event listeners first (if any)
-    this.mobileUpButton.removeEventListener('click', handleUp);
-    this.mobileDownButton.removeEventListener('click', handleDown);
-    this.mobileRightButton.removeEventListener('click', handleRight);
-    this.mobileLeftButton.removeEventListener('click', handleLeft);
-
-    // Add new event listeners
-    if (this.gameHasStarted === false) {
-      this.mobileUpButton.addEventListener('click', handleUp);
-      this.mobileDownButton.addEventListener('click', handleDown);
-      this.mobileRightButton.addEventListener('click', handleRight);
-      this.mobileLeftButton.addEventListener('click', handleLeft);
-    }
-  }
-
   nextLevelScreen() {
     console.log('Here from middle screen');
     if (this.easyLevelStart === true) {
@@ -331,7 +154,6 @@ class MazeGame {
     }
 
     this.map();
-    this.move();
     this.reset();
   }
 
