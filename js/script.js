@@ -23,6 +23,8 @@ window.onload = function () {
   const elapsedTimeNormalSecondsElement = document.getElementById(
     'elapsed-seconds-normal-value'
   );
+  const logRecordButton = document.getElementById('log-my-record');
+  let totalTimeSum;
 
   playButton.addEventListener('click', function () {
     game.play();
@@ -43,31 +45,39 @@ window.onload = function () {
 
   playAgainButton.addEventListener('click', () => location.reload());
 
+  function formatElapsedTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes} minute(s) and ${remainingSeconds} seconds`;
+  }
+
+  logRecordButton.addEventListener('click', function () {
+    totalTimeSum = totalElapsedTime;
+    const totalTimes = JSON.parse(localStorage.getItem('totalTimes')) || [];
+    totalTimes.push(totalTimeSum);
+    totalTimes.sort((a, b) => a - b);
+    const top10Times = totalTimes.slice(0, 10);
+    localStorage.setItem('totalTimes', JSON.stringify(top10Times));
+    updateLeaderboard();
+    logRecordButton.Clicked = true;
+    logRecordButton.disabled = true;
+  });
+
   window.addEventListener('reachedEnd', function () {
     if (timer) {
       timer.pauseTimer();
       const elapsedTime = timer.getElapsedTimeInMinutesAndSeconds();
       console.log(`You reached the end in ${elapsedTime}`);
       const [minutes, seconds] = elapsedTime.split(':').map(Number);
-
       // Update the elapsed time on the DOM
       elapsedTimeMinutesElement.textContent = minutes;
       elapsedTimeSecondsElement.textContent = seconds;
-
       totalElapsedTime += minutes * 60 + seconds;
-
-      function formatElapsedTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
-        return `${minutes} minutes and ${remainingSeconds} seconds`;
-      }
-
       // Update the total elapsed time on the DOM
       totalElapsedMinutesElement.textContent = Math.floor(
         totalElapsedTime / 60
       );
       totalElapsedSecondsElement.textContent = totalElapsedTime % 60;
-
       elapsedTimeNormalMinutesElement.textContent = minutes;
       elapsedTimeNormalSecondsElement.textContent = seconds;
       console.log(
@@ -75,6 +85,21 @@ window.onload = function () {
           totalElapsedTime
         )}`
       );
+      updateLeaderboard();
     }
   });
+  function updateLeaderboard() {
+    const totalTimes = JSON.parse(localStorage.getItem('totalTimes')) || [];
+    totalTimes.sort((a, b) => a - b);
+    const leaderboardElement = document.getElementById('leaderboard');
+    if (leaderboardElement) {
+      leaderboardElement.innerHTML = '<h2>Leaderboard</h2>';
+      const top10Times = totalTimes.slice(0, 10);
+      top10Times.forEach((time, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `#${index + 1}: ${formatElapsedTime(time)}`;
+        leaderboardElement.appendChild(listItem);
+      });
+    }
+  }
 };
