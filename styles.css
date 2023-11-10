@@ -266,12 +266,12 @@ h2 {
   height: 60px;
   font-size: 1.5em;
 
-  border: #3c3c3c solid 1px;
+  border: #b27b48 solid 1px;
   border-radius: 5px;
   color: white;
   cursor: pointer;
   position: relative;
-  background-color: #3c3c3c;
+  background-color: #b27b48;
 }
 
 #leaderboard {

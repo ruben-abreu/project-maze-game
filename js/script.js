@@ -64,15 +64,23 @@ window.onload = function () {
       console.log(`Before click: newRow: ${newRow} newColumn: ${newColumn}`);
       switch (event.key) {
         case 'ArrowUp':
+        case 'w':
+        case 'W':
           newRow = r - 1;
           break;
         case 'ArrowDown':
+        case 's':
+        case 'S':
           newRow = r + 1;
           break;
         case 'ArrowRight':
+        case 'd':
+        case 'D':
           newColumn = c + 1;
           break;
         case 'ArrowLeft':
+        case 'a':
+        case 'A':
           newColumn = c - 1;
           break;
       }
