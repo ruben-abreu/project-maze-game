@@ -261,6 +261,27 @@ h2 {
   margin: 20px;
 }
 
+#log-my-record {
+  width: 200px;
+  height: 60px;
+  font-size: 1.5em;
+
+  border: #b27b48 solid 1px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  background-color: #b27b48;
+}
+
+#leaderboard {
+  font-size: 1.4em;
+  color: white;
+  line-height: 1.5em;
+  text-shadow: #1e2316 4px 4px 4px;
+  list-style: none;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 15px;
@@ -427,6 +448,7 @@ h2 {
   #winner-screen p {
     font-size: 1.5em;
     padding: 10px;
+    display: flex;
   }
 
   #play-again-button {
