@@ -276,9 +276,11 @@ h2 {
 
 #leaderboard {
   font-size: 1.4em;
+  text-align: center;
   color: white;
   line-height: 1.5em;
   text-shadow: #1e2316 4px 4px 4px;
+  padding: 0;
   list-style: none;
 }
 
@@ -455,12 +457,22 @@ h2 {
     width: 120px;
     height: 40px;
     font-size: 1.2em;
-    margin-top: 90%;
+    margin-top: 78%;
+  }
+
+  #log-my-record {
+    width: 150px;
+    height: 40px;
+    font-size: 1.2em;
   }
 
   #elapsed-time,
   #elapsed-time-normal,
   #total-elapsed-time {
+    font-size: 1em;
+  }
+
+  #leaderboard {
     font-size: 1em;
   }
 }

@@ -24,6 +24,9 @@ window.onload = function () {
     'elapsed-seconds-normal-value'
   );
   const logRecordButton = document.getElementById('log-my-record');
+  const logRecordButtonArea = document.getElementById(
+    'log-my-record-button-area'
+  );
   let totalTimeSum;
   const leaderboard = new Leaderboard();
   const levels = new Levels().levels;
@@ -366,6 +369,7 @@ window.onload = function () {
     leaderboard.updateLeaderboard();
     logRecordButton.Clicked = true;
     logRecordButton.disabled = true;
+    logRecordButtonArea.style.display = 'none';
   });
 
   window.addEventListener('reachedEnd', function () {
