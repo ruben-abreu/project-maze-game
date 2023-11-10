@@ -35,8 +35,8 @@ window.onload = function () {
   const mobileRightButton = document.getElementById('right');
   const mobileLeftButton = document.getElementById('left');
   let gameHasStarted = false;
-  let r = 0;
-  let c = 0;
+  let r;
+  let c;
 
   function move() {
     if (game.easyLevelStart === true) {
@@ -133,211 +133,178 @@ window.onload = function () {
     }
   }
 
-  function mobileMove() {
-    let r;
-    let c;
+  mobileUpButton.addEventListener('click', function () {
+    console.log('Mobile up');
+    let newRow = r;
+    let newColumn = c;
+    newRow = r - 1;
 
-    if (game.easyLevelStart === true) {
-      r = levels[0].player.y;
-      c = levels[0].player.x;
-    } else if (game.normalLevelStart === true) {
-      r = levels[1].player.y;
-      c = levels[1].player.x;
-    } else if (game.hardLevelStart === true) {
-      r = levels[2].player.y;
-      c = levels[2].player.x;
-    }
-
-    const currentTile = document.querySelector(`.row-${r}-column-${c}`);
-    if (currentTile && currentTile.classList.contains('path')) {
+    const newTile = document.querySelector(
+      `.row-${newRow}-column-${newColumn}`
+    );
+    if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
-      currentTile.appendChild(harry);
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
     }
 
-    const handleUp = () => {
-      console.log('Up Button');
-      let newRow = r - 1;
-      let newColumn = c;
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
 
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
-
-      if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-
-        if (game.easyLevelStart === true) {
-          newRow = levels[1].player.y;
-          newColumn = levels[1].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        } else if (game.normalLevelStart === true) {
-          newRow = levels[2].player.y;
-          newColumn = levels[2].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        }
-
-        game.nextLevelScreen();
-
-        // Pausing Timer
-        const reachedEndEvent = new Event('reachedEnd');
-        window.dispatchEvent(reachedEndEvent);
-      } else if (newTile && newTile.classList.contains('path')) {
-        const harry = document.getElementById('harry');
-        newTile.appendChild(harry);
-        r = newRow;
-        c = newColumn;
+      if (game.easyLevelStart === true) {
+        newRow = levels[1].player.y;
+        newColumn = levels[1].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
+      } else if (game.normalLevelStart === true) {
+        newRow = levels[2].player.y;
+        newColumn = levels[2].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       }
 
-      gameHasStarted = true;
-    };
+      game.nextLevelScreen();
 
-    const handleDown = () => {
-      console.log('Down Button');
-      let newRow = r + 1;
-      let newColumn = c;
-
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
-
-      if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-
-        if (game.easyLevelStart === true) {
-          newRow = levels[1].player.y;
-          newColumn = levels[1].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        } else if (game.normalLevelStart === true) {
-          newRow = levels[2].player.y;
-          newColumn = levels[2].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        }
-
-        game.nextLevelScreen();
-
-        // Pausing Timer
-        const reachedEndEvent = new Event('reachedEnd');
-        window.dispatchEvent(reachedEndEvent);
-      } else if (newTile && newTile.classList.contains('path')) {
-        const harry = document.getElementById('harry');
-        newTile.appendChild(harry);
-        r = newRow;
-        c = newColumn;
-      }
-
-      gameHasStarted = true;
-    };
-
-    const handleRight = () => {
-      console.log('Right Button');
-      let newColumn = c + 1;
-      let newRow = r;
-
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
-
-      if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-
-        if (game.easyLevelStart === true) {
-          newRow = levels[1].player.y;
-          newColumn = levels[1].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        } else if (game.normalLevelStart === true) {
-          newRow = levels[2].player.y;
-          newColumn = levels[2].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        }
-
-        game.nextLevelScreen();
-
-        // Pausing Timer
-        const reachedEndEvent = new Event('reachedEnd');
-        window.dispatchEvent(reachedEndEvent);
-      } else if (newTile && newTile.classList.contains('path')) {
-        const harry = document.getElementById('harry');
-        newTile.appendChild(harry);
-        r = newRow;
-        c = newColumn;
-      }
-
-      gameHasStarted = true;
-    };
-
-    const handleLeft = () => {
-      console.log('Left Button');
-      let newColumn = c - 1;
-      let newRow = r;
-
-      const newTile = document.querySelector(
-        `.row-${newRow}-column-${newColumn}`
-      );
-
-      if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-
-        if (game.easyLevelStart === true) {
-          newRow = levels[1].player.y;
-          newColumn = levels[1].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        } else if (game.normalLevelStart === true) {
-          newRow = levels[2].player.y;
-          newColumn = levels[2].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
-        }
-
-        game.nextLevelScreen();
-
-        // Pausing Timer
-        const reachedEndEvent = new Event('reachedEnd');
-        window.dispatchEvent(reachedEndEvent);
-      } else if (newTile && newTile.classList.contains('path')) {
-        const harry = document.getElementById('harry');
-        newTile.appendChild(harry);
-        r = newRow;
-        c = newColumn;
-      }
-
-      gameHasStarted = true;
-    };
-
-    // Remove existing event listeners first (if any)
-    mobileUpButton.removeEventListener('click', handleUp);
-    mobileDownButton.removeEventListener('click', handleDown);
-    mobileRightButton.removeEventListener('click', handleRight);
-    mobileLeftButton.removeEventListener('click', handleLeft);
-
-    // Add new event listeners
-    if (gameHasStarted === false) {
-      mobileUpButton.addEventListener('click', handleUp);
-      mobileDownButton.addEventListener('click', handleDown);
-      mobileRightButton.addEventListener('click', handleRight);
-      mobileLeftButton.addEventListener('click', handleLeft);
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+    } else if (newTile && newTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
     }
-  }
+  });
+
+  mobileDownButton.addEventListener('click', function () {
+    console.log('Mobile down');
+    let newRow = r;
+    let newColumn = c;
+    newRow = r + 1;
+
+    const newTile = document.querySelector(
+      `.row-${newRow}-column-${newColumn}`
+    );
+    if (newTile && newTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
+    }
+
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
+
+      if (game.easyLevelStart === true) {
+        newRow = levels[1].player.y;
+        newColumn = levels[1].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
+      } else if (game.normalLevelStart === true) {
+        newRow = levels[2].player.y;
+        newColumn = levels[2].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
+      }
+
+      game.nextLevelScreen();
+
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+    } else if (newTile && newTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
+    }
+  });
+
+  mobileRightButton.addEventListener('click', function () {
+    console.log('Mobile right');
+    let newRow = r;
+    let newColumn = c;
+    newColumn = c + 1;
+
+    const newTile = document.querySelector(
+      `.row-${newRow}-column-${newColumn}`
+    );
+    if (newTile && newTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
+    }
+
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
+
+      if (game.easyLevelStart === true) {
+        newRow = levels[1].player.y;
+        newColumn = levels[1].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
+      } else if (game.normalLevelStart === true) {
+        newRow = levels[2].player.y;
+        newColumn = levels[2].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
+      }
+
+      game.nextLevelScreen();
+
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+    } else if (newTile && newTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
+    }
+  });
+
+  mobileLeftButton.addEventListener('click', function () {
+    console.log('Mobile left');
+    let newRow = r;
+    let newColumn = c;
+    newColumn = c - 1;
+
+    const newTile = document.querySelector(
+      `.row-${newRow}-column-${newColumn}`
+    );
+    if (newTile && newTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
+    }
+
+    if (newTile && newTile.classList.contains('end')) {
+      console.log(`You won!`);
+
+      if (game.easyLevelStart === true) {
+        newRow = levels[1].player.y;
+        newColumn = levels[1].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
+      } else if (game.normalLevelStart === true) {
+        newRow = levels[2].player.y;
+        newColumn = levels[2].player.x;
+        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
+      }
+
+      game.nextLevelScreen();
+
+      // Pausing Timer
+      const reachedEndEvent = new Event('reachedEnd');
+      window.dispatchEvent(reachedEndEvent);
+    } else if (newTile && newTile.classList.contains('path')) {
+      const harry = document.getElementById('harry');
+      newTile.appendChild(harry);
+      r = newRow;
+      c = newColumn;
+    }
+  });
 
   playButton.addEventListener('click', function () {
     game.play();
     game.map();
     move();
-    mobileMove();
     game.hidePlayButton();
     game.reset();
     timer.startTimer();
@@ -346,7 +313,6 @@ window.onload = function () {
   continueButton.addEventListener('click', function () {
     game.nextLevelStart();
     move();
-    mobileMove();
     timer.resumeTimer();
   });
 
