@@ -414,6 +414,7 @@ h2 {
     border-radius: 50%;
     cursor: pointer;
     margin: 5px;
+    touch-action: manipulation;
   }
 
   #up,
