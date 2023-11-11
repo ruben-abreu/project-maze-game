@@ -55,7 +55,6 @@ window.onload = function () {
       const harry = document.getElementById('harry');
       currentTile.appendChild(harry);
     }
-
     console.log(`r: ${r}, c: ${c}`);
 
     const handleKeyDown = event => {
@@ -116,6 +115,14 @@ window.onload = function () {
         window.dispatchEvent(reachedEndEvent);
       } else if (newTile && newTile.classList.contains('path')) {
         const harry = document.getElementById('harry');
+        const potion = newTile.querySelector('#potion');
+        const poison = newTile.querySelector('#poison');
+        if (potion) {
+          newTile.removeChild(potion);
+        }
+        if (poison) {
+          newTile.removeChild(poison);
+        }
         newTile.appendChild(harry);
         r = newRow;
         c = newColumn;

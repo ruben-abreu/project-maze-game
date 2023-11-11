@@ -85,6 +85,22 @@ class MazeGame {
             endImage.src = 'images/golden-snitch.png';
             endImage.setAttribute('id', 'snitch');
             tile.appendChild(endImage);
+          } else if (this.levels[i].tiles[r][c] === 4) {
+            tile.classList.add(`path`);
+            tile.classList.add(`potion`);
+            tile.classList.add(`row-${r}-column-${c}`);
+            let potion = document.createElement('img');
+            potion.src = 'images/potion.png';
+            potion.setAttribute('id', 'potion');
+            tile.appendChild(potion);
+          } else if (this.levels[i].tiles[r][c] === 5) {
+            tile.classList.add(`path`);
+            tile.classList.add(`poison`);
+            tile.classList.add(`row-${r}-column-${c}`);
+            let poison = document.createElement('img');
+            poison.src = 'images/poison.png';
+            poison.setAttribute('id', 'poison');
+            tile.appendChild(poison);
           }
         }
       }
@@ -128,6 +144,7 @@ class MazeGame {
       this.elapsedTimeEasy.style.display = 'none';
       this.elapsedTimeNormal.style.display = 'none';
     }
+
     console.log(
       `Middle screen, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
     );

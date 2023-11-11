@@ -91,6 +91,14 @@ h2 {
   width: 26px;
 }
 
+#potion {
+  width: 26px;
+}
+
+#poison {
+  width: 26px;
+}
+
 .wall {
   background-image: url(images/grass.jpg);
   background-size: cover;
