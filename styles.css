@@ -36,13 +36,12 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 70px;
-  margin-bottom: 70px;
+  margin-top: 50px;
 }
 
 #maze-garden-img {
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 300px;
+  max-height: 300px;
   opacity: 0.95;
   border-radius: 5%;
 }
@@ -51,7 +50,7 @@ h2 {
   display: none;
   flex-direction: row;
   align-items: center;
-  margin: 70px auto;
+  margin: 50px auto;
   justify-content: center;
 }
 
