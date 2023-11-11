@@ -110,6 +110,9 @@ window.onload = function () {
 
         game.nextLevelScreen();
 
+        console.log(`Remaining ${timer.remainingTime}`);
+        console.log(`Current ${timer.currentTime}`);
+
         // Pausing Timer
         const reachedEndEvent = new Event('reachedEnd');
         window.dispatchEvent(reachedEndEvent);
@@ -118,10 +121,11 @@ window.onload = function () {
         const potion = newTile.querySelector('#potion');
         const poison = newTile.querySelector('#poison');
         if (potion) {
-          timer.addTime(10);
+          timer.addTime();
           newTile.removeChild(potion);
         }
         if (poison) {
+          timer.removeTime();
           newTile.removeChild(poison);
         }
         newTile.appendChild(harry);
