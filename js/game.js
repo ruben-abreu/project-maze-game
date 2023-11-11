@@ -139,7 +139,7 @@ class MazeGame {
     } else if (this.hardLevelStart === true) {
       this.levelReset();
       this.gameSpace.style.display = 'none';
-      this.body.style.backgroundImage = url('/images/winner-image.png');
+      this.body.style.backgroundImage = 'url(images/winner-image.png)';
       this.winnerScreen.style.display = 'block';
       this.elapsedTimeEasy.style.display = 'none';
       this.elapsedTimeNormal.style.display = 'none';
