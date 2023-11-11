@@ -38,6 +38,12 @@ window.onload = function () {
   let r;
   let c;
 
+  let audio = document.getElementById('music');
+  audio.addEventListener('ended', function () {
+    audio.src = 'music/Hedwigs Theme.mp3';
+    audio.play();
+  });
+
   function move() {
     if (game.easyLevelStart === true) {
       r = 1;
