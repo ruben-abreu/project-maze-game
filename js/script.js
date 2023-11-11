@@ -176,6 +176,14 @@ window.onload = function () {
       window.dispatchEvent(reachedEndEvent);
     } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
+      const potion = newTile.querySelector('#potion');
+      const poison = newTile.querySelector('#poison');
+      if (potion) {
+        newTile.removeChild(potion);
+      }
+      if (poison) {
+        newTile.removeChild(poison);
+      }
       newTile.appendChild(harry);
       r = newRow;
       c = newColumn;
@@ -218,6 +226,14 @@ window.onload = function () {
       window.dispatchEvent(reachedEndEvent);
     } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
+      const potion = newTile.querySelector('#potion');
+      const poison = newTile.querySelector('#poison');
+      if (potion) {
+        newTile.removeChild(potion);
+      }
+      if (poison) {
+        newTile.removeChild(poison);
+      }
       newTile.appendChild(harry);
       r = newRow;
       c = newColumn;
@@ -260,6 +276,14 @@ window.onload = function () {
       window.dispatchEvent(reachedEndEvent);
     } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
+      const potion = newTile.querySelector('#potion');
+      const poison = newTile.querySelector('#poison');
+      if (potion) {
+        newTile.removeChild(potion);
+      }
+      if (poison) {
+        newTile.removeChild(poison);
+      }
       newTile.appendChild(harry);
       r = newRow;
       c = newColumn;
@@ -302,6 +326,14 @@ window.onload = function () {
       window.dispatchEvent(reachedEndEvent);
     } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
+      const potion = newTile.querySelector('#potion');
+      const poison = newTile.querySelector('#poison');
+      if (potion) {
+        newTile.removeChild(potion);
+      }
+      if (poison) {
+        newTile.removeChild(poison);
+      }
       newTile.appendChild(harry);
       r = newRow;
       c = newColumn;
