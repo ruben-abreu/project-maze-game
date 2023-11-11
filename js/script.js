@@ -118,6 +118,7 @@ window.onload = function () {
         const potion = newTile.querySelector('#potion');
         const poison = newTile.querySelector('#poison');
         if (potion) {
+          timer.addTime(10);
           newTile.removeChild(potion);
         }
         if (poison) {

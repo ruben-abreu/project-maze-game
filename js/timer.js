@@ -57,6 +57,12 @@ class Timer {
     }
   }
 
+  addTime(seconds) {
+    this.targetTime += seconds;
+    this.remainingTime += seconds;
+    this.updateTimerDisplay();
+  }
+
   showGameOver() {
     this.gameOverContainer.style.display = 'block';
     this.gameSpace.style.display = 'none';

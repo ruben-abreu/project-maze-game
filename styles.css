@@ -388,6 +388,12 @@ h2 {
   #snitch {
     width: 14px;
   }
+  #poison {
+    width: 14px;
+  }
+  #potion {
+    width: 14px;
+  }
 
   .dpad {
     display: flex;
