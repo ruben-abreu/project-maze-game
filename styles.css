@@ -11,6 +11,7 @@ body {
   background-image: url('/images/maze-background-image.png');
   background-size: cover;
   background-repeat: no-repeat;
+  touch-action: manipulation;
 }
 
 h1 {
