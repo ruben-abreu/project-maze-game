@@ -19,11 +19,12 @@ class MazeGame {
     this.secondLevelCompleted = document.getElementById(
       'second-level-completed'
     );
-    this.winnerScreen = document.getElementById('winner-screen');
-    this.body = document.querySelector('body');
-    this.remainingTime = 3 * 60 * 1000;
+
+    //this.body = document.querySelector('body');
+    this.remainingTime = 2 * 60 * 1000;
     this.elapsedTimeEasy = document.getElementById('elapsed-time');
     this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
+    this.mathGame = document.getElementById('math');
   }
 
   levelReset() {
@@ -139,8 +140,9 @@ class MazeGame {
     } else if (this.hardLevelStart === true) {
       this.levelReset();
       this.gameSpace.style.display = 'none';
-      this.body.style.backgroundImage = 'url(images/winner-image.png)';
-      this.winnerScreen.style.display = 'block';
+      // this.body.style.backgroundImage = 'url(images/winner-image.png)';
+      this.mathGame.style.display = 'block';
+      // this.winnerScreen.style.display = 'block';
       this.elapsedTimeEasy.style.display = 'none';
       this.elapsedTimeNormal.style.display = 'none';
     }

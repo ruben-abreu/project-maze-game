@@ -140,16 +140,8 @@ h2 {
   font-size: 1.5em;
 }
 
-#difficulty-dropdown {
-  width: 200px;
-  height: 60px;
-  font-size: 1.5em;
-  margin: 5px 0 30px 0;
-  background-color: #11caf0;
-  border: #11caf0 solid 1px;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
+#math {
+  display: none;
 }
 
 #play-button {

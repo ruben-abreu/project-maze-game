@@ -112,6 +112,8 @@ window.onload = function () {
           console.log(
             `End of level: newRow: ${newRow} newColumn: ${newColumn}`
           );
+        } else if (game.hardLevelStart === true) {
+          window.removeEventListener('keydown', handleKeyDown);
         }
 
         game.nextLevelScreen();

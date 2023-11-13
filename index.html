@@ -22,6 +22,7 @@
         <source src="music/Harry Potter Main Theme.mp3" type="audio/mpeg" />
       </audio>
     </div>
+
     <h2 class="game-intro-text">
       Assist Harry in his quest to locate the elusive Snitch.<br>You have only 2 minutes!<br>Harness the power of
       Potions to reinvigorate
@@ -57,7 +58,6 @@
       </div>
     </div>
 
-
     <div id="middle-screen">
       <div>
         <p id="first-level-completed">
@@ -85,6 +85,19 @@
     </p>
     <button type="button" id="try-again-button">Try Again</button>
   </div>
+  <div id="math">
+    <h3 id="answerText">Attention, magical minds! There's one extra challenge before you can celebrate</h3>
+    <h3>What's the result? Unleash your wizardly arithmetic!</h3>
+    <div id="questionBox">
+      <p id="attempts"></p>
+      <span id="num1">0</span>
+      <span id="operator"></span>
+      <span id="num2">0</span>
+    </div>
+    <p id="equals">=</p><input id="answerInput" placeholder="Number">
+    <button id="answerBtn">Answer</button>
+    <p id="message"></p>
+  </div>
   <div id="winner-screen">
     <p>
       With a flick of your virtual wand, you've conquered the maze. Bravo!
@@ -96,6 +109,7 @@
       <div id="log-my-record-button-area">
         <button type="button" id="log-my-record">Save my record</button>
       </div>
+
     </div>
 
     <button type="button" id="play-again-button">Play Again!</button>
@@ -104,6 +118,7 @@
   <script src="js/levels.js"></script>
   <script src="js/timer.js"></script>
   <script src="js/game.js"></script>
+  <script src="js/math.js"></script>
   <script src="js/script.js"></script>
 </body>
 
