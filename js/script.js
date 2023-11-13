@@ -131,7 +131,6 @@ window.onload = function () {
 
     window.removeEventListener('keydown', handleKeyDown);
 
-    // Add the new event listener
     if (gameHasStarted === false) {
       window.addEventListener('keydown', handleKeyDown);
     }
@@ -340,7 +339,7 @@ window.onload = function () {
   }
 
   logRecordButton.addEventListener('click', function () {
-    const playerName = prompt('Enter your name:'); // Prompt user for their name
+    const playerName = prompt('Enter your name:');
     totalTimeSum = totalElapsedTime;
     const totalRecords = JSON.parse(localStorage.getItem('totalRecords')) || [];
     totalRecords.push({ name: playerName, time: totalTimeSum });
