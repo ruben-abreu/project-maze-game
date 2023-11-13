@@ -254,6 +254,8 @@ h2 {
   border: white solid 1px;
   border-radius: 5px;
   text-align: center;
+  pointer-events: auto;
+  user-select: text;
 }
 
 #answerBtn {
