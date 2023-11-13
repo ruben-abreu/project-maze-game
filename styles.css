@@ -135,12 +135,6 @@ h2 {
   padding: 5px 20px;
 }
 
-#dropdownMenu label {
-  color: white;
-  font-weight: 600;
-  font-size: 1.5em;
-}
-
 #math {
   display: none;
 }
