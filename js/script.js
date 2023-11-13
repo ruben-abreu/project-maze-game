@@ -61,15 +61,12 @@ window.onload = function () {
       const harry = document.getElementById('harry');
       currentTile.appendChild(harry);
     }
-    console.log(`r: ${r}, c: ${c}`);
 
     const handleKeyDown = event => {
-      console.log(event.key);
       event.preventDefault();
       let newRow = r;
       let newColumn = c;
 
-      console.log(`Before click: newRow: ${newRow} newColumn: ${newColumn}`);
       switch (event.key) {
         case 'ArrowUp':
         case 'w':
@@ -98,28 +95,17 @@ window.onload = function () {
       );
 
       if (newTile && newTile.classList.contains('end')) {
-        console.log(`You won!`);
-
         if (game.easyLevelStart === true) {
           newRow = levels[1].player.y;
           newColumn = levels[1].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
         } else if (game.normalLevelStart === true) {
           newRow = levels[2].player.y;
           newColumn = levels[2].player.x;
-          console.log(
-            `End of level: newRow: ${newRow} newColumn: ${newColumn}`
-          );
         } else if (game.hardLevelStart === true) {
           window.removeEventListener('keydown', handleKeyDown);
         }
 
         game.nextLevelScreen();
-
-        console.log(`Remaining ${timer.remainingTime}`);
-        console.log(`Current ${timer.currentTime}`);
 
         // Pausing Timer
         const reachedEndEvent = new Event('reachedEnd');
@@ -141,10 +127,8 @@ window.onload = function () {
         c = newColumn;
       }
       gameHasStarted = true;
-      console.log(`After click: newRow: ${newRow} newColumn: ${newColumn}`);
     };
 
-    // Remove the existing event listener first (if any)
     window.removeEventListener('keydown', handleKeyDown);
 
     // Add the new event listener
@@ -154,7 +138,6 @@ window.onload = function () {
   }
 
   mobileUpButton.addEventListener('click', function () {
-    console.log('Mobile up');
     let newRow = r;
     let newColumn = c;
     newRow = r - 1;
@@ -170,16 +153,12 @@ window.onload = function () {
     }
 
     if (newTile && newTile.classList.contains('end')) {
-      console.log(`You won!`);
-
       if (game.easyLevelStart === true) {
         newRow = levels[1].player.y;
         newColumn = levels[1].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       }
 
       game.nextLevelScreen();
@@ -204,7 +183,6 @@ window.onload = function () {
   });
 
   mobileDownButton.addEventListener('click', function () {
-    console.log('Mobile down');
     let newRow = r;
     let newColumn = c;
     newRow = r + 1;
@@ -220,16 +198,12 @@ window.onload = function () {
     }
 
     if (newTile && newTile.classList.contains('end')) {
-      console.log(`You won!`);
-
       if (game.easyLevelStart === true) {
         newRow = levels[1].player.y;
         newColumn = levels[1].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       }
 
       game.nextLevelScreen();
@@ -254,11 +228,9 @@ window.onload = function () {
   });
 
   mobileRightButton.addEventListener('click', function () {
-    console.log('Mobile right');
     let newRow = r;
     let newColumn = c;
     newColumn = c + 1;
-
     const newTile = document.querySelector(
       `.row-${newRow}-column-${newColumn}`
     );
@@ -270,16 +242,12 @@ window.onload = function () {
     }
 
     if (newTile && newTile.classList.contains('end')) {
-      console.log(`You won!`);
-
       if (game.easyLevelStart === true) {
         newRow = levels[1].player.y;
         newColumn = levels[1].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       }
 
       game.nextLevelScreen();
@@ -304,7 +272,6 @@ window.onload = function () {
   });
 
   mobileLeftButton.addEventListener('click', function () {
-    console.log('Mobile left');
     let newRow = r;
     let newColumn = c;
     newColumn = c - 1;
@@ -320,16 +287,12 @@ window.onload = function () {
     }
 
     if (newTile && newTile.classList.contains('end')) {
-      console.log(`You won!`);
-
       if (game.easyLevelStart === true) {
         newRow = levels[1].player.y;
         newColumn = levels[1].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-        console.log(`End of level: newRow: ${newRow} newColumn: ${newColumn}`);
       }
 
       game.nextLevelScreen();
@@ -394,25 +357,16 @@ window.onload = function () {
     if (timer) {
       timer.pauseTimer();
       const elapsedTime = timer.getElapsedTimeInMinutesAndSeconds();
-      console.log(`You reached the end in ${elapsedTime}`);
       const [minutes, seconds] = elapsedTime.split(':').map(Number);
-      // Update the elapsed time on the DOM
       elapsedTimeMinutesElement.textContent = minutes;
       elapsedTimeSecondsElement.textContent = seconds;
       totalElapsedTime += minutes * 60 + seconds;
-      // Update the total elapsed time on the DOM
       totalElapsedMinutesElement.textContent = Math.floor(
         totalElapsedTime / 60
       );
       totalElapsedSecondsElement.textContent = totalElapsedTime % 60;
       elapsedTimeNormalMinutesElement.textContent = minutes;
       elapsedTimeNormalSecondsElement.textContent = seconds;
-      console.log(
-        `Total time to complete all levels: ${formatElapsedTime(
-          totalElapsedTime
-        )}`
-      );
-      leaderboard.updateLeaderboard();
     }
   });
 };

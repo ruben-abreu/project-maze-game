@@ -19,8 +19,6 @@ class MazeGame {
     this.secondLevelCompleted = document.getElementById(
       'second-level-completed'
     );
-
-    //this.body = document.querySelector('body');
     this.remainingTime = 2 * 60 * 1000;
     this.elapsedTimeEasy = document.getElementById('elapsed-time');
     this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
@@ -44,9 +42,6 @@ class MazeGame {
     this.easyGame.style.display = 'block';
     this.normalGame.style.display = 'none';
     this.hardGame.style.display = 'none';
-    console.log(
-      `Game started, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
-    );
   }
 
   map() {
@@ -115,11 +110,9 @@ class MazeGame {
     while (mazeRow.length > 0) {
       mazeRow[0].remove();
     }
-    console.log('Maze rows deleted');
   }
 
   nextLevelScreen() {
-    console.log('Here from middle screen');
     if (this.easyLevelStart === true) {
       this.levelReset();
       this.gameArea.style.display = 'none';
@@ -140,22 +133,13 @@ class MazeGame {
     } else if (this.hardLevelStart === true) {
       this.levelReset();
       this.gameSpace.style.display = 'none';
-      // this.body.style.backgroundImage = 'url(images/winner-image.png)';
       this.mathGame.style.display = 'block';
-      // this.winnerScreen.style.display = 'block';
       this.elapsedTimeEasy.style.display = 'none';
       this.elapsedTimeNormal.style.display = 'none';
     }
-
-    console.log(
-      `Middle screen, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
-    );
   }
 
   nextLevelStart() {
-    console.log(
-      `Next level, Easy: ${this.easyLevelStart}, Normal: ${this.normalLevelStart}, Hard: ${this.hardLevelStart}`
-    );
     this.gameArea.style.display = 'flex';
     this.timerArea.style.display = 'flex';
     this.easyGame.style.display = 'none';
