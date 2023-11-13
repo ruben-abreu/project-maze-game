@@ -23,6 +23,9 @@ class MathGame {
     this.num2Field.textContent = this.num2;
     this.operatorField.textContent = this.operator;
     this.attempts.textContent = `Number of attempts left: ${this.score}`;
+    document.addEventListener('DOMContentLoaded', function () {
+      this.answerField.focus();
+    });
   }
 
   randomNumber(max) {
