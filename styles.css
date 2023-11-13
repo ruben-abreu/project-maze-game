@@ -11,6 +11,7 @@ body {
   background-image: url('/images/maze-background-image.png');
   background-size: cover;
   background-repeat: no-repeat;
+  touch-action: manipulation;
 }
 
 h1 {
@@ -145,9 +146,8 @@ h2 {
 }
 
 #play-button {
-  width: 200px;
-  height: 60px;
   font-size: 1.5em;
+  padding: 10px 20px;
   background-color: #ff0000;
   border: #ff0000 solid 1px;
   border-radius: 5px;
@@ -156,9 +156,8 @@ h2 {
 }
 
 #reset-button {
-  width: 200px;
-  height: 60px;
   font-size: 1.2em;
+  padding: 10px 20px;
   background-color: #3d8f1d;
   border: #3d8f1d solid 1px;
   border-radius: 5px;
@@ -185,9 +184,8 @@ h2 {
 }
 
 #try-again-button {
-  width: 200px;
-  height: 60px;
   font-size: 1.5em;
+  padding: 10px 20px;
   color: #fff;
   background-color: #ff0000;
   border: #ff0000 solid 1px;
@@ -215,9 +213,8 @@ h2 {
 }
 
 #continue-button {
-  width: 200px;
-  height: 60px;
   font-size: 1.5em;
+  padding: 10px 20px;
   background-color: greenyellow;
   color: black;
   border: greenyellow solid 1px;
@@ -238,9 +235,8 @@ h2 {
 }
 
 #play-again-button {
-  width: 200px;
-  height: 60px;
   margin-top: 10%;
+  padding: 10px 20px;
   font-size: 1.5em;
   background-color: #3d8f1d;
   border: #3d8f1d solid 1px;
@@ -261,10 +257,8 @@ h2 {
 }
 
 #log-my-record {
-  width: 200px;
-  height: 60px;
+  padding: 10px 20px;
   font-size: 1.5em;
-
   border: #b27b48 solid 1px;
   border-radius: 5px;
   color: white;
@@ -323,20 +317,10 @@ h2 {
   }
 
   #reset-button {
-    width: 100px;
-    height: 40px;
-    font-size: 1em;
-  }
-
-  #difficulty-dropdown {
-    width: 100px;
-    height: 40px;
     font-size: 1em;
   }
 
   #play-button {
-    width: 120px;
-    height: 40px;
     font-size: 1em;
   }
 
@@ -433,8 +417,6 @@ h2 {
   }
 
   #continue-button {
-    width: 120px;
-    height: 35px;
     font-size: 1em;
   }
 
@@ -448,8 +430,6 @@ h2 {
   }
 
   #try-again-button {
-    width: 90px;
-    height: 30px;
     font-size: 1em;
   }
 
@@ -460,15 +440,11 @@ h2 {
   }
 
   #play-again-button {
-    width: 120px;
-    height: 40px;
     font-size: 1.2em;
     margin-top: 78%;
   }
 
   #log-my-record {
-    width: 150px;
-    height: 40px;
     font-size: 1.2em;
   }
 
