@@ -158,6 +158,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        window.removeEventListener('keydown', handleKeyDown);
       }
 
       game.nextLevelScreen();
@@ -203,6 +205,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        window.removeEventListener('keydown', handleKeyDown);
       }
 
       game.nextLevelScreen();
@@ -247,6 +251,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        window.removeEventListener('keydown', handleKeyDown);
       }
 
       game.nextLevelScreen();
@@ -292,6 +298,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        window.removeEventListener('keydown', handleKeyDown);
       }
 
       game.nextLevelScreen();
