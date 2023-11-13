@@ -250,6 +250,7 @@ h2 {
 }
 
 #answerInput {
+  -webkit-user-select: text;
   padding: 10px 20px;
   border: white solid 1px;
   border-radius: 5px;
