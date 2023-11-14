@@ -23,6 +23,7 @@ class MazeGame {
     this.elapsedTimeEasy = document.getElementById('elapsed-time');
     this.elapsedTimeNormal = document.getElementById('elapsed-time-normal');
     this.mathGame = document.getElementById('math');
+    this.credits = document.getElementById('credits-div');
   }
 
   levelReset() {
@@ -166,5 +167,6 @@ class MazeGame {
 
   hidePlayButton() {
     this.playButton.style.display = 'none';
+    this.credits.style.display = 'none';
   }
 }

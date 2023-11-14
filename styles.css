@@ -130,6 +130,79 @@ h2 {
   text-shadow: #1e2316 4px 4px 4px;
 }
 
+.heading1 {
+  margin: 20px auto;
+  color: white;
+  line-height: 1.5em;
+  text-shadow: #1e2316 4px 4px 4px;
+}
+
+#game-creators,
+#special-thanks,
+#back-game {
+  margin: 20px auto;
+  color: white;
+  line-height: 1.5em;
+  text-shadow: #1e2316 4px 4px 4px;
+  padding: 30px 0;
+  font-size: 1.5em;
+}
+
+.creators,
+.thanks {
+  font-size: 1.8em;
+  margin: 20px;
+}
+.harry-img,
+.snitch-img {
+  width: 100px;
+}
+
+.game-creators a {
+  display: inline-block;
+  background-color: #3d8f1d;
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#credits-div {
+  margin: 50px;
+}
+
+#credits-button {
+  font-size: 1.5em;
+  padding: 10px 20px;
+  background-color: #3d8f1d;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Styling the link */
+#back-game {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.styled-link:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+#credits {
+  margin: 40px;
+}
 .game-space {
   padding: 30px 0;
 }
