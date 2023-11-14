@@ -160,8 +160,6 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        mobileUp.removeEventListener('click', mobileUp);
       }
 
       game.nextLevelScreen();
@@ -208,8 +206,6 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        mobileDown.removeEventListener('click', mobileDown);
       }
 
       game.nextLevelScreen();
@@ -255,8 +251,6 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        mobileRight.removeEventListener('click', mobileRight);
       }
 
       game.nextLevelScreen();
@@ -303,8 +297,6 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        mobileLeft.removeEventListener('click', mobileLeft);
       }
 
       game.nextLevelScreen();
