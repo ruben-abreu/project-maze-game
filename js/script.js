@@ -37,7 +37,6 @@ window.onload = function () {
   let gameHasStarted = false;
   let r;
   let c;
-  const answerField = document.querySelector('#answerInput');
 
   let audio = document.getElementById('music');
   audio.addEventListener('ended', function () {
@@ -385,9 +384,5 @@ window.onload = function () {
       elapsedTimeNormalMinutesElement.textContent = minutes;
       elapsedTimeNormalSecondsElement.textContent = seconds;
     }
-  });
-
-  answerField.addEventListener('touchstart', function (event) {
-    input.focus();
   });
 };
