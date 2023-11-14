@@ -386,4 +386,12 @@ window.onload = function () {
       elapsedTimeNormalSecondsElement.textContent = seconds;
     }
   });
+
+  answerField.addEventListener('touchstart', function (event) {
+    event.preventDefault();
+  });
+
+  answerField.addEventListener('touchend', function (event) {
+    event.preventDefault();
+  });
 };
