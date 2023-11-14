@@ -13,15 +13,6 @@ body {
   background-repeat: no-repeat;
 }
 
-input,
-input:before,
-input:after {
-  -webkit-user-select: text; /* Chrome, Opera, Safari */
-  -moz-user-select: text; /* Firefox 2+ */
-  -ms-user-select: text; /* IE 10+ */
-  user-select: text; /* Standard syntax */
-}
-
 h1 {
   color: white;
   font-size: 3em;
@@ -260,6 +251,7 @@ h2 {
 
 #answerInput {
   padding: 10px 20px;
+  width: 50px;
   border: white solid 1px;
   border-radius: 5px;
   text-align: center;
@@ -520,17 +512,14 @@ h2 {
   }
 
   #equals {
-    font-family: 'Kalam', cursive;
     margin: 5px;
     padding-right: 30px;
   }
 
   #answerInput {
     padding: 5px 10px;
-    border: white solid 1px;
-    border-radius: 5px;
     font-size: 0.6em;
-    width: 50px;
+    width: 38px;
   }
 
   #answerBtn {

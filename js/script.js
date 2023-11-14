@@ -63,6 +63,7 @@ window.onload = function () {
     }
 
     const handleKeyDown = event => {
+      console.log(event.key);
       event.preventDefault();
       let newRow = r;
       let newColumn = c;
@@ -136,7 +137,8 @@ window.onload = function () {
     }
   }
 
-  mobileUpButton.addEventListener('click', function () {
+  function mobileUp() {
+    console.log('Mobile up');
     let newRow = r;
     let newColumn = c;
     newRow = r - 1;
@@ -158,6 +160,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        mobileUp.removeEventListener('click', mobileUp);
       }
 
       game.nextLevelScreen();
@@ -179,9 +183,10 @@ window.onload = function () {
       r = newRow;
       c = newColumn;
     }
-  });
+  }
 
-  mobileDownButton.addEventListener('click', function () {
+  function mobileDown() {
+    console.log('Mobile down');
     let newRow = r;
     let newColumn = c;
     newRow = r + 1;
@@ -203,6 +208,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        mobileDown.removeEventListener('click', mobileDown);
       }
 
       game.nextLevelScreen();
@@ -224,9 +231,10 @@ window.onload = function () {
       r = newRow;
       c = newColumn;
     }
-  });
+  }
 
-  mobileRightButton.addEventListener('click', function () {
+  function mobileRight() {
+    console.log('Mobile right');
     let newRow = r;
     let newColumn = c;
     newColumn = c + 1;
@@ -247,6 +255,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        mobileRight.removeEventListener('click', mobileRight);
       }
 
       game.nextLevelScreen();
@@ -268,9 +278,10 @@ window.onload = function () {
       r = newRow;
       c = newColumn;
     }
-  });
+  }
 
-  mobileLeftButton.addEventListener('click', function () {
+  function mobileLeft() {
+    console.log('Mobile left');
     let newRow = r;
     let newColumn = c;
     newColumn = c - 1;
@@ -292,6 +303,8 @@ window.onload = function () {
       } else if (game.normalLevelStart === true) {
         newRow = levels[2].player.y;
         newColumn = levels[2].player.x;
+      } else if (game.hardLevelStart === true) {
+        mobileLeft.removeEventListener('click', mobileLeft);
       }
 
       game.nextLevelScreen();
@@ -313,7 +326,15 @@ window.onload = function () {
       r = newRow;
       c = newColumn;
     }
-  });
+  }
+
+  mobileUpButton.addEventListener('click', mobileUp);
+
+  mobileDownButton.addEventListener('click', mobileDown);
+
+  mobileRightButton.addEventListener('click', mobileRight);
+
+  mobileLeftButton.addEventListener('click', mobileLeft);
 
   playButton.addEventListener('click', function () {
     game.play();
