@@ -37,6 +37,7 @@ window.onload = function () {
   let gameHasStarted = false;
   let r;
   let c;
+  const mathGame = document.getElementById('math');
 
   let audio = document.getElementById('music');
   audio.addEventListener('ended', function () {
@@ -136,192 +137,79 @@ window.onload = function () {
     }
   }
 
-  mobileUpButton.addEventListener('click', function () {
+  function handleMobileButtonClick(direction) {
     let newRow = r;
     let newColumn = c;
-    newRow = r - 1;
+
+    switch (direction) {
+      case 'up':
+        newRow = r - 1;
+        break;
+      case 'down':
+        newRow = r + 1;
+        break;
+      case 'left':
+        newColumn = c - 1;
+        break;
+      case 'right':
+        newColumn = c + 1;
+        break;
+      default:
+        return;
+    }
 
     const newTile = document.querySelector(
       `.row-${newRow}-column-${newColumn}`
     );
+
     if (newTile && newTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      newTile.appendChild(harry);
-      r = newRow;
-      c = newColumn;
-    }
-
-    if (newTile && newTile.classList.contains('end')) {
-      if (game.easyLevelStart === true) {
-        newRow = levels[1].player.y;
-        newColumn = levels[1].player.x;
-      } else if (game.normalLevelStart === true) {
-        newRow = levels[2].player.y;
-        newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        window.removeEventListener('keydown', handleKeyDown);
-      }
-
-      game.nextLevelScreen();
-
-      // Pausing Timer
-      const reachedEndEvent = new Event('reachedEnd');
-      window.dispatchEvent(reachedEndEvent);
-    } else if (newTile && newTile.classList.contains('path')) {
       const harry = document.getElementById('harry');
       const potion = newTile.querySelector('#potion');
       const poison = newTile.querySelector('#poison');
+
       if (potion) {
         newTile.removeChild(potion);
       }
       if (poison) {
         newTile.removeChild(poison);
       }
+
       newTile.appendChild(harry);
       r = newRow;
       c = newColumn;
+
+      if (newTile.classList.contains('end')) {
+        if (game.easyLevelStart === true) {
+          newRow = levels[1].player.y;
+          newColumn = levels[1].player.x;
+        } else if (game.normalLevelStart === true) {
+          newRow = levels[2].player.y;
+          newColumn = levels[2].player.x;
+        } else if (game.hardLevelStart === true) {
+          removeEventListeners();
+          game.nextLevelScreen();
+        }
+      }
     }
-  });
+  }
 
-  mobileDownButton.addEventListener('click', function () {
-    let newRow = r;
-    let newColumn = c;
-    newRow = r + 1;
+  function removeEventListeners() {
+    mobileUpButton.removeEventListener('click', handleMobileButtonClick);
+    mobileDownButton.removeEventListener('click', handleMobileButtonClick);
+    mobileLeftButton.removeEventListener('click', handleMobileButtonClick);
+    mobileRightButton.removeEventListener('click', handleMobileButtonClick);
+  }
 
-    const newTile = document.querySelector(
-      `.row-${newRow}-column-${newColumn}`
-    );
-    if (newTile && newTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      newTile.appendChild(harry);
-      r = newRow;
-      c = newColumn;
-    }
-
-    if (newTile && newTile.classList.contains('end')) {
-      if (game.easyLevelStart === true) {
-        newRow = levels[1].player.y;
-        newColumn = levels[1].player.x;
-      } else if (game.normalLevelStart === true) {
-        newRow = levels[2].player.y;
-        newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        window.removeEventListener('keydown', handleKeyDown);
-      }
-
-      game.nextLevelScreen();
-
-      // Pausing Timer
-      const reachedEndEvent = new Event('reachedEnd');
-      window.dispatchEvent(reachedEndEvent);
-    } else if (newTile && newTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      const potion = newTile.querySelector('#potion');
-      const poison = newTile.querySelector('#poison');
-      if (potion) {
-        newTile.removeChild(potion);
-      }
-      if (poison) {
-        newTile.removeChild(poison);
-      }
-      newTile.appendChild(harry);
-      r = newRow;
-      c = newColumn;
-    }
-  });
-
-  mobileRightButton.addEventListener('click', function () {
-    let newRow = r;
-    let newColumn = c;
-    newColumn = c + 1;
-    const newTile = document.querySelector(
-      `.row-${newRow}-column-${newColumn}`
-    );
-    if (newTile && newTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      newTile.appendChild(harry);
-      r = newRow;
-      c = newColumn;
-    }
-
-    if (newTile && newTile.classList.contains('end')) {
-      if (game.easyLevelStart === true) {
-        newRow = levels[1].player.y;
-        newColumn = levels[1].player.x;
-      } else if (game.normalLevelStart === true) {
-        newRow = levels[2].player.y;
-        newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        window.removeEventListener('keydown', handleKeyDown);
-      }
-
-      game.nextLevelScreen();
-
-      // Pausing Timer
-      const reachedEndEvent = new Event('reachedEnd');
-      window.dispatchEvent(reachedEndEvent);
-    } else if (newTile && newTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      const potion = newTile.querySelector('#potion');
-      const poison = newTile.querySelector('#poison');
-      if (potion) {
-        newTile.removeChild(potion);
-      }
-      if (poison) {
-        newTile.removeChild(poison);
-      }
-      newTile.appendChild(harry);
-      r = newRow;
-      c = newColumn;
-    }
-  });
-
-  mobileLeftButton.addEventListener('click', function () {
-    let newRow = r;
-    let newColumn = c;
-    newColumn = c - 1;
-
-    const newTile = document.querySelector(
-      `.row-${newRow}-column-${newColumn}`
-    );
-    if (newTile && newTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      newTile.appendChild(harry);
-      r = newRow;
-      c = newColumn;
-    }
-
-    if (newTile && newTile.classList.contains('end')) {
-      if (game.easyLevelStart === true) {
-        newRow = levels[1].player.y;
-        newColumn = levels[1].player.x;
-      } else if (game.normalLevelStart === true) {
-        newRow = levels[2].player.y;
-        newColumn = levels[2].player.x;
-      } else if (game.hardLevelStart === true) {
-        window.removeEventListener('keydown', handleKeyDown);
-      }
-
-      game.nextLevelScreen();
-
-      // Pausing Timer
-      const reachedEndEvent = new Event('reachedEnd');
-      window.dispatchEvent(reachedEndEvent);
-    } else if (newTile && newTile.classList.contains('path')) {
-      const harry = document.getElementById('harry');
-      const potion = newTile.querySelector('#potion');
-      const poison = newTile.querySelector('#poison');
-      if (potion) {
-        newTile.removeChild(potion);
-      }
-      if (poison) {
-        newTile.removeChild(poison);
-      }
-      newTile.appendChild(harry);
-      r = newRow;
-      c = newColumn;
-    }
-  });
+  mobileUpButton.addEventListener('click', () => handleMobileButtonClick('up'));
+  mobileDownButton.addEventListener('click', () =>
+    handleMobileButtonClick('down')
+  );
+  mobileLeftButton.addEventListener('click', () =>
+    handleMobileButtonClick('left')
+  );
+  mobileRightButton.addEventListener('click', () =>
+    handleMobileButtonClick('right')
+  );
 
   playButton.addEventListener('click', function () {
     game.play();
