@@ -37,6 +37,7 @@ window.onload = function () {
   let gameHasStarted = false;
   let r;
   let c;
+  const answerField = document.querySelector('#answerInput');
 
   let audio = document.getElementById('music');
   audio.addEventListener('ended', function () {
