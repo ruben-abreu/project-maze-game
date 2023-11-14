@@ -388,11 +388,6 @@ window.onload = function () {
   });
 
   answerField.addEventListener('touchstart', function (event) {
-    event.preventDefault();
     input.focus();
-  });
-
-  answerField.addEventListener('touchend', function (event) {
-    event.preventDefault();
   });
 };
