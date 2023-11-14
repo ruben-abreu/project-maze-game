@@ -104,6 +104,10 @@ window.onload = function () {
           newColumn = levels[2].player.x;
         } else if (game.hardLevelStart === true) {
           window.removeEventListener('keydown', handleKeyDown);
+          mobileUpButton.addEventListener('click', mobileUp);
+          mobileDownButton.removeEventListener('click', mobileDown);
+          mobileRightButton.removeEventListener('click', mobileRight);
+          mobileLeftButton.removeEventListener('click', mobileLeft);
         }
 
         game.nextLevelScreen();

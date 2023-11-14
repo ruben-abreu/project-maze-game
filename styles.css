@@ -233,6 +233,10 @@ h2 {
   box-shadow: #1e2316 4px 4px 4px;
 }
 
+#answerText {
+  margin: 0 20px;
+}
+
 #questionBox {
   font-family: 'Kalam', cursive;
   padding-top: 80px;
@@ -255,7 +259,6 @@ h2 {
   border: white solid 1px;
   border-radius: 5px;
   text-align: center;
-  pointer-events: auto;
 }
 
 #answerBtn {
