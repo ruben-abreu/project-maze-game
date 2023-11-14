@@ -464,8 +464,9 @@ h2 {
   }
 
   h2 {
-    font-size: 0.8em;
+    font-size: 1em;
     padding: 20px 0;
+    text-shadow: #1e2316 6px 6px 6px;
   }
 
   body {
