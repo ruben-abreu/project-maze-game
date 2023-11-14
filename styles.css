@@ -41,6 +41,7 @@ table {
 input,
 textarea {
   -webkit-user-select: auto;
+  user-select: auto;
 }
 
 /* revert the 'white-space' property for textarea elements on Safari */
@@ -83,7 +84,9 @@ meter {
   -webkit-user-modify: read-write;
   overflow-wrap: break-word;
   -webkit-line-break: after-white-space;
+  line-break: after-white-space;
   -webkit-user-select: auto;
+  user-select: auto;
 }
 
 /* apply back the draggable feature - exist only in Chromium and Safari */
@@ -120,6 +123,7 @@ h1 {
 }
 
 h2 {
+  margin: 20px auto;
   font-size: 1.4em;
   color: white;
   line-height: 1.5em;
@@ -127,14 +131,14 @@ h2 {
 }
 
 .game-space {
-  padding: 20px 50px;
+  padding: 30px 0;
 }
 
 #intro-image {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 #maze-garden-img {
@@ -154,6 +158,7 @@ h2 {
 }
 
 #timer {
+  margin: 20px auto;
   font-size: 1.6em;
 }
 
@@ -203,6 +208,9 @@ h2 {
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
 }
 
 .path {
@@ -211,6 +219,9 @@ h2 {
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
 }
 
 .maze-row {
@@ -272,6 +283,7 @@ h2 {
 }
 
 #try-again-button {
+  margin-top: 20px;
   font-size: 1.5em;
   padding: 10px 20px;
   color: #fff;
@@ -283,11 +295,13 @@ h2 {
 
 #middle-screen {
   display: none;
+  margin-top: 30px;
 }
 
 #middle-screen p {
   font-size: 2.5em;
   font-weight: 600;
+  line-height: 1.5;
   color: white;
   text-shadow: #1e2316 20px 20px 20px;
 }
@@ -301,6 +315,7 @@ h2 {
 }
 
 #continue-button {
+  margin-top: 20px;
   font-size: 1.5em;
   padding: 10px 20px;
   background-color: greenyellow;
@@ -333,6 +348,7 @@ h2 {
 
 #answerText {
   margin: 0 20px;
+  line-height: 1.5;
 }
 
 #questionBox {
@@ -342,6 +358,7 @@ h2 {
 }
 
 #attempts {
+  margin-top: 15px;
   margin-bottom: 5px;
 }
 
@@ -353,11 +370,12 @@ h2 {
 
 #answerInput {
   padding: 10px 20px;
-  width: 50px;
+  width: 110px;
   border: white solid 1px;
   border-radius: 5px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
 }
 
 #answerBtn {
@@ -368,6 +386,7 @@ h2 {
   margin-right: 30px;
   padding: 10px 20px;
   text-align: center;
+  font-size: 0.8em;
 }
 
 #message {
@@ -381,8 +400,10 @@ h2 {
 }
 
 #winner-screen p {
+  margin-top: 30px;
   font-size: 2.5em;
   font-weight: 600;
+  line-height: 1.5;
   color: white;
   text-shadow: #1e2316 20px 20px 20px;
   text-align: center;
@@ -407,10 +428,11 @@ h2 {
   color: white;
   text-shadow: #1e2316 20px 20px 20px;
   text-align: center;
-  margin: 20px;
+  margin: 30px;
 }
 
 #log-my-record {
+  margin-top: 30px;
   padding: 10px 20px;
   font-size: 1.5em;
   border: #b27b48 solid 1px;
@@ -458,6 +480,7 @@ h2 {
   }
 
   audio {
+    text-align: center;
     width: 200px;
     height: 30px;
     font-size: 0.4em;
@@ -526,6 +549,10 @@ h2 {
     width: 14px;
   }
 
+  .additional-content {
+    margin-left: 0;
+  }
+
   .dpad {
     display: flex;
     flex-direction: column;
@@ -568,6 +595,7 @@ h2 {
   }
 
   #middle-screen p {
+    margin-top: 20px;
     font-size: 1.5em;
   }
 
@@ -576,7 +604,7 @@ h2 {
   }
 
   .game-over-container {
-    margin-top: 0;
+    margin-top: 30px;
     margin-right: 5%;
   }
 
@@ -585,6 +613,7 @@ h2 {
   }
 
   #try-again-button {
+    margin-top: 20px;
     font-size: 1em;
   }
 
@@ -619,6 +648,7 @@ h2 {
   }
 
   #answerInput {
+    width: 60px;
     padding: 5px 10px;
     font-size: 0.6em;
   }
@@ -631,6 +661,7 @@ h2 {
   }
 
   #winner-screen p {
+    margin-top: 20px;
     font-size: 1.5em;
     padding: 10px;
     display: flex;
@@ -638,7 +669,7 @@ h2 {
 
   #play-again-button {
     font-size: 1.2em;
-    margin-top: 100px;
+    margin-top: 80px;
   }
 
   #log-my-record {
@@ -648,6 +679,7 @@ h2 {
   #elapsed-time,
   #elapsed-time-normal,
   #total-elapsed-time {
+    margin: 20px;
     font-size: 1em;
   }
 
