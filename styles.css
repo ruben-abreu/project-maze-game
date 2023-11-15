@@ -161,7 +161,7 @@ h2 {
 .game-creators a {
   display: inline-block;
   background-color: #3d8f1d;
-  padding: 5px;
+  padding: 10px 20px;
   color: #fff;
   border-radius: 5px;
   text-align: center;
@@ -187,7 +187,7 @@ h2 {
 #back-game {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #3498db;
+  background-color: #11caf0;
   color: #fff;
   border-radius: 5px;
   text-align: center;
