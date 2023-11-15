@@ -148,6 +148,14 @@ h2 {
   font-size: 1.5em;
 }
 
+.game-creators{
+    margin-bottom: 10px;
+}
+
+#special-thanks{
+    margin-top: 10px;
+}
+
 .creators,
 .thanks {
   font-size: 1.8em;
