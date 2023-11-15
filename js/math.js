@@ -71,16 +71,9 @@ class MathGame {
 
   startGame() {
     this.createEquation();
-
-    this.answerField.disabled = false;
-    this.answerField.focus();
-    
-     this.body.addEventListener('click', event => {
-      // Check if the click event originated from the answer button
-      if (event.target.id === 'answerBtn') {
-        // Call the evaluateAnswer method
-        this.evaluateAnswer();
-      }
+    this.answerButton.addEventListener('click', event => {
+      event.preventDefault();
+      this.evaluateAnswer();
     });
   }
 }
