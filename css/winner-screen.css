@@ -1,0 +1,85 @@
+#winner-screen {
+  display: none;
+}
+
+#winner-screen p {
+  margin-top: 20px;
+  font-size: 2.5em;
+  font-weight: 600;
+  line-height: 1.5;
+  color: white;
+  text-shadow: #1e2316 20px 20px 20px;
+  text-align: center;
+}
+
+#play-again-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  background-color: #3d8f1d;
+  border: #3d8f1d solid 1px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+#elapsed-time,
+#elapsed-time-normal,
+#total-elapsed-time {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: white;
+  text-shadow: #1e2316 20px 20px 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+#log-my-record {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.5em;
+  border: #b27b48 solid 1px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  background-color: #b27b48;
+}
+
+#leaderboard {
+  font-size: 1.4em;
+  text-align: center;
+  color: white;
+  line-height: 1.5em;
+  text-shadow: #1e2316 4px 4px 4px;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 768px) {
+  #winner-screen p {
+    margin-top: 20px;
+    font-size: 1.5em;
+    padding: 10px;
+    display: flex;
+  }
+
+  #play-again-button {
+    font-size: 1.2em;
+    margin-top: 80px;
+  }
+
+  #log-my-record {
+    font-size: 1.2em;
+  }
+
+  #elapsed-time,
+  #elapsed-time-normal,
+  #total-elapsed-time {
+    font-size: 1em;
+  }
+
+  #leaderboard {
+    font-size: 1em;
+  }
+}

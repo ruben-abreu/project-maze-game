@@ -1,0 +1,42 @@
+#middle-screen {
+  display: none;
+  margin-top: 30px;
+}
+
+#middle-screen p {
+  font-size: 2.5em;
+  font-weight: 600;
+  line-height: 1.5;
+  color: white;
+  text-shadow: #1e2316 20px 20px 20px;
+}
+
+#first-level-completed {
+  display: none;
+}
+
+#second-level-completed {
+  display: none;
+}
+
+#continue-button {
+  margin-top: 20px;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  background-color: greenyellow;
+  color: black;
+  border: greenyellow solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #middle-screen p {
+    margin-top: 20px;
+    font-size: 1.5em;
+  }
+
+  #continue-button {
+    font-size: 1em;
+  }
+}

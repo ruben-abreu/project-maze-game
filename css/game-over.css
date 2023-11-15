@@ -1,0 +1,44 @@
+.game-over-container {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-top: 5%;
+}
+
+.game-over-text {
+  font-size: 2em;
+  color: white;
+  text-shadow: #1e2316 20px 20px 20px;
+}
+
+.gold {
+  color: #c69214;
+}
+
+#try-again-button {
+  margin-top: 20px;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #ff0000;
+  border: #ff0000 solid 1px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .game-over-container {
+    margin-top: 30px;
+    margin-right: 5%;
+  }
+
+  .game-over-text {
+    font-size: 1em;
+  }
+
+  #try-again-button {
+    margin-top: 20px;
+    font-size: 1em;
+  }
+}

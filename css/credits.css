@@ -1,0 +1,105 @@
+#game-creators,
+#special-thanks,
+#back-game {
+  color: white;
+  line-height: 1.5em;
+  text-shadow: #1e2316 4px 4px 4px;
+  font-size: 1.5em;
+}
+
+#game-creators {
+  margin: 0 auto;
+}
+
+.game-creators {
+  margin: 20px auto;
+}
+
+#special-thanks {
+  margin: 40px auto 20px auto;
+}
+
+.creators,
+.thanks {
+  font-size: 1.8em;
+}
+
+.thanks {
+  margin: 50px auto 15px auto;
+}
+
+#special-thanks p,
+#special-thanks a {
+  line-height: 2;
+}
+
+.harry-img,
+.snitch-img {
+  width: 100px;
+}
+
+.game-creators a {
+  display: inline-block;
+  background-color: #3d8f1d;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+#credits-div {
+  margin: 50px;
+}
+
+/* Styling the link */
+#back-game {
+  margin: 0 auto;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #11caf0;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.styled-link:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+#credits {
+  margin: 40px;
+}
+
+@media (max-width: 768px) {
+  #credits h1 {
+    font-size: 2em;
+  }
+
+  .creators,
+  .thanks {
+    font-size: 1em;
+  }
+
+  .game-creators a {
+    font-size: 0.8em;
+  }
+
+  .thanks {
+    margin-bottom: 5px;
+  }
+
+  #special-thanks p,
+  #special-thanks a {
+    font-size: 0.8em;
+    line-height: 1.5;
+  }
+
+  #back-game {
+    font-size: 1em;
+  }
+}
