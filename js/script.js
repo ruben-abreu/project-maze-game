@@ -386,8 +386,4 @@ window.onload = function () {
       elapsedTimeNormalSecondsElement.textContent = seconds;
     }
   });
-
-  answerField.addEventListener('touchstart', function (event) {
-    input.focus();
-  });
 };
